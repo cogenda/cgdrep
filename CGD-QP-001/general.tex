@@ -1,0 +1,62 @@
+\chapter{要求}
+
+为规范公司文档的管理，特制定本办法。目前为征求意见阶段，欢迎意见和建议。
+\section{适用范围}
+本管理办法适用于所有权归公司的、密级为“内部”及“公开”的正式文档。包括但不限于：
+\begin{enumerate}
+\item 公司对外的正式报告，包括技术方案、技术总结以及操作手册等。
+\item 公司对外的书面交流文档。
+\item 公司对内的质量流程、开发文档以及有存档价值的过程文档等。
+\end{enumerate}
+不属于此办法的管理范围：
+\begin{enumerate}
+\item 密级为“秘密”及以上的文档。
+\item 无存档价值的内部交流文档。
+\end{enumerate}
+
+\section{排版要求}
+公司要求以后的正式文档尽可能用 \LaTeX 排版，并使用公司统一的模板。具体要求和实现方法见本文档第二部分。
+
+\section{文件存档}
+
+\subsection{应有文件}
+要求每一份文档对应的不是一个文件而是一个目录，这个目录中应有两个文件：
+\begin{enumerate}
+\item 最终的 pdf 文件。
+\item 生成这个 pdf 文档所需要的所有 tex 文件、图片文件及其他文件如插入代码、原始数据等，并压缩成 zip 或 gzip 包。
+\item 如果这个文档是用Lyx软件编辑的，则应在zip/gzip压缩包中包括lyx文件。
+\item 如果文档中的插图是用LibreOffice等软件制作的，应在zip/gzip压缩包中包括odt/odp等文件。
+\item 如果生成pdf文档需要特殊的操作步骤，或有其他需要注意的事项，应当在README文件中加以说明。
+\end{enumerate}
+用于生成\TeX 文件的过程文件，比如 lyx 文件，不需要存放。
+\subsection{文件位置}
+存在服务器上，全公司可读，总路径为：\filename{/home/public/document}。以本文档为例，其完整的目录为：\filename{/home/public/document/QP/C-QP-001/V01/}。其三层路径名：
+\begin{itemize}
+\item QP 表示文档类型为质量流程，
+\item C-QP-001 为本文档的编号，
+\item V01 表示版本。
+\end{itemize}
+这个路径里面有两个文件，一个 pdf 文件，一个原始文件的 gzip 包。
+
+\subsection{文档编号规则}
+文档编号为 CGD-XX-xxx，其中 CGD 表示 Cogenda，XX 为字母，表示文档类型。xxx 为数字，为本文档的顺序号。编号 XX 对应的类型及其存放路径为：
+
+\begin{tabular}{lll} \thickhline
+\bf XX & \bf 文档类型 & \bf 存放路径 \\ \hline
+TP & 技术方案 & proposal \\
+TR & 技术总结 & report \\
+MN & 操作手册 & manual \\
+DI & 开发文档 & DI \\
+QP & 质量流程 & QP \\
+MS & 其他文档 & miscellaneous \\
+\thickhline \end{tabular}
+
+\subsection{目录名和文件名}
+每个文档对应的目录名是文档的完整编号，不可以用其他内容。
+文档内的文件名可以自由命名，但只能由字母、数字或下划线（\_）组成，不可以出现其他字符。
+
+\subsection{入档和查询方法}
+文件入档，请先在 helium 下测试是否能生成 pdf 文档，然后将文件拷给公司服务器管理人员，并给出如下信息：作者、文档类型、题目、关联的项目，如果是已有文档的版本更新，还要给出文档编号。
+
+文件查询，即想找到文档对应的编号，可以打开文件\filename{/home/public/document/index.html}来查询。
+
