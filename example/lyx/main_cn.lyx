@@ -255,8 +255,6 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -307,16 +305,12 @@ TeX{}
 \end_inset
 
 排版程序的格式宏包，定义了很多适合技术文档写作的格式
-\lang english
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "oetiker1995not"
 
 \end_inset
 
-
-\lang chinese-simplified
 。
 \end_layout
 
@@ -342,16 +336,12 @@ http://zh.wikipedia.org/wiki/%E9%AB%98%E6%96%AF%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90
 
 \begin_layout Standard
 高斯公式，又称为散度定理、高斯散度定理、高斯－奥斯特罗格拉德斯基公式或高－奥公式
-\lang english
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "katz1979history"
 
 \end_inset
 
-
-\lang chinese-simplified
 ，是指在向量分析中，一个把向量场通过曲面的流动（即通量）与曲面内部的向量场的表现联系起来的定理。 
 \end_layout
 
@@ -427,8 +417,6 @@ key "katz1979history"
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement htbp
 wide false
@@ -436,8 +424,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status collapsed
 
@@ -642,15 +628,12 @@ DDML1
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset listings
 lstparams "language=Python"
 inline false
 status open
 
 \begin_layout Plain Layout
-
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -663,122 +646,98 @@ class BankAccount(object):
 \end_layout
 
 \begin_layout Plain Layout
-
     def __init__(self, initial_balance=0):
 \end_layout
 
 \begin_layout Plain Layout
-
         self.balance = initial_balance
 \end_layout
 
 \begin_layout Plain Layout
-
     def deposit(self, amount):
 \end_layout
 
 \begin_layout Plain Layout
-
         self.balance += amount
 \end_layout
 
 \begin_layout Plain Layout
-
     def withdraw(self, amount):
 \end_layout
 
 \begin_layout Plain Layout
-
         self.balance -= amount
 \end_layout
 
 \begin_layout Plain Layout
-
     def overdrawn(self):
 \end_layout
 
 \begin_layout Plain Layout
-
         return self.balance < 0
 \end_layout
 
 \begin_layout Plain Layout
-
 my_account = BankAccount(15)
 \end_layout
 
 \begin_layout Plain Layout
-
 my_account.withdraw(5)
 \end_layout
 
 \begin_layout Plain Layout
-
 print my_account.balance
 \end_layout
 
 \begin_layout Plain Layout
-
 import unittest
 \end_layout
 
 \begin_layout Plain Layout
-
 def median(pool):
 \end_layout
 
 \begin_layout Plain Layout
-
     copy = sorted(pool)
 \end_layout
 
 \begin_layout Plain Layout
-
     size = len(copy)
 \end_layout
 
 \begin_layout Plain Layout
-
     if size % 2 == 1:
 \end_layout
 
 \begin_layout Plain Layout
-
         return copy[(size - 1) / 2]
 \end_layout
 
 \begin_layout Plain Layout
-
     else:
 \end_layout
 
 \begin_layout Plain Layout
-
         return (copy[size/2 - 1] + copy[size/2]) / 2
 \end_layout
 
 \begin_layout Plain Layout
-
 class TestMedian(unittest.TestCase):
 \end_layout
 
 \begin_layout Plain Layout
-
     def testMedian(self):
 \end_layout
 
 \begin_layout Plain Layout
-
         self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
 \end_layout
 
 \begin_layout Plain Layout
-
 if __name__ == '__main__':
 \end_layout
 
 \begin_layout Plain Layout
-
     unittest.main()
 \end_layout
 
@@ -821,12 +780,10 @@ Math typeset examples goes here.
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "main"
-options "ieeetr"
+options "bibtotoc,ieeetr"
 
 \end_inset
 
