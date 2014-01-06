@@ -421,22 +421,10 @@ key "katz1979history"
 placement htbp
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
- 
+\align center
 \begin_inset Graphics
 	filename ../latex/Divergence_theorem.png
 	width 50text%
