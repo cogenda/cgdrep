@@ -1,0 +1,11 @@
+#% Do not delete the line below; configure depends on this      
+#  \DeclareLaTeXClass[cgdrepen]{report (Cogenda EN)}
+
+Format 35
+
+# Read the definitions from report.layout
+Input report.layout
+
+Input cgd-common.inc
+
+

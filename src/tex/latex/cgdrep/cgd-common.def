@@ -1,0 +1,42 @@
+% cgd-common.def : Required packages and common definitions
+% vim:ft=tex
+
+\RequirePackage{listings,amstext,wasysym,fontspec,array,longtable,units,multirow,enumitem,fancyhdr_c}
+\RequirePackage[top=3cm,bottom=3cm,left=3cm,right=2.2cm]{geometry}
+\RequirePackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+
+%%% environ package has a bug: 
+% \NewnewEnviron only works with env defined by \NewEnviron. As suggested in
+% http://tex.stackexchange.com/questions/9771/how-to-redefine-via-environ-package-the-pmatrix-environment
+% we define \OverwriteEnviron to fix this problem
+\RequirePackage{environ}
+\newcommand{\OverwriteEnviron}[1]{%
+  \expandafter\let\csname #1\endcsname\relax%
+  \expandafter\let\csname end#1\endcsname\relax%
+  \expandafter\let\csname env@#1@parse\endcsname\relax%
+  \expandafter\let\csname env@#1@save@env\endcsname\relax%
+  \expandafter\let\csname env@#1@process\endcsname\relax%
+  \NewEnviron{#1}%
+}
+
+\RequirePackage{keyval,xparse}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{tcolorbox}
+\RequirePackage{units}
+\RequirePackage{subfig,tikz}
+\RequirePackage{tabularx}
+
+\hypersetup{colorlinks,linkcolor={DarkBlue},citecolor={DarkRed},urlcolor={Blue}}
+
+%%%% Font definition
+\setmainfont{STIXGeneral}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\newcommand{\nf}{\normalfont}
+\newcommand{\nsb}{\noindent\small\sf}
+
+\endinput
+

@@ -1,0 +1,69 @@
+% cgd-front-cn.def: Chinese front matter definitions
+% vim: ft=tex
+
+\newcommand\docattr[1][]{\setkeys{docattr}{#1}}
+
+\renewcommand\maketitle{%
+\cleardoublepage\pagestyle{empty}
+\noindent{\small\CGD@value@docid} \\
+\hfill \fbox{\bf\CGD@value@classification}
+\null\vspace{5.0cm}
+
+\begin{center}
+\CJKfamily{hei}\Huge~\CGD@value@title~\\
+\huge~\CGD@value@subtitle~
+\vfill
+\includegraphics[scale=0.6]{logo1.png} \\
+\CJKfamily{hei}\Large 苏州珂晶达电子有限公司 \\
+{\small~\CGD@value@date~}\\
+\vspace{2cm} \null
+\end{center}
+}
+
+\ifx\CGD@value@subtitle\undefined
+  \newcommand\CGD@value@fulltitle{\CGD@value@title} 
+\else
+  \newcommand\CGD@value@fulltitle{\CGD@value@title ： \CGD@value@subtitle}
+\fi
+
+\OverwriteEnviron{abstract}[1][]{
+\cleardoublepage \null\vspace{2cm}
+\begin{center}
+\normalsize
+\begin{tabular}{rl|rl} \thickhline
+标\hfill 题 & \multicolumn{3}{l}{\kt\CGD@value@title} \\ \hline
+编\hfill 号 & \multicolumn{1}{l}{\kt\CGD@value@docid} & 密\hfill 级 & \kt\CGD@value@classification \\
+类\hfill 别 & \multicolumn{1}{l}{\kt\CGD@value@doctype}  & 状\hfill 态 & \kt\CGD@value@docstatus \\ \hline
+责\hfill 任\hfill 人 & \kt\CGD@value@author & 客户单位 & \kt\CGD@value@clientname \\ 
+联系方式 & \kt\CGD@value@email & 联系方式 & \kt\CGD@value@clientemail\\
+\multirow{3}{*}{签\hspace{2em}署}& \hspace{12em}\null & \multirow{3}{*}{会\hspace{2em}签}&\hspace{12em}\null\\ & \\ & \\
+日\hfill 期 &  & 日\hfill 期 \\
+\hline \multicolumn{4}{c}{摘要} \\ 
+\multicolumn{4}{c}{\parbox[t]{34em}{\small\kt\hspace{2em}\BODY}}\\
+\\ \thickhline 
+% \multirow{2}{*}{备\hspace{2em}注}
+\end{tabular}
+\end{center}
+}
+
+\def\CGD@opt@customHdr{customHdr}
+\NewEnviron{revisions}[1][defaultHdr]{
+  \def\argtmp{#1}
+  \null\vfill
+  \begin{center}
+    修订记录\par\vspace{1ex}
+  \ifx\argtmp\CGD@opt@customHdr
+    \BODY
+  \else
+    \kt\small
+    \begin{tabular}{llll}
+    \thickhline
+    \bf 版本 &\bf 日期  & \bf 负责人 & \bf 备注 \\ \hline 
+    \BODY
+    \thickhline \end{tabular}
+  \fi
+  \end{center}
+}
+
+\endinput
+

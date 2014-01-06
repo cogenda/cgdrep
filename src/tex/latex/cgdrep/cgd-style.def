@@ -1,0 +1,73 @@
+% cgd-style.def : Typeset style definitions
+% vim:ft=tex
+
+%%%% Itemize/Enumerate/Description
+\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
+\setlist[description]{noitemsep}
+\newenvironment{compactitem}{\begin{itemize}[nosep]}{\end{itemize}}
+
+%%%% Table
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}
+
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+ \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}\ignorespaces}
+
+\newenvironment{ctable}[3]
+{\begin{table}[htbp]\centering\small
+\caption{\label{#1}#2}\begin{tabular}{#3}\thickhline \rowstyle{\bfseries}\bf}
+{\thickhline\end{tabular}\end{table}}
+
+%%%% Source code listing setup
+\lstset{ %
+  backgroundcolor=\color{LightGrey},
+  basicstyle=\small\ttfamily,
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{DarkGreen},      % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+%  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=true,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{DarkCyan},       % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+%%%% Character styles
+\newcommand\filename[1]{{\small\ttfamily #1}}       % File name
+\newcommand\command[1]{{\bf\small\ttfamily #1}}     % command name
+\newcommand\parameter[1]{{\small\ttfamily #1}}      % parameter name
+\newcommand\userinput[1]{{\sl\small\ttfamily #1}}   % user's input
+
+% GUI Menu
+\NewDocumentCommand\guimenu{>{\SplitList{>}}m}
+{%
+  {\ProcessList{#1}{\guimenuitem}}%
+}
+\newtcbox{\CGD@menu@box}{nobeforeafter,
+  colframe=LightGray,colback=LightGray!10!white,boxrule=0.5pt,arc=3pt,
+  boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,tcbox raise base}
+\newcommand\guimenuitem[1]{\CGD@menu@box{#1}\let\guimenuitem\guimenuitema}
+\newcommand\guimenuitema[1]{\raisebox{1pt}{\color{Gray}▸}\CGD@menu@box{#1}}
+
+\endinput
+

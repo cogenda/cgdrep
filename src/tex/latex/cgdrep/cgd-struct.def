@@ -1,0 +1,32 @@
+% cgd-struct.cls : Document structure definitions
+% vim:ft=tex
+
+\newcommand\frontmatter{%
+\cleardoublepage\setcounter{page}{1}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\pagestyle{plain}
+\setcounter{page}{1}\pagenumbering{roman}%
+}
+
+\newcommand\mainmatter{%
+\cleardoublepage\setcounter{page}{1}\pagestyle{fancy}\pagenumbering{arabic}
+\fancyhf{}
+\fancyhead[CE]{\nouppercase{\nsb\leftmark}}
+\fancyhead[CO]{\nouppercase{\nsb\rightmark}}
+\fancyfoot[RO,LE]{\nsb $\cdot$~\thepage~$\cdot$}
+
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[RO,LE]{\nsb $\cdot$~\thepage~$\cdot$}
+\renewcommand{\headrulewidth}{0pt}
+}
+}
+
+\newcommand\backmatter{%
+\setcounter{secnumdepth}{-2}  % turn off section numbering
+\setcounter{tocdepth}{-2}
+}
+
+\endinput
+
