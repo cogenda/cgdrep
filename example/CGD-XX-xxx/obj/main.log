@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.1.2)  7 JAN 2014 14:14
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2014.1.2)  7 JAN 2014 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1924,14 +1924,35 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-] (obj/main.lol)
-\tf@lol=\write7
-\openout7 = `main.lol'.
+] (obj/main.lof)
+\tf@lof=\write7
+\openout7 = `main.lof'.
 
  [2
 
-] (./general.tex
-第一章
+
+] (obj/main.lot)
+\tf@lot=\write8
+\openout8 = `main.lot'.
+
+ [3
+
+] (obj/main.lol)
+\tf@lol=\write9
+\openout9 = `main.lol'.
+
+[4
+
+] (obj/main.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.64998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[1
+
+]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -1962,90 +1983,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 . * 'bold' with NFSS spec.:
 . <->"WenQuanYi Zen Hei/ICU:mapping=tex-text;embolden=4;"
 .................................................
-[1
-
-
-]) (./software.tex
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.64998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[2]
-第二章
-File: latex_wm.jpg Graphic file (type QTm)
-<use  "latex_wm.jpg" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
+ [2
 
 ]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-) [4])
-(./typeset.tex [5]
-第三章
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-) [6
-
-]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-) [7]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-) [8]
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-(./bash1.sh [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]))
-(obj/main.bbl [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 40.
- [12
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 40.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
  (obj/main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 40.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 40.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 35.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 35.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2053,12 +1999,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 39857 strings out of 493918
- 756650 string characters out of 6148600
- 957032 words of memory out of 5000000
- 42479 multiletter control sequences out of 15000+600000
- 9186 words of font info for 80 fonts, out of 8000000 for 9000
+ 37565 strings out of 493918
+ 717829 string characters out of 6148600
+ 801256 words of memory out of 5000000
+ 40245 multiletter control sequences out of 15000+600000
+ 8870 words of font info for 69 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 69i,13n,69p,10383b,2230s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,11n,59p,10383b,368s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on obj/main.pdf (18 pages).
+Output written on obj/main.pdf (10 pages).

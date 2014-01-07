@@ -28,7 +28,7 @@
 \renewcommand\figurename{\small 图}
 \renewcommand\tablename{\small 表}
 \renewcommand\lstlistingname{\small 代码}
-\renewcommand\lstlistlistingname{代码目录}
+\renewcommand\lstlistlistingname{代码}
 
 \input{cgd-docattr.def}
 \renewcommand\CGD@value@classification{内部}
