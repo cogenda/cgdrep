@@ -10,7 +10,7 @@
 
 %%%% Table
 \newcommand{\thickhline}{%
-    \noalign {\ifnum 0=`}\fi \hrule height 0.8pt
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
     \futurelet \reserved@a \@xhline
 }
 
@@ -19,10 +19,18 @@
 \caption{\label{#1}#2}\begin{tabu}{#3}\thickhline \rowfont{\bfseries}}
 {\thickhline\end{tabu}\end{table}}
 
+%%% space around captions
+\captionsetup[table]{aboveskip=0pt}
+\captionsetup[table]{belowskip=0pt}
+\captionsetup[figure]{aboveskip=0pt}
+\captionsetup[figure]{belowskip=0pt}
+\captionsetup[lstlisting]{aboveskip=0pt}
+\captionsetup[lstlisting]{belowskip=0pt}
+
 %%%% Source code listing setup
 \lstset{ %
-  backgroundcolor=\color{LightGrey},
-  basicstyle=\small\ttfamily,
+  backgroundcolor=\color{OldLace},
+  basicstyle=\footnotesize\ttfamily,
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
@@ -37,7 +45,7 @@
   morekeywords={*,...},            % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
   numbersep=5pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+  numberstyle=\scriptsize\color{DarkSlateGray},  % the style that is used for the line-numbers
   rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
   showstringspaces=false,          % underline spaces within strings only

@@ -1,7 +1,10 @@
 \chapter{表格、图片和代码的格式}
 我们暂定了表格、图片和代码的格式。这并不是最终版，欢迎提出意见。
+
+一般的表格、图片和代码都当有一对 Caption 和 Label。Caption 是这个表、图或代码的名字，其字号比正文小半号。Label 是引用它时候的代号，Label 的内容并不出现在排版后的\filename{pdf}页面上。以下分别讲如何实现。
+
 \section{表格}
-一般，我们要求表格采用三线表，首行为其 header，用黑体。字号比正文半号，位置居中。如表~\ref{triline}：
+一般，我们要求表格采用三线表，首行为其 header，用黑体。字号比正文小半号，位置居中。如表~\ref{triline}：
 \begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿\\
@@ -134,20 +137,20 @@ if __name__ == '__main__':
 
 \lstinputlisting[language=bash,label=bash.sh, caption={bash 代码示例}]{bash1.sh}
 
-\section{几类特别对象}
+\section{其他}
+\subsection{几类特别对象}
 有几类特别对象，要在文档里用不同的字体，我们定义了如下字符：
+\begin{ctable}{special}{几类特别对象}{lll} 
+对象 & 语法示例 & 效果示例 \\ \hline
+文件名 & \textbackslash filename\{directory/file.name\} & \filename{directory/file.name} \\
+命令名 & \textbackslash command\{xelatex main\} & \command{xelatex main} \\
+参数名 & \textbackslash parameter\{Energy\} & \parameter{Energy} \\
+用户输入 & \textbackslash userinput\{runApp\} & \userinput{runApp} \\
+图形界面菜单 & \textbackslash guimenu\{File > Open\} & \guimenu{File>Open} \\
+\end{ctable}
 
-\begin{tabu}{lll} \thickhline \rowfont{\bfseries}
-对象 & 语法 & 效果示例 \\ \hline
-文件名 & \textbackslash filename\{\} & \filename{directory/file.name} \\
-命令名 & \textbackslash command\{\} & \command{which xelatex} \\
-参数名 & \textbackslash parameter\{\} & \parameter{Energy} \\
-用户输入 & \textbackslash userinput\{\} & \userinput{runApp} \\
-图形界面菜单 & \textbackslash guimenu\{>\{\}\} & \guimenu{Edit>{Copy}} \\
-\thickhline \end{tabu}
-
-\section{list 列表}
-对于三个 lists（itemize、enumerate和description），我们都改了间距。如果用户将 itemize 用于段落，想保留段落间距的话，用新的环境变量 paraitem。语法为：
+\subsection{Item 列表}
+对于三个 item 列表（itemize、enumerate和description），我们都改了间距。如果用户想在每个 item 里放一段落，于是想保留段落间距的话，可以用新定义的环境变量 paraitem。语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={保留段落间距的环境变量}]
 \begin{paraitem}
 \item 第一段。
@@ -156,3 +159,17 @@ if __name__ == '__main__':
 \end{paraitem}
 \end{lstlisting}
 
+\subsection{参考文献}
+参考文献的内容写入文件 main.bib 中，格式示例：
+\begin{lstlisting}[language={sh},caption={参考文献格式示例}]
+@article{katz1979history, %%% Label is here.
+  title={The History of Stokes's Theorem},
+  author={Victor J. Katz},
+  journal={Mathematics Magazine},
+  volume={52},
+  pages={146-156},
+  year={1979},
+}
+\end{lstlisting}
+
+这篇文献的引用方法为 \textbackslash cite\{katz1979history\}。

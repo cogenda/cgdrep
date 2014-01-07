@@ -2,7 +2,7 @@
 公司在试用了多个排版软件之后，决定选用\LaTeX ，并使用统一的模板。\LaTeX 的工作方式为：用户编辑的文档为纯文本文件，配上用户需要的图片文件（或者原始数据文件），用 \LaTeX 软件处理成为 \filename{ps} 或 \filename{pdf} 文件。如图~\ref{latex} 所示。用户对版式的要求全部写在文本文件中，也就是用户需要了解一些\LaTeX 的排版语法。
 
 \begin{figure}[htbp]\centering
-\includegraphics[width=0.5\textwidth]{latex_wm.jpg} 
+\includegraphics[width=0.45\textwidth]{latex_wm.jpg} 
 \caption{\label{latex}\LaTeX 工作方式}
 \end{figure}
 
@@ -37,8 +37,8 @@
 
 \subsection{在自己电脑上安装}
 目前我们使用的 TexLive 是个完整的庞大的包，其 \filename{iso} 镜像文件 2.4G，安装后需要 3.5G 的硬盘空间。安装前请在你自己的硬盘上准备充分的空间。
-镜像文件下载路径为：\filename{/home/public/software/tex/texlive2013}。
-对于 Linux 系统，可能需要先几个字体文件。字体文件在 \filename{/home/public/sofware/tex/texlive2013/win\_fonts.tar.gz}。
+镜像文件为：\filename{/home/public/software /tex/texlive2013/texlive2013-*.iso}。
+对于 Linux 系统，可能需要先几个字体文件。字体文件为 \filename{/home/public/sofware/tex/texlive2013/win\_fonts.tar.gz}。
 
 假设你准备把字体安装在 \filename{/usr/share/fonts/TTF/}。安装方法为：
 \begin{lstlisting}[language=sh,caption={安装字体}]
@@ -67,7 +67,7 @@ Lyx 是一个直观的编辑\TeX 文件的编辑器。不需要 lyx 的人可以
 在安装模板之前，需要先启动 lyx 一次以生成\filename{\$HOME/.lyx}。安装模板之后，启动 lyx 并点击\guimenu{Tools>{Reconfigure}}，然后重新启动 lyx。
 
 \section{模板的安装和使用}
-公司的技术报告模板是在用户自己目录下的，所以即使用户是在服务器上运行 TexLive，也需要安装模板。模板路径：\filename{/home/public/document/template/cgdrep.tar.gz}。安装方法：
+公司的技术报告模板是放在用户自己目录下的，如此即使用户是在服务器上运行 TexLive，也需要安装模板。模板的路径：\filename{/home/public/document/template/cgdrep.tar.gz}。安装方法：
 \begin{lstlisting}[language=sh,caption={安装模板}]
 # Unpack the template
   tar xf /home/public/document/template/cgdrep.tar.gz

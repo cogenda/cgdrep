@@ -39,10 +39,10 @@
 \hline
 责\hfill 任\hfill 人 & \kt\CGD@value@author & 客户单位 & \kt\CGD@value@clientname \\ 
 联系方式 & \kt\small\CGD@value@email & 联系方式 & \kt\small\CGD@value@clientemail\\
-\multirow{3}{*}{签\hspace{2em}署}& \hspace{14em}\null & \multirow{3}{*}{会\hspace{2em}签}&\hspace{14em}\null\\ & \\ & \\
+\multirow{3}{*}{签\hspace{2em}署}& \hspace{0.33\textwidth}\null & \multirow{3}{*}{会\hspace{2em}签}&\hspace{0.33\textwidth}\null\\ & \\ & \\
 日\hfill 期 &  & 日\hfill 期 \\
 \hline \multicolumn{4}{c}{摘要} \\ 
-\multicolumn{4}{c}{\parbox[t]{38em}{\small\kt\hspace{2em}\BODY}}\\
+\multicolumn{4}{c}{\parbox[t]{0.9\textwidth}{\small\kt\hspace{2em}\BODY}}\\
 \\ \thickhline 
 % \multirow{2}{*}{备\hspace{2em}注}
 \end{tabular}
