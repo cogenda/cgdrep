@@ -33,14 +33,6 @@ Style Main_Matter
         LabelString     "--- Main Matter ---"
 End
 
-Style Appendix
-        CopyStyle       Front_Matter
-        Category        Structure
-        LatexName       appendix
-        LabelString     "--- Appendix ---"
-End
-
-
 Style Back_Matter
         CopyStyle       Front_Matter
         Category        Structure
@@ -84,7 +76,7 @@ Style Revisions
         ItemSep               0
         TopSep                0.7
         BottomSep             0.7
-        ParSep                0
+        ParSep                0.7
         Align                 Center
         LabelType             Centered_Top_Environment
         LabelString           "Revision History"
@@ -118,12 +110,25 @@ Style SubTitle
         HTMLTitle             true
 End
 
+Float
+        Type                  listing
+        GuiName               Listing
+        Placement             tbp
+        Extension             lol
+        NumberWithin          none
+        Style                 plain
+        ListName              "List of Listings"
+        IsPredefined          true
+        UsesFloatPkg          false
+        ListCommand           lstlistoflistings
+        RefPrefix             lst
+End
 
-Style Compact_Item
+Style Paragraph_Item
         Category              List
         Margin                Static
         LatexType             Item_Environment
-        LatexName             compactitem
+        LatexName             paraitem 
         NextNoIndent          1
         LeftMargin            MMN
         LabelSep              xx

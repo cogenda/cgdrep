@@ -255,15 +255,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-lstlistoflistings
-\end_layout
+\begin_inset FloatList listing
 
 \end_inset
 
@@ -622,6 +614,7 @@ inline false
 status open
 
 \begin_layout Plain Layout
+
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -634,98 +627,122 @@ class BankAccount(object):
 \end_layout
 
 \begin_layout Plain Layout
+
     def __init__(self, initial_balance=0):
 \end_layout
 
 \begin_layout Plain Layout
+
         self.balance = initial_balance
 \end_layout
 
 \begin_layout Plain Layout
+
     def deposit(self, amount):
 \end_layout
 
 \begin_layout Plain Layout
+
         self.balance += amount
 \end_layout
 
 \begin_layout Plain Layout
+
     def withdraw(self, amount):
 \end_layout
 
 \begin_layout Plain Layout
+
         self.balance -= amount
 \end_layout
 
 \begin_layout Plain Layout
+
     def overdrawn(self):
 \end_layout
 
 \begin_layout Plain Layout
+
         return self.balance < 0
 \end_layout
 
 \begin_layout Plain Layout
+
 my_account = BankAccount(15)
 \end_layout
 
 \begin_layout Plain Layout
+
 my_account.withdraw(5)
 \end_layout
 
 \begin_layout Plain Layout
+
 print my_account.balance
 \end_layout
 
 \begin_layout Plain Layout
+
 import unittest
 \end_layout
 
 \begin_layout Plain Layout
+
 def median(pool):
 \end_layout
 
 \begin_layout Plain Layout
+
     copy = sorted(pool)
 \end_layout
 
 \begin_layout Plain Layout
+
     size = len(copy)
 \end_layout
 
 \begin_layout Plain Layout
+
     if size % 2 == 1:
 \end_layout
 
 \begin_layout Plain Layout
+
         return copy[(size - 1) / 2]
 \end_layout
 
 \begin_layout Plain Layout
+
     else:
 \end_layout
 
 \begin_layout Plain Layout
+
         return (copy[size/2 - 1] + copy[size/2]) / 2
 \end_layout
 
 \begin_layout Plain Layout
+
 class TestMedian(unittest.TestCase):
 \end_layout
 
 \begin_layout Plain Layout
+
     def testMedian(self):
 \end_layout
 
 \begin_layout Plain Layout
+
         self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
 \end_layout
 
 \begin_layout Plain Layout
+
 if __name__ == '__main__':
 \end_layout
 
 \begin_layout Plain Layout
+
     unittest.main()
 \end_layout
 
