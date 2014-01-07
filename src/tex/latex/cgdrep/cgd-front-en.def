@@ -18,6 +18,7 @@
 {\small~\CGD@value@date~}\\
 \vspace{2cm} \null
 \end{center}
+\clearpage\null\vfill\copyright Cogenda Pte Ltd 
 }
 
 \ifx\CGD@value@subtitle\undefined
@@ -29,7 +30,7 @@
 \newcommand\fdh[1]{\scriptsize\bf\sf #1}
 
 \OverwriteEnviron{abstract}[1][]{
-\cleardoublepage \null\vspace{2cm}
+\cleardoublepage \null\vspace{1cm}
 \begin{center}
 \normalsize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -39,6 +40,9 @@
 \hline
 \fdh{Report Number}                 & \fdh{Security Classification}     \\
 \CGD@value@docid                    & \CGD@value@classification         \\
+%\hline
+%\multicolumn{2}{|l|}{\fdh{Related Documents}} \\
+%\multicolumn{2}{|l|}{\CGD@value@relatedid} \\
 \hline
 \fdh{Personal Author(s)}            & \fdh{Name of Client Organization} \\
 \CGD@value@author                   & \CGD@value@clientname             \\

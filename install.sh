@@ -20,6 +20,6 @@ do
 done
 if [[ $FOUND -eq 0 ]]
 then
-  echo "Lyx not found, is it installed?"
+  echo "Lyx not found.  If you don't need lyx, neglect this line."
 fi
 

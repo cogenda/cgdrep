@@ -6,7 +6,7 @@ PDFLATEX_FLAGS  = -halt-on-error -output-directory obj/
 TEXINPUTS = .:obj/
 TEXMFOUTPUT = obj/
 
-main.pdf: main.tex main.bib
+main.pdf: main.tex main.bib *.tex
 	[[ -d obj/ ]] || mkdir obj
 	xelatex $(PDFLATEX_FLAGS) main
 	bibtex obj/main

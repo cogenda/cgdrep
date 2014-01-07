@@ -1,9 +1,8 @@
 \chapter{表格、图片和代码的格式}
 我们暂定了表格、图片和代码的格式。这并不是最终版，欢迎提出意见。
 \section{表格}
-
-一般，我们要求表格采用居中三线表，样式如表~\ref{triline}：
-\begin{ctable}{triline}{三线表}{+l^l^l^l}
+一般，我们要求表格采用三线表，首行为其 header，用黑体。字号比正文半号，位置居中。如表~\ref{triline}：
+\begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿\\
  1.1  & 2013.12.25 & 赵军        & 二稿  \\
@@ -16,33 +15,34 @@
  第二行 \\
 .....
 \end{ctable}\end{lstlisting}
-需要注意的是这里的 Alignments 不是常见的\texttt{\{llll\}}。（表示此表格有四列，都居左。）而是用：
-\begin{verbatim} {+l^l^l^l} \end{verbatim}
-来表示四列居左，这个怪样子是为了实现第一行的{\bf 黑体字}。表~\ref{triline} 所用的语法为：
+
+则表~\ref{triline} 的完整语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={ctable 示例}]
-\begin{ctable}{triline}{三线表}{+l^l^l^l}
+\begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿\\
  1.1  & 2013.12.25 & 赵军        & 二稿  \\
 \end{ctable}
 \end{lstlisting}
 
-如果你不想局限于ctable的功能，也可以用一般的表格语法，表~\ref{triline} 的一般语法为：
-\begin{lstlisting}[language={[LaTeX]TeX},caption={三线表的一般表格语法示例}]
+如果你不想局限于 ctable 的功能，也可以用一般的 \LaTeX 表格语法（用了 tabu 宏包），表~\ref{triline} 的一般\LaTeX 语法为：
+\begin{lstlisting}[language={[LaTeX]TeX},caption={三线表的一般\LaTeX 语法示例}]
 \begin{table}[htbp]\caption{\label{triline} 三线表}
-\centering\small\begin{tabular}{+l^l^l^l}\thickhline\rowstyle{\bfseries}\bf
- 版本  & 日期       & 负责人      & 备注 \\ \hline \rm
+\centering\small\begin{tabu}{llll}\thickhline\rowfont{\bfseries}
+ 版本  & 日期       & 负责人      & 备注 \\ \hline
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿 \\
  1.1  & 2013.12.25 & 赵军        & 二稿 \\
-\thickhline\end{tabular}\end{table}\end{lstlisting}
+\thickhline\end{tabu}\end{table}
+\end{lstlisting}
 
 \section{图片}
 插入图片语法简单，这里没有设置自己的宏，而是用的是普通语法：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={插入图片语法示例}]
 \begin{figure}[htbp]\centering
-\includegraphics{file.jpg} 
+\includegraphics[width=0.5\textwidth]{file.jpg} 
 \caption{\label{Label}Caption}
 \end{figure}\end{lstlisting}
+对于图片的大小控制，当用户没有特别需求的时候，建议采用\filename{textwidth}的倍数方式。
 
 \section{代码}
 先给出一段文档中插入 Pascal 代码的样子：
@@ -132,6 +132,27 @@ if __name__ == '__main__':
     unittest.main()
 \end{lstlisting}
 
-
 \lstinputlisting[language=bash,label=bash.sh, caption={bash 代码示例}]{bash1.sh}
+
+\section{几类特别对象}
+有几类特别对象，要在文档里用不同的字体，我们定义了如下字符：
+
+\begin{tabu}{lll} \thickhline \rowfont{\bfseries}
+对象 & 语法 & 效果示例 \\ \hline
+文件名 & \textbackslash filename\{\} & \filename{directory/file.name} \\
+命令名 & \textbackslash command\{\} & \command{which xelatex} \\
+参数名 & \textbackslash parameter\{\} & \parameter{Energy} \\
+用户输入 & \textbackslash userinput\{\} & \userinput{runApp} \\
+图形界面菜单 & \textbackslash guimenu\{>\{\}\} & \guimenu{Edit>{Copy}} \\
+\thickhline \end{tabu}
+
+\section{list 列表}
+对于三个 lists（itemize、enumerate和description），我们都改了间距。如果用户将 itemize 用于段落，想保留段落间距的话，用新的环境变量 paraitem。语法为：
+\begin{lstlisting}[language={[LaTeX]TeX},caption={保留段落间距的环境变量}]
+\begin{paraitem}
+\item 第一段。
+\item 第二段。
+.....
+\end{paraitem}
+\end{lstlisting}
 

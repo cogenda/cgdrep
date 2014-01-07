@@ -7,7 +7,7 @@
   \def\CGD@value@titlemark{\MakeUppercase{#1}}}
 \providecommand\CGD@value@title{}
 
-\newcommand\subtitle[1]{\def\CGD@value@subtitle{#1}} % 副标题（选填）
+\newcommand\subtitle[1]{\def\CGD@value@subtitle{#1}} % 副标题
 \providecommand\CGD@value@subtitle{}
 
 \renewcommand\author[1]{\def\CGD@value@author{#1}} % 责任作者
@@ -18,6 +18,9 @@
 
 \define@key{docattr}{docid}{\def\CGD@value@docid{#1}} % 编号
 \providecommand\CGD@value@docid{}
+
+\define@key{docattr}{relatedid}{\def\CGD@value@relatedid{#1}} % 关联文档编号
+\providecommand\CGD@value@relatedid{}
 
 \define@key{docattr}{email}{\def\CGD@value@email{#1}} % 责任作者联系方式
 \providecommand\CGD@value@email{contact@cogenda.com}

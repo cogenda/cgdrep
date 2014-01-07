@@ -2,25 +2,22 @@
 % vim:ft=tex
 
 %%%% Itemize/Enumerate/Description
-\setlist[itemize]{noitemsep}
-\setlist[enumerate]{noitemsep}
-\setlist[description]{noitemsep}
-\newenvironment{compactitem}{\begin{itemize}[nosep]}{\end{itemize}}
+\setlist[itemize]{nosep}
+\setlist[enumerate]{nosep}
+\setlist[description]{nosep}
+\newenvironment{paraitem}{\begin{itemize}[itemsep=0.3\baselineskip]}{\end{itemize}}
+\setlength{\parskip}{0.3\baselineskip}
 
 %%%% Table
 \newcommand{\thickhline}{%
-    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \noalign {\ifnum 0=`}\fi \hrule height 0.8pt
     \futurelet \reserved@a \@xhline
 }
 
-\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
-\newcolumntype{^}{>{\currentrowstyle}}
- \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}\ignorespaces}
-
 \newenvironment{ctable}[3]
 {\begin{table}[htbp]\centering\small
-\caption{\label{#1}#2}\begin{tabular}{#3}\thickhline \rowstyle{\bfseries}\bf}
-{\thickhline\end{tabular}\end{table}}
+\caption{\label{#1}#2}\begin{tabu}{#3}\thickhline \rowfont{\bfseries}}
+{\thickhline\end{tabu}\end{table}}
 
 %%%% Source code listing setup
 \lstset{ %
