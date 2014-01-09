@@ -12,13 +12,13 @@
 \newcommand\mainmatter{%
 \cleardoublepage\setcounter{page}{1}\pagestyle{fancy}\pagenumbering{arabic}
 \fancyhf{}
-\fancyhead[CE]{\nouppercase{\nsb\leftmark}}
-\fancyhead[CO]{\nouppercase{\nsb\rightmark}}
-\fancyfoot[RO,LE]{\nsb $\cdot$~\thepage~$\cdot$}
+\fancyhead[CE]{\nouppercase{\small\bfseries\leftmark}}
+\fancyhead[CO]{\nouppercase{\small\bfseries\rightmark}}
+\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
 
 \fancypagestyle{plain}{
 \fancyhf{}
-\fancyfoot[RO,LE]{\nsb $\cdot$~\thepage~$\cdot$}
+\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
 \renewcommand{\headrulewidth}{0pt}
 }
 }

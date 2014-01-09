@@ -1,8 +1,8 @@
 % cgd-common.def : Required packages and common definitions
 % vim:ft=tex
 
-\RequirePackage{listings,amstext,wasysym,fontspec,array,longtable,units,multirow,enumitem,tabu,fancyhdr_c}
-\RequirePackage[top=3cm,bottom=3cm,left=3cm,right=2.2cm]{geometry}
+\RequirePackage{listings,amstext,wasysym,fontspec,array,longtable,units,multirow,enumitem,tabu}
+\RequirePackage[top=3cm,bottom=3cm,left=3cm,right=2.2cm,headheight=20pt]{geometry}
 \RequirePackage[unicode=true,pdfusetitle,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
@@ -37,8 +37,6 @@
 \setmainfont{STIXGeneral}
 \setsansfont{DejaVu Sans}
 \setmonofont{DejaVu Sans Mono}
-\newcommand{\nf}{\normalfont}
-\newcommand{\nsb}{\noindent\small\sf}
 
 \endinput
 

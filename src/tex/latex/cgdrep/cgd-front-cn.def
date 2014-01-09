@@ -7,16 +7,16 @@
 \cleardoublepage\pagestyle{empty}
 \noindent{\small\CGD@value@docid} \\
 \hfill \fbox{\bf\CGD@value@classification}
-\null\vspace{5.0cm}
+\null\vspace{4.0cm}
 
 \begin{center}
 \CJKfamily{hei}\Huge~\CGD@value@title~\\
-\huge~\CGD@value@subtitle~
+\LARGE~\CGD@value@subtitle~
 \vfill
 \includegraphics[scale=0.6]{logo1.png} \\
-\CJKfamily{hei}\Large 苏州珂晶达电子有限公司 \\
+\CJKfamily{hei}\large 苏州珂晶达电子有限公司 \\
 {\small~\CGD@value@date~}\\
-\vspace{2cm} \null
+\vspace{0.3cm} \null
 \end{center}
 \clearpage\null\vfill\copyright 苏州珂晶达电子有限公司
 }

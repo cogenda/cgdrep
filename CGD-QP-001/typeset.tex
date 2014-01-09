@@ -1,40 +1,40 @@
 \chapter{表格、图片和代码的格式}
 我们暂定了表格、图片和代码的格式。这并不是最终版，欢迎提出意见。
 
-一般的表格、图片和代码都当有一对 Caption 和 Label。Caption 是这个表、图或代码的名字，其字号比正文小半号。Label 是引用它时候的代号，Label 的内容并不出现在排版后的\filename{pdf}页面上。以下分别讲如何实现。
+一般的表格、图片和代码都当有一对\filename{Caption} 和\filename{Label}。\filename{Caption} 是这个表格（或图片、代码）的名字，其字号比正文小半号。\filename{Label} 是引用它时用的代号，\filename{Label} 的内容并不出现在排版后的\filename{pdf}页面上。以下分别讲如何实现。
 
 \section{表格}
-一般，我们要求表格采用三线表，首行为其 header，用黑体。字号比正文小半号，位置居中。如表~\ref{triline}：
+一般，我们要求表格采用三线表，首行为其\filename{header}，用黑体。字号比正文小半号，位置居中。如表~\ref{triline}：
 \begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
- 1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿\\
- 1.1  & 2013.12.25 & 赵军        & 二稿  \\
+ 1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿 \\
+ 1.1  & 2013.12.25 & 赵军         & 二稿 \\
 \end{ctable}
 
-实现这样的表及其浮动位置，可以用 Cogenda 自己制作的宏 ctable，其语法为：
+实现这样的表及其浮动位置，可以用 Cogenda 自己制作的宏 \filename{ctable}，其语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={ctable 语法}]
 \begin{ctable}{Label}{Caption}{Alignments}
- 第一行（表格项目）  \\ \hline 
+ 第一行（header）  \\ \hline 
  第二行 \\
 .....
 \end{ctable}\end{lstlisting}
 
-则表~\ref{triline} 的完整语法为：
+其中\filename{Alignments}是列对齐方式，四列左对齐为\filename{\{llll\}}。则表~\ref{triline} 的完整语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={ctable 示例}]
 \begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
- 1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿\\
- 1.1  & 2013.12.25 & 赵军        & 二稿  \\
+ 1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿 \\
+ 1.1  & 2013.12.25 & 赵军         & 二稿 \\
 \end{ctable}
 \end{lstlisting}
 
-如果你不想局限于 ctable 的功能，也可以用一般的 \LaTeX 表格语法（用了 tabu 宏包），表~\ref{triline} 的一般\LaTeX 语法为：
+如果你不想局限于 \filename{ctable} 的功能，也可以用一般的 \LaTeX 表格语法（用了 \filename{tabu} 宏包），表~\ref{triline} 的一般\LaTeX 语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={三线表的一般\LaTeX 语法示例}]
 \begin{table}[htbp]\caption{\label{triline} 三线表}
 \centering\small\begin{tabu}{llll}\thickhline\rowfont{\bfseries}
  版本  & 日期       & 负责人      & 备注 \\ \hline
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿 \\
- 1.1  & 2013.12.25 & 赵军        & 二稿 \\
+ 1.1  & 2013.12.25 & 赵军         & 二稿 \\
 \thickhline\end{tabu}\end{table}
 \end{lstlisting}
 
@@ -48,7 +48,7 @@
 对于图片的大小控制，当用户没有特别需求的时候，建议采用\filename{textwidth}的倍数方式。
 
 \section{代码}
-先给出一段文档中插入 Pascal 代码的样子：
+这里先给出一段文档中插入 Pascal 代码的样子：
 \begin{lstlisting}[language=Pascal,caption={Pascal 代码示例},label=PascalExample]
 for i:=maxint to 0 do
 begin
@@ -58,16 +58,16 @@ Write(’Case insensitive ’);
 Write(’Pascal keywords.’);
 \end{lstlisting}
 
-引用代码的 \LaTeX 语法为：
-\begin{lstlisting}[language={[LaTeX]TeX},caption={引用代码的语法}]
+插入代码的 \LaTeX 语法为：
+\begin{lstlisting}[language={[LaTeX]TeX},caption={插入代码的语法}]
 \begin{lstlisting}[language=Language,caption={Caption},label=Label]
 .......
  （代码内容）
 .......
 \end{lstlisting }\end{lstlisting}
 
-则如上代码~\ref{PascalExample} 的引用方法为：
-\begin{lstlisting}[language={[LaTeX]TeX},caption={引用代码示例}]
+其中\filename{Languge}为这一段代码的语言。支持的语言包括 ABAP、ACSL、Ada、Algol、Ant、Assembler、Awk、bash、Basic、C、C++、Caml、Clean、Cobol、Comal、csh、Delphi、Eiffel、Elan、erlang、Euphoria、Fortran、GCL、Gnuplot、Haskell、HTML、IDL、inform、Java、JVMIS、ksh、Lisp、Logo、make、Mathematica、Matlab、Mercury、MetaPost、Miranda、Mizar、ML、Modelica、Modula-2、MuPAD、NASTRAN、Oberon-2、OCL、Octave、Oz、Pascal、Perl、PHP、PL/I、Plasm、POV、Prolog、Promela、Python、R、Reduce、Rexx、RSL、Ruby、S、SAS、Scilab、sh、SHELXL、Simula、SQL、tcl、TeX、VBScript、Verilog、VHDL、VRML、XML、XSLT。更多信息请搜索关键词 lstlisting。代码~\ref{PascalExample} 的引用方法为：
+\begin{lstlisting}[language={[LaTeX]TeX},caption={插入代码示例}]
 \begin{lstlisting}[language=Pascal,caption={Pascal 示例代码},label=PascalExample]
 for i:=maxint to 0 do
 begin
@@ -77,6 +77,20 @@ Write(’Case insensitive ’);
 Write(’Pascal keywords.’);
 \end{lstlisting }
 \end{lstlisting}
+
+目前暂定代码的文字大小为 \filename{\textbackslash footnotesize}。如果用户需要调整，可以在引用前修改字体，比如大半号为\filename{\textbackslash small}，其语法为：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\lstset{basicstyle=\small\ttfamily}
+\end{lstlisting}
+这个命令将作用于后面所有的代码。如果这并不是用户想要的，则需要修改回来：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\lstset{basicstyle=\footnotesize\ttfamily}
+\end{lstlisting}
+同理，用户也可以一次设定语言：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\lstset{languge=Language}
+\end{lstlisting}
+则后面每次插入代码时候就不用加入\filename{language=Languge}这一句了。更详细的用法请搜索关键词 lstlisting。
 
 如果代码比较长，在某个原始代码文件里，可以用如下语法，将整个文件的代码引入：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={引入代码文件示例}]
@@ -138,8 +152,9 @@ if __name__ == '__main__':
 \lstinputlisting[language=bash,label=bash.sh, caption={bash 代码示例}]{bash1.sh}
 
 \section{其他}
-\subsection{几类特别对象}
-有几类特别对象，要在文档里用不同的字体，我们定义了如下字符：
+\subsection{几个字体宏}
+有几个特别对象，要在文档里用特别的字体来，我们定义了几个字体的宏，如表~\ref{special} 所列。文档中用到这样的对象时，请采用表中的字体宏。
+
 \begin{ctable}{special}{几类特别对象}{lll} 
 对象 & 语法示例 & 效果示例 \\ \hline
 文件名 & \textbackslash filename\{directory/file.name\} & \filename{directory/file.name} \\
@@ -150,7 +165,7 @@ if __name__ == '__main__':
 \end{ctable}
 
 \subsection{Item 列表}
-对于三个 item 列表（itemize、enumerate和description），我们都改了间距。如果用户想在每个 item 里放一段落，于是想保留段落间距的话，可以用新定义的环境变量 paraitem。语法为：
+对于三个 item 列表（itemize、enumerate和description），我们都改了间距。如果用户想在每个 item 里放一段落，于是想保留段落间距的话，可以用新的环境变量 paraitem。语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={保留段落间距的环境变量}]
 \begin{paraitem}
 \item 第一段。
@@ -160,7 +175,7 @@ if __name__ == '__main__':
 \end{lstlisting}
 
 \subsection{参考文献}
-参考文献的内容写入文件 main.bib 中，格式示例：
+参考文献的内容写入文件 \filename{main.bib} 中，格式示例：
 \begin{lstlisting}[language={sh},caption={参考文献格式示例}]
 @article{katz1979history, %%% Label is here.
   title={The History of Stokes's Theorem},
