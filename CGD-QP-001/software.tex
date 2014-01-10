@@ -11,18 +11,18 @@
 \item 统一公司文档的风格。
 \item 方便不同的人在不同平台下编辑和修改同一个文档。
 \item 对于大型文档，\LaTeX 崩溃的概率小于其他常见排版软件；文本格式的文件损坏的概率也小。
-\item \LaTeX 排出的版面更漂亮。
+\item \LaTeX 的排版功能非常强大，排出的版面漂亮。
 \item \LaTeX 免费。
 \end{itemize}
 坏处是用户编辑\TeX 文本文档时不够直观。对此公司的建议顺序是：
 \begin{enumerate}
-\item 使用纯文本编辑器编辑\TeX 文档，找一个\LaTeX 手册放在手边。（\LaTeX 常用的语法也就那么几页纸的事\cite{oetiker1995not}。）
+\item 使用纯文本编辑器编辑\TeX 文档。（用户可能需要一个\LaTeX 手册\cite{oetiker1995not}。）
 \item 用 lyx 编辑。
 \item 其他可输出\TeX 文档的软件。要求生成的\TeX 文档适于人工阅读。
 \end{enumerate}
 
 \section{软件的安装和使用}
-目前我们公司使用的\LaTeX 发行包为 TexLive，你可以直接使用公司 Helium 服务器上的，也可以在自己的电脑上安装一份来用。以下分别介绍。
+目前我们公司使用的\LaTeX 发行包为 TexLive，你可以直接使用公司 helium 服务器上的，也可以在自己的电脑上安装一份来用。以下分别介绍。
 
 \subsection{在服务器上使用}
 只需要设置使用 TexLive 软件所需的环境。
@@ -76,7 +76,7 @@ Lyx 是一个直观的编辑\TeX 文件的编辑器。不需要 lyx 的人可以
   ./install.sh
 \end{lstlisting}
 
-没有报错的话，可以使用 \LaTeX 模板的示例了：
+没有报错的话，可以使用 \LaTeX 模板里面的范例了：
 \begin{lstlisting}[language=sh,caption={模板示例}]
 # test the LaTeX example
   cd example/latex
@@ -84,3 +84,5 @@ Lyx 是一个直观的编辑\TeX 文件的编辑器。不需要 lyx 的人可以
 # There should be several new files and one of them is main.pdf
   evince main.pdf &
 \end{lstlisting}
+
+范例中的\command{make}命令编译了四遍，这可能需要些时间。用户如果想快速看到结果的话，可以只编译一遍，命令为\command{xelatex main}。这样得到的\filename{pdf} 结果并不完整：可能没有包含参考文献，交叉引用可能不正确。要得到最后的正式 \filename{pdf}文件，还是需要\command{make} 一下的。

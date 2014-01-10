@@ -1,17 +1,17 @@
-\chapter{表格、图片和代码的格式}
-我们暂定了表格、图片和代码的格式。这并不是最终版，欢迎提出意见。
+\chapter{模板的格式要求}
+我们暂定了表格、图片、代码和其他一些对象的格式要求，并写了一些宏放在模板里。目前这些格式要求并不是最终版，欢迎提出意见。
 
-一般的表格、图片和代码都当有一对\filename{Caption} 和\filename{Label}。\filename{Caption} 是这个表格（或图片、代码）的名字，其字号比正文小半号。\filename{Label} 是引用它时用的代号，\filename{Label} 的内容并不出现在排版后的\filename{pdf}页面上。以下分别讲如何实现。
+一般，每一个表格（图片、代码）都当有一对\filename{Caption} 和\filename{Label}。\filename{Caption} 是这个表格（图片、代码）的名字，其字号比正文小半号。\filename{Label} 是引用它时用的标识，\filename{Label} 本身的内容并不出现在排版后的\filename{pdf}页面上。以下分别讲如何实现表格、图片和代码格式的实现方法。
 
 \section{表格}
-一般，我们要求表格采用三线表，首行为其\filename{header}，用黑体。字号比正文小半号，位置居中。如表~\ref{triline}：
+用户没有特别需要的话，我们希望表格都采用三线表，首行为其\filename{header}，用黑体。字号比正文小半号，位置居中。如表~\ref{triline}：
 \begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿 \\
  1.1  & 2013.12.25 & 赵军         & 二稿 \\
 \end{ctable}
 
-实现这样的表及其浮动位置，可以用 Cogenda 自己制作的宏 \filename{ctable}，其语法为：
+实现这样的表及其浮动位置，可以用公司自己制作的宏 \filename{ctable}，其语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={ctable 语法}]
 \begin{ctable}{Label}{Caption}{Alignments}
  第一行（header）  \\ \hline 
@@ -28,7 +28,7 @@
 \end{ctable}
 \end{lstlisting}
 
-如果你不想局限于 \filename{ctable} 的功能，也可以用一般的 \LaTeX 表格语法（用了 \filename{tabu} 宏包），表~\ref{triline} 的一般\LaTeX 语法为：
+如果你不想局限于 \filename{ctable} 的功能，也可以用一般的 \LaTeX 表格语法（模板包含了 \filename{tabu} 宏包），表~\ref{triline} 的一般\LaTeX 语法为：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={三线表的一般\LaTeX 语法示例}]
 \begin{table}[htbp]\caption{\label{triline} 三线表}
 \centering\small\begin{tabu}{llll}\thickhline\rowfont{\bfseries}
@@ -39,7 +39,7 @@
 \end{lstlisting}
 
 \section{图片}
-插入图片语法简单，这里没有设置自己的宏，而是用的是普通语法：
+插入图片的语法简单，这里没有设置自己的宏，而是用的是普通语法：
 \begin{lstlisting}[language={[LaTeX]TeX},caption={插入图片语法示例}]
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.5\textwidth]{file.jpg} 
@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
 \lstinputlisting[language=bash,label=bash.sh, caption={bash 代码示例}]{bash1.sh}
 
-\section{其他}
+\section{其他格式要求}
 \subsection{几个字体宏}
 有几个特别对象，要在文档里用特别的字体来，我们定义了几个字体的宏，如表~\ref{special} 所列。文档中用到这样的对象时，请采用表中的字体宏。
 
@@ -174,17 +174,3 @@ if __name__ == '__main__':
 \end{paraitem}
 \end{lstlisting}
 
-\subsection{参考文献}
-参考文献的内容写入文件 \filename{main.bib} 中，格式示例：
-\begin{lstlisting}[language={sh},caption={参考文献格式示例}]
-@article{katz1979history, %%% Label is here.
-  title={The History of Stokes's Theorem},
-  author={Victor J. Katz},
-  journal={Mathematics Magazine},
-  volume={52},
-  pages={146-156},
-  year={1979},
-}
-\end{lstlisting}
-
-这篇文献的引用方法为 \textbackslash cite\{katz1979history\}。
