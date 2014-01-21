@@ -1,7 +1,7 @@
 % cgd-common.def : Required packages and common definitions
 % vim:ft=tex
 
-\RequirePackage{listings,amstext,wasysym,fontspec,array,longtable,units,multirow,enumitem,tabu}
+\RequirePackage{listings,amstext,wasysym,fontspec,array,longtable,units,multirow,enumitem,tabu,fancyhdr}
 \RequirePackage[top=3cm,bottom=3cm,left=3cm,right=2.2cm,headheight=20pt]{geometry}
 \RequirePackage[unicode=true,pdfusetitle,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
