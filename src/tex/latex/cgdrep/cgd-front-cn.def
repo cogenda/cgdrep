@@ -21,11 +21,9 @@
 \clearpage\null\vfill\copyright 苏州珂晶达电子有限公司
 }
 
-\ifx\CGD@value@subtitle\undefined
-  \newcommand\CGD@value@fulltitle{\CGD@value@title} 
-\else
-  \newcommand\CGD@value@fulltitle{\CGD@value@title ：\CGD@value@subtitle}
-\fi
+\newcommand\CGD@value@fulltitle{%
+  \ifdefvoid{\CGD@value@subtitle}{\CGD@value@title}{\CGD@value@title ：\CGD@value@subtitle}%
+}
 
 \OverwriteEnviron{abstract}[1][]{
 \cleardoublepage \null\vspace{1cm}

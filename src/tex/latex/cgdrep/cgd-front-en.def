@@ -18,14 +18,12 @@
 {\small~\CGD@value@date~}\\
 \vspace{2cm} \null
 \end{center}
-\clearpage\null\vfill\copyright Cogenda Pte Ltd 
+\clearpage\null\vfill\copyright~Cogenda Pte Ltd 
 }
 
-\ifx\CGD@value@subtitle\undefined
-  \newcommand\CGD@value@fulltitle{\CGD@value@title} 
-\else
-  \newcommand\CGD@value@fulltitle{\CGD@value@title : \CGD@value@subtitle}
-\fi
+\newcommand\CGD@value@fulltitle{%
+  \ifdefvoid{\CGD@value@subtitle}{\CGD@value@title}{\CGD@value@title : \CGD@value@subtitle}%
+}
 
 \newcommand\fdh[1]{\scriptsize\bf\sf #1}
 
