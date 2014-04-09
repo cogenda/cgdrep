@@ -24,7 +24,7 @@
   \NewEnviron{#1}%
 }
 
-\RequirePackage{keyval,xparse}
+\RequirePackage{keyval,xparse,etoolbox}
 \RequirePackage[svgnames]{xcolor}
 \RequirePackage{tcolorbox}
 \RequirePackage{units}
