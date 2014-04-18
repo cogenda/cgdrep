@@ -20,4 +20,5 @@ display: main.pdf
 clean:
 	rm -rf obj
 	rm -rf main.pdf
-	rm -rf main.aux main.log main.lol main.out main.toc
+
+
