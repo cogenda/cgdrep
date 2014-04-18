@@ -4,6 +4,11 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{cgdrepcn}[2013/01/03 Cogenda report class]
 
+\DeclareOption{twoside}{
+  \PassOptionsToPackage{\CurrentOption}{ctexrep}
+}
+\ProcessOptions\relax
+
 \LoadClass[nofonts,12pt,utf8,a4paper,punct,fancyhdr,amstex]{ctexrep}
 
 \input{cgd-common.def}

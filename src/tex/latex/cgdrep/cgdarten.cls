@@ -1,15 +1,10 @@
-% cgdrepen.cls : English Report class
+% cgdarten.cls : English Report class
 % vim: ft=tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{cgdrepen}[2013/01/03 Cogenda report class]
+\ProvidesClass{cgdarten}[2013/01/03 Cogenda report class]
 
-\DeclareOption{twoside}{
-  \PassOptionsToPackage{\CurrentOption}{report}
-}
-\ProcessOptions\relax
-
-\LoadClass[nofonts,11pt,utf8,a4paper]{report}
+\LoadClass[nofonts,11pt,utf8,a4paper]{article}
 
 \input{cgd-common.def}
 
