@@ -1,10 +1,10 @@
-% cgdrepcn.cls : Chinese Report class
+% cgdartcn.cls : Chinese Report class
 % vim: ft=tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{cgdrepcn}[2013/01/03 Cogenda report class]
+\ProvidesClass{cgdartcn}[2013/01/03 Cogenda report class]
 
-\LoadClass[nofonts,12pt,utf8,a4paper,punct,fancyhdr,amstex]{ctexrep}
+\LoadClass[nofonts,12pt,utf8,a4paper,punct,fancyhdr,amstex]{ctexart}
 
 \input{cgd-common.def}
 

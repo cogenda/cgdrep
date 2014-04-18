@@ -18,35 +18,35 @@
 {\small~\CGD@value@date~}\\
 \vspace{0.3cm} \null
 \end{center}
-\clearpage\null\vfill\copyright 苏州珂晶达电子有限公司
 }
 
 \newcommand\CGD@value@fulltitle{%
-  \ifdefvoid{\CGD@value@subtitle}{\CGD@value@title}{\CGD@value@title ：\CGD@value@subtitle}%
+ \ifdefvoid{\CGD@value@subtitle}{\CGD@value@title}{\mbox{\CGD@value@title：} \mbox{\CGD@value@subtitle}}%
 }
 
 \OverwriteEnviron{abstract}[1][]{
-\cleardoublepage \null\vspace{1cm}
+\cleardoublepage
 \begin{center}
 \normalsize\bfseries
-\begin{tabular}{cl|cl} \thickhline
-标\hfill 题 & \multicolumn{3}{l}{\kt\CGD@value@fulltitle} \\ \hline
+\begin{tabular}{clcl} \thickhline
+标\hfill 题 & \multicolumn{3}{p{0.68\textwidth}}{\kt\CGD@value@fulltitle}
+\\ \hline
 编\hfill 号 & \multicolumn{1}{l}{\kt\CGD@value@docid} & 密\hfill 级 & \kt\CGD@value@classification \\
 类\hfill 别 & \multicolumn{1}{l}{\kt\CGD@value@doctype}  & 状\hfill 态 & \kt\CGD@value@docstatus \\ 
 关联文档 & \multicolumn{3}{l}{\kt\CGD@value@relatedid} \\
 \hline
-责\hfill 任\hfill 人 & \kt\CGD@value@author & 客户单位 & \kt\CGD@value@clientname \\ 
+责任作者 & \kt\CGD@value@author & 客户单位 & \kt\CGD@value@clientname \\ 
 联系方式 & \kt\small\CGD@value@email & 联系方式 & \kt\small\CGD@value@clientemail\\
-\multirow{3}{*}{签\hspace{2em}署}& \hspace{0.33\textwidth}\null & \multirow{3}{*}{会\hspace{2em}签}&\hspace{0.33\textwidth}\null\\ & \\ & \\
-日\hfill 期 &  & 日\hfill 期 \\
-\hline \multicolumn{4}{c}{摘要} \\ 
+ & \\ 
+签\hfill署 & \hspace{0.33\textwidth}\null & 会\hfill签 & \hspace{0.33\textwidth}\null\\
+ & \\
+日\hfill 期 &  & 日\hfill 期 \\  \hline 
+\multicolumn{4}{c}{摘\hspace{2em}要} \\ 
 \multicolumn{4}{c}{\parbox[t]{0.9\textwidth}{\small\kt\hspace{2em}\BODY}}\\
 \\ \thickhline 
-% \multirow{2}{*}{备\hspace{2em}注}
-\end{tabular}
-
-% 左边界\hfill 右边界 \\
-\end{center}
+% \multirow{2}{*}{备\hfill 注}
+\end{tabular}\end{center}
+\null\hfill{\bf\copyright 苏州珂晶达电子有限公司}\hspace{0.5em}
 }
 
 \def\CGD@opt@customHdr{customHdr}

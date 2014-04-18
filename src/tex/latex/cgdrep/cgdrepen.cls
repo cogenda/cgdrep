@@ -4,7 +4,7 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{cgdrepen}[2013/01/03 Cogenda report class]
 
-\LoadClass[twoside,nofonts,11pt,utf8,a4paper]{report}
+\LoadClass[nofonts,11pt,utf8,a4paper]{report}
 
 \input{cgd-common.def}
 

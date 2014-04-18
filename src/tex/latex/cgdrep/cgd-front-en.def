@@ -18,7 +18,6 @@
 {\small~\CGD@value@date~}\\
 \vspace{2cm} \null
 \end{center}
-\clearpage\null\vfill\copyright~Cogenda Pte Ltd 
 }
 
 \newcommand\CGD@value@fulltitle{%
@@ -28,7 +27,7 @@
 \newcommand\fdh[1]{\scriptsize\bf\sf #1}
 
 \OverwriteEnviron{abstract}[1][]{
-\cleardoublepage \null\vspace{1cm}
+\cleardoublepage
 \begin{center}
 \normalsize
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -58,6 +57,7 @@
 \thickhline 
 \end{tabularx}
 \end{center}
+\null\hfill\copyright~Cogenda Pte Ltd
 }
 
 \def\CGD@opt@customHdr{customHdr}
