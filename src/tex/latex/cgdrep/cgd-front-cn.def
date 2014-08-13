@@ -38,7 +38,7 @@
 责任作者 & \kt\CGD@value@author & 客户单位 & \kt\CGD@value@clientname \\ 
 联系方式 & \kt\small\CGD@value@email & 联系方式 & \kt\small\CGD@value@clientemail\\
  & \\ 
-签\hfill 署 & \hspace{0.33\textwidth}\null & 会\hfill 签 & \hspace{0.33\textwidth}\null\\
+签\hfill署 & \hspace{0.33\textwidth}\null & 会\hfill签 & \hspace{0.33\textwidth}\null\\
  & \\
 日\hfill 期 &  & 日\hfill 期 \\  \hline 
 \multicolumn{4}{c}{摘\hspace{2em}要} \\ 
