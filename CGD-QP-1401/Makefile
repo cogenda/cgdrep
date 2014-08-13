@@ -7,7 +7,7 @@ TEXINPUTS = .:obj/
 TEXMFOUTPUT = obj/
 
 main.pdf: main.tex main.bib *.tex
-	[[ -d obj/ ]] || mkdir obj
+	[ -d obj/ ] || mkdir obj
 	xelatex $(PDFLATEX_FLAGS) main
 	bibtex obj/main
 	xelatex $(PDFLATEX_FLAGS) main
