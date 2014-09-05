@@ -16,5 +16,7 @@
 \input{cgd-style.def}
 \input{cgd-math.def}
 
+\IfFileExists{./local.def}{\input {./local.def}}{}
+
 \endinput
 
