@@ -799,7 +799,7 @@ options "bibtotoc,ieeetr"
 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Chapter*
 后记
 \end_layout
 
