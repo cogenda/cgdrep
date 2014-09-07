@@ -38,10 +38,5 @@
 
 \hypersetup{colorlinks,linkcolor={DarkBlue},citecolor={DarkRed},urlcolor={Blue}}
 
-%%%% Font definition
-\setmainfont{STIXGeneral}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
-
 \endinput
 

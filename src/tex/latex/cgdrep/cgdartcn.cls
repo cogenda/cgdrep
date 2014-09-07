@@ -7,13 +7,8 @@
 \LoadClass[nofonts,12pt,utf8,a4paper,punct,fancyhdr,amstex]{ctexart}
 
 \input{cgd-common.def}
-
-%%%% Chinese Font definition
-\setCJKmainfont[ItalicFont={SimSun}]{SimSun}
-\setCJKsansfont{WenQuanYi Zen Hei}
-\setCJKmonofont{WenQuanYi Zen Hei}
-\setCJKfamilyfont{hei}{SimHei}
-\setCJKfamilyfont{kaiti}{KaiTi_GB2312}
+\input{cgd-font-en.def}
+\input{cgd-font-cn.def}
 
 \renewcommand\bfseries{\CJKfamily{hei}}
 \newcommand\kt{\CJKfamily{kaiti}}

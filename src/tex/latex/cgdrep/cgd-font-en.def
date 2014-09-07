@@ -1,0 +1,8 @@
+% cgd-font-en.def : western font definitions
+% vim:ft=tex
+
+%%%% Font definition
+\setmainfont{STIXGeneral}
+\setsansfont{DejaVu Sans}
+\setmonofont{M+ 1m regular}
+

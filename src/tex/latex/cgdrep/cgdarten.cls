@@ -7,6 +7,7 @@
 \LoadClass[nofonts,11pt,utf8,a4paper]{article}
 
 \input{cgd-common.def}
+\input{cgd-font-en.def}
 
 \input{cgd-docattr.def}
 \renewcommand\CGD@value@classification{Restricted}

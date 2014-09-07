@@ -1,0 +1,11 @@
+% cgd-font-cn.def : Chinese font definitions
+% vim:ft=tex
+
+%%%% Chinese Font definition
+\setCJKmainfont[ItalicFont={SimSun}]{SimSun}
+\setCJKsansfont{WenQuanYi Zen Hei}
+\setCJKmonofont{WenQuanYi Zen Hei}
+\setCJKfamilyfont{hei}{SimHei}
+\setCJKfamilyfont{kaiti}{KaiTi_GB2312}
+
+
