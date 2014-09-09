@@ -40,7 +40,7 @@ setFont() {
         if [[ $? -eq 0 ]]
         then
             echo "... found $font"
-            sed -i -e 's/\\$setcmd/\\$setcmd\{$font\}/' $fname
+            sed -i -e "s/\\\\$setcmd.*$/\\\\$setcmd\{$font\}/" $fname
             break
         else
             echo "... can't find $font"
