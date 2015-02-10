@@ -1,0 +1,293 @@
+\geometry{left=5.5cm, marginparwidth=3.5cm,right=2cm,bottom=1in}
+\newcommand\company{Cogenda Co. Ltd}
+
+\hypersetup{colorlinks,linkcolor={DarkBlue},citecolor={DarkRed},urlcolor={Blue}}
+\usetikzlibrary{calc,shapes.geometric}
+
+\setlength\LTcapwidth{\linewidth}
+
+\definecolor{mybluei}{RGB}{88,147,119}
+\definecolor{myblueii}{RGB}{88,147,119}
+
+\newcommand\ChapterFont{\huge\huge\color{myblueii}}
+\newcommand\SectionFont{\usefont{T1}{qhv}{b}{n}\selectfont}
+\newcommand\chaptertitlefont{\usefont{T1}{qhv}{m}{n}\selectfont\scshape}
+\renewcommand\chaptertitlename{CHAPTER}%
+%\renewcommand\cftchapafterpnum{\vskip10pt}
+%\renewcommand\cftsecafterpnum{\vskip11pt}
+
+\newcommand\version[1]{\def\CGD@value@version{#1}} %version
+\providecommand\CGD@value@version{}
+
+\newcommand\mname[1]{\def\CGD@value@mname{#1}} %version
+\providecommand\CGD@value@mname{}
+
+\renewcommand\maketitle{%
+\pagestyle{empty}\newgeometry{margin=2cm}
+%\bgdhex
+%\bgd
+\null\vspace{4.0cm}
+\begin{flushright}
+{\bf\fontsize{1.4cm}{1em}\selectfont~\CGD@value@title~}\\
+\vspace{0.4cm}
+{\sf\fontsize{0.7cm}{1em}\selectfont~\CGD@value@subtitle~}\\
+\vspace{0.2cm}
+{\sf\fontsize{0.5cm}{1em}\selectfont~Version~\CGD@value@version~}\\
+\vspace{0.6cm}
+{\sf\fontsize{0.7cm}{1em}\selectfont~\CGD@value@mname~}\\
+\end{flushright}
+\vfill
+\begin{center}
+\includegraphics[scale=0.6]{logom.png} \\
+\sf\Large \company \\
+{\small~\CGD@value@date~}\\
+\end{center}
+\vspace{1.5cm}
+\null
+\restoregeometry
+}
+
+\newcommand\backcover{
+\clearpage\pagestyle{empty}\newgeometry{margin=3cm}
+%\bgdhex
+\null
+\vfill
+% {\bf\Huge \CGD@value@title}\\ \\ {\sf\Large\CGD@value@mname}\\ \vspace{0.6cm}\\
+\begin{center}
+\normalsize
+\begin{tabular}{l@{\hspace{5em}}l}
+
+\multicolumn{2}{c}{\includegraphics[scale=0.6] {logom.png}} \\
+\multicolumn{2}{c}{\sf\Large \company}\\
+\\
+Amara Corporate Tower \#16-1, & SISPARK II Room C102-1, \\
+100 Tras Street,         & 1355 Jinjihu Avenue, \\
+Singapore 079027.        & Suzhou, Jiangsu Province, \\
+                         & China. \\
+(Tel) +65 9830 0744 & (Tel) +86 512 6790 0636 \\
+(Fax) +65 6227 7177 & (Fax) +86 512 6790 0636 \\
+ www.cogenda.com & cn.cogenda.com \\
+contact@cogenda.com & shenchen@cn.cogenda.com \\
+\end{tabular}
+\end{center}
+\vspace{1cm}
+\null\restoregeometry
+}
+
+
+
+
+%%------------Chapter, Section, Subsection Style define------------------------------
+\titleformat{\chapter}[display]%
+  {\normalfont\ChapterFont\huge\color{myblueii}}%
+  {}%
+  {0pt}%
+  {
+    \begin{minipage}[t]{50pt}
+      \parbox[t]{45pt}{\raggedleft%
+      \color{mybluei}%
+      {\usefont{T1}{qhv}{n}{n}\selectfont\small\chaptertitlename}\\%
+      {\fontsize{40}{80}\selectfont\thechapter}}%
+    \end{minipage}
+    \begin{minipage}[t]{\dimexpr\textwidth-60pt}
+    \begin{mdframed}[linecolor=mybluei,linewidth=1pt,topline=false,rightline=false]%
+      \color{myblueii}\vskip\baselineskip%
+      \raggedright\chaptertitlefont #1%
+    \end{mdframed}
+    \end{minipage}
+  }
+
+\titleformat{name=\chapter,numberless}[display]%
+  {\normalfont\ChapterFont}%
+  {}%
+  {0pt}%
+  {\begin{mdframed}[linecolor=mybluei,linewidth=1pt,topline=false,rightline=false]%
+   \color{myblueii}\vskip\baselineskip%
+   \parbox[b]{\dimexpr\textwidth-12pt}{%
+   \raggedright\chaptertitlefont #1}%
+   \end{mdframed}%
+  }
+
+\titleformat{\section}%
+  {\normalfont\Large\sffamily\SectionFont\color{myblueii}}%
+  {\hspace*{\dimexpr-\marginparwidth-\marginparsep\relax}%
+  \color{myblueii}%
+  }
+  {0em}
+  {\rule{\dimexpr\textwidth+\marginparwidth+\marginparsep\relax}{1pt}%
+  \linebreak%\vspace*{1pc}%
+  #1}[\vskip-1em]
+
+\titleformat{\subsection}%
+  {\normalfont\large\sffamily\SectionFont\color{myblueii}}
+  {\hspace*{\dimexpr-\marginparwidth-\marginparsep\relax}%
+  \color{myblueii}%
+  }
+  {0em}
+  {#1}[\vskip-1.1em]
+
+\titleformat{\subsubsection}%
+  {\normalfont\large\sffamily\SectionFont\color{myblueii!80}}
+  {\hspace*{\dimexpr-\marginparwidth-\marginparsep\relax}%
+  \color{myblueii!80}%
+  }
+  {0em}
+  {#1}[\vskip-1.1em]
+  
+  
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\reversemarginpar
+
+\parindent=0pt
+\parskip=.8\baselineskip
+\titlespacing*{\chapter}{0pt}{0pt}{10mm}
+\titlespacing*{name=\chapter,numberless}{0pt}{0pt}{-10mm}
+
+\newcommand{\marginhead}[1]{\marginpar{\vspace*{1.4em}\color{myblueii}\raggedleft\SectionFont #1}} 
+%\newcommand{\marginhead}[1]{\marginpar{\color{myblueii}\raggedleft\SectionFont #1}} 
+
+\newenvironment{widetext}%
+{\begin{adjustwidth}{\dimexpr-\marginparwidth-\marginparsep}{}\flushright}%
+{\end{adjustwidth}}%
+\newcommand{\startwidetext}{\begin{widetext}}
+\newcommand{\stopwidetext}{\end{widetext}}
+
+\newcommand{\startGeniusCmdSynopsis}{\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},language=IDL]}
+\newcommand{\stopGeniusCmdSynopsis}{\end{lstlisting}}
+
+
+\newcommand{\gradientbox}[3]{%
+  \begin{tikzpicture}
+    \node[left color=#1,right color=#2] {#3};
+  \end{tikzpicture}%
+}
+
+\newcommand\bgd{
+\AddToShipoutPicture{%
+  \AtPageLowerLeft{%
+%    \rotatebox{90}{
+      \gradientbox{blue!20}{white}{%
+        \begin{minipage}{\paperwidth}%
+          \hspace*{ \stretch{1} }\textcopyright~2014 Cogenda.\hspace*{ \stretch{1} }
+        \end{minipage}%
+%      }
+    }%
+  }%
+}
+}
+
+\newcommand\rndcg{
+\begin{tikzpicture}[scale=2.6,remember picture, overlay]
+  \foreach \y in {1,0,...,-30} {
+      \foreach \x in {-1,0,...,20} {
+          \pgfmathparse{0.2*rnd+0.75}
+          \definecolor{rndc}{rgb}{\pgfmathresult,\pgfmathresult,0.9}
+          \path[fill=rndc] (\x,\y) rectangle ++(1,1); 
+      }
+  }
+%  \draw[step=1,help lines] (0,1) grid (21,-30); 
+%  \draw[->] (0,1) -- (1.2,1);
+%  \draw[->] (0,1) -- (0,-0.2);
+\end{tikzpicture}
+}
+\newcommand\bgdzj{\AddToShipoutPicture*{\AtPageUpperLeft{\rndcg}}}
+
+\newcommand\hex{
+\begin{tikzpicture}[scale=2.5,remember picture, overlay]
+%[hexa/.style= {shape=regular polygon, regular polygon sides=6, minimum size=1cm, draw, inner sep=0,anchor=south,}]
+
+\tikzset{
+    hexa/.style={
+      regular polygon,
+      regular polygon sides=6,
+      minimum size=2.3cm,
+      inner sep=0mm,
+      outer sep=0mm,
+      rotate=0,
+%    draw
+    }
+  }
+
+\foreach \x in {0,...,16}{% 
+     \ifodd\x 
+         \foreach \y in {0,...,20}
+            {
+              \pgfmathparse{0.2*rnd+0.75}
+              \definecolor{rndc}{rgb}{\pgfmathresult,\pgfmathresult,1}
+              \node[fill=rndc,hexa] at ({\x/2+\x/4},{(\y+1/2)*sin(60)}) {};}
+    \else
+         \foreach \y in {0,...,20}
+             {
+              \pgfmathparse{0.2*rnd+0.75}
+              \definecolor{rndc}{rgb}{\pgfmathresult,\pgfmathresult,1}
+              \node[fill=rndc,hexa] at ({\x/2+\x/4},{\y*sin(60)}) {};}
+    \fi}
+
+\end{tikzpicture}
+}
+\newcommand\bgdhex{\AddToShipoutPicture*{\AtPageLowerLeft{\hex}}}
+
+\newcommand\cgdtrb{\toprule\rowfont\bfseries}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fancy_style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-----------------------------------------------Header define------------------------------
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+\fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+%\fancyfoot[CO]{\bfseries \thepage} % except the center
+%\fancyhead[RO]{\thepage}
+\fancyhead{}%
+\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{heading}{%
+\fancyhf{} % clear all header and footer fields
+\fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+\fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+\fancyhead[L]{\gradientbox{white}{blue!40}{\begin{minipage}{\textwidth+\marginparwidth}{\nouppercase{\small\rightmark}}\end{minipage}}}
+%\fancyhead[L]{\rightmark}
+%\fancyhead[R]{\thepage}
+%\fancyhead[RE,LO]{\nouppercase{\small\rightmark}}
+\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrule}{{\color{blue!80}%
+     \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+}
+%%-----------------------------------------------Header define------------------------------
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+\fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+%\fancyfoot[CO]{\bfseries \thepage} % except the center
+%\fancyhead[RO]{\thepage}
+\fancyhead{}%
+\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{heading}{%
+\fancyhf{} % clear all header and footer fields
+\fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+\fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
+\fancyhead[L]{\gradientbox{white}{blue!40}{\begin{minipage}{\textwidth+\marginparwidth}{\nouppercase{\small\rightmark}}\end{minipage}}}
+%\fancyhead[L]{\rightmark}
+%\fancyhead[R]{\thepage}
+%\fancyhead[RE,LO]{\nouppercase{\small\rightmark}}
+\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrule}{{\color{blue!80}%
+     \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+}
+
+

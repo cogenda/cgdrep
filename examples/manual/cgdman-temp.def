@@ -1,0 +1,25 @@
+\def\eVolt{\text{eV}}
+\def\Percent{\text{\,\%}}
+\def\uMeter{~\mu \rm m}
+\def\Kelvin{\text{K}}
+\def\Per{\text{/}}
+\def\cMeter{\text{cm}}
+\def\Second{\text{s}}
+\def\Inverse{\,}
+\def\Cubic\cMeter{cm$^3$}
+
+\newcommand\Volt{{\rm V}}
+\newcommand\ISquare{}
+\newcommand\ttsl{}
+\newcommand\low{}
+\newcommand\Hertz{hz}
+\newcommand\Ampere{{\rm Amp}}
+\newcommand\IdentifierType{}
+\newcommand\FilenameType{}
+\newcommand\Watt{}
+\newcommand\Square{}
+\newcommand\Ohm{}
+\newcommand\Farad{}
+\newcommand\Henry{}
+\newcommand\Joule{}
+

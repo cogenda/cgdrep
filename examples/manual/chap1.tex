@@ -1,0 +1,2187 @@
+\chapter{Physics in Genius Device Simulator}
+
+Since Gummel's original work, the drift-diffusion model has been widely used in the semiconductor device simulation. It is now the de facto industry standard in this field.
+
+The original DD model can be achieved by following approximation from hydrodynamic model:
+\begin{itemize}
+\item Light speed is much faster than carrier speed.
+\item All the collision is elastic.
+\item Bandgap does not change during collision.
+\item Carrier temperature equals to lattice temperature and keeps equilibrium.
+\item The gradient of driving force should keep small.
+\item Carrier degenerate can be neglected.
+\end{itemize}
+
+Some improvements have been applied to DD model for extend its capability. These "patches" of course make things complex, but they can deal with real problems.
+
+This chapter describes the DD model and its variations used by GENIUS code for describing semiconductor device behavior as well as physical based parameters such as mobility, recombination rate and son on.
+
+\section{Level 1 Drift-Diffusion Equation}
+\label{sec:Equation:DDML1}
+Level 1 Drift-Diffusion ($\mathbf{DDML1}$) \index{DDML1!Equation}is the fundamental solver of GENIUS code for lattice temperature keeps constant though out the solve procedure.
+
+The primary function of $\mathbf{DDML1}$ is to solve the following set of partial differential equations, namely Poisson's equation, along with the hole and electron continuity equations:
+
+\marginhead{Poisson's Equation}
+\begin{equation}
+\nabla \cdot \varepsilon \nabla \psi = - q\left( p - n + {N_D}^+ - {N_A}^- \right)
+\end{equation}
+\par
+\par
+\index{Poisson's Equation}where, $\psi$ is the electrostatic potential of the vacuum level. This choice makes the description of metal-oxide-semiconductor contact and heterojunction easier. $n$ and $p$ are the electron and hole concentration, ${N_D}^{+}$ and ${N_A}^{-}$ are the ionized impurity concentrations. $q$ is the magnitude of the charge of an electron.
+
+The relationship of conduct band $E_c$, valence band $E_v$ and vacuum level $\psi$ is:
+\begin{equation}\begin{array}{l}
+ E_c  =-q\psi-\chi-\Delta E_c \\
+ E_v  =E_c-E_g+\Delta E_v.
+\end{array}\end{equation}
+
+Here, $\chi$ is the electron affinity. $E_g$ is the bandgap of semiconductor. $\Delta E_c$ and $\Delta E_v$ are the bandgap shift caused by heavy doping or mechanical strain.
+
+Furthermore, the relationship of vacuum level $\psi$ and intrinsic Fermi potential $\psi_ {\rm intrinsic}$ is:
+\begin{equation}
+\psi = \psi _{\rm intrinsic} - \frac{\chi}{q} - \frac{E_g}{2q} - \frac{k_b T}{2q}\ln \left(\frac{N_c}{N_v} \right)
+\end{equation}
+
+The reference $0\eVolt$ of energy is set to intrinsic Fermi level of equilibrium state in GENIUS.
+
+\marginhead{Continuity Equations}\index{Continuity equation!DDML1}The continuity equations for electrons and holes are defined as follows:
+
+\begin{equation}\begin{array}{l}
+\displaystyle \frac{\partial n}{\partial t}  = \frac{1}{q}\nabla \cdot \vec{J}_n - (U - G) \\
+\displaystyle \frac{\partial p}{\partial t}  = - \frac{1}{q}\nabla \cdot \vec{J}_p - (U - G)
+\end{array}\end{equation}
+
+where $\vec{J}_n$ and $\vec{J}_p$ are the electron and hole current densities, $U$ and $G$ are the recombination and generation rates for both electrons and holes.
+
+\marginhead{Drift-Diffusion Current Equations}\index{Drift-diffusion current!DDML1}The current densities $\vec{J}_n$ and $\vec{J}_p$ are expressed in terms of the level 1 drift-diffusion model here.
+
+\begin{equation} \label{eq:Equation:DDML1:DDMCurrent}
+\begin{array}{l}
+ \vec{J}_n  = q\mu_n n \vec{E}_n + q D_n \nabla n \\
+ \vec{J}_p  = q\mu_p p \vec{E}_p - q D_p \nabla p
+\end{array}\end{equation}
+where $\mu_n$ and $\mu_p$ are the electron and hole mobilities. $D_n=\frac{k_bT}{q}\mu_n$ and $D_p=\frac{k_bT}{q}\mu_p$ are the electron and hole diffusivities, according to Einstein relationship.
+
+\marginhead{Effective Electrical Field}$\vec{E}_n$ and $\vec{E}_p$ are the effective driving electrical field to electrons and holes, which related to local band diagram. The band structure of heterojunction has been taken into account here \cite{Lindefelt1994}.
+
+\begin{equation}\label{eq:Equation:DDML1:DrivingField}\begin{array}{l}
+\displaystyle \vec{E}_n  = \frac{1}{q}\nabla E_c - \frac{k_b T}{q}\nabla \left( \ln (N_c ) - \ln (T^{3/2} ) \right) \\
+\displaystyle \vec{E}_p  = \frac{1}{q}\nabla E_v + \frac{k_b T}{q}\nabla \left( \ln (N_v ) - \ln (T^{3/2} ) \right)
+\end{array}\end{equation}
+The lattice temperature keeps uniform throughout $\mathbf{DDML1}$, the above temperature gradient item takes no effect in fact.
+
+By substituting drift-diffusion model into the current density expressions, and combining with Poisson's equation, the following basic equations for $\mathbf{DDML1}$ are obtained:
+
+\begin{equation}\begin{array}{l}
+\displaystyle \frac{\partial n}{\partial t}  = \nabla \cdot \left (\mu_n n \vec{E}_n + \mu_n\frac{k_b T}{q}\nabla n \right) - (U - G) \\
+\displaystyle \frac{\partial p}{\partial t}  = -\nabla \cdot \left (\mu_p p\vec{E}_p - \mu_p\frac{k_b T}{q}\nabla p \right) - (U - G)  \\
+\displaystyle \nabla \cdot \varepsilon \nabla \psi  = - q(p - n + {N_D}^{+} - {N_A}^{-} )
+\end{array}\end{equation}
+
+$\mathbf{DDML1}$ is suitable for PN diode, BJT transistor and long gate MOSFET simulation. It is robust, and runs pretty fast for real work. The detailed discretization scheme can be found at [[TODO]].
+
+\section{Level 2 Drift-Diffusion Equation} \label{sec:Equation:DDML2}\index{DDML2!Equation}
+The Level 2 DD model considers the influence of lattice temperature by solving the extra thermal equation simultaneously with the electrical equations. Also, the formula of drift-diffusion equation should be modified according to \cite{Selberherr1984}.
+
+\index{Drift-diffusion current!DDML2}The electron diffusion current in $\mathbf{DDML1}$ can be written as:
+\begin{equation}
+{\vec{J}}_{n,{\rm diff}} = \frac{k_b T}{q}\mu_n q\nabla n = k_b T\mu_n \nabla n
+\end{equation}
+
+\marginhead{Temperature Gradient Correction}But for DDML2, it has the form of
+\begin{equation}
+{\vec{J}}_{n,{\rm diff}} = \mu_n k_b (T\nabla n + n\nabla T)
+\end{equation}
+
+The hole diffusion current should be modified in the same manner.
+\begin{equation}
+{\vec{J}}_{p,{\rm diff}} = -\mu_p k_b (T\nabla p + p\nabla T)
+\end{equation}
+
+\marginhead{Heat Flow Equation}\index{Heat flow equation!DDML2}The following heat flow equation is used:
+\begin{equation}
+\rho c_p \frac{\partial T}{\partial t} = \nabla \cdot \kappa \nabla T + \vec{J} \cdot \vec{E} + (E_g + 3k_b T) \cdot (U - G)
+\end{equation}
+where $\rho$ is the mass density of semiconductor material. $c_p$ is the heat capacity. $\kappa$ is the thermal conductivity of the material. $\vec{J}\cdot\vec{E}$ is the joule heating of current.
+$(E_g + 3k_b T) \cdot (U - G)$ is lattice heating due to carrier recombination and generation.
+
+From above discussion, the governing equations for DDML2 are as follows:
+\begin{equation}\begin{array}{l}
+\displaystyle \frac{\partial n}{\partial t}  = \nabla \cdot \left(\mu_n n \vec{E}_n + \mu_n \frac{k_b T}{q}\nabla n + \mu_n \frac{k_b \nabla T}{q} n\right) - \left( {U - G} \right) \\
+\displaystyle \frac{\partial p}{\partial t}  = -\nabla \cdot \left(\mu_p p \vec{E}_p - \mu_p \frac{k_b T}{q}\nabla p - \mu_p \frac{k_b \nabla T}{q} p\right) - \left( {U - G} \right) \\
+\displaystyle \nabla \cdot \varepsilon \nabla \psi  = - q\left( {p - n + {N_D}^+ - {N_A}^ - } \right)  \\
+\displaystyle \rho c_p \frac{\partial T}{\partial t}  = \nabla \cdot \kappa \nabla T + \vec{J} \cdot \vec{E} + (E_g + 3k_b T) \cdot (U - G)
+\end{array}\end{equation}
+This model can be used as power transistor simulation as well as breakdown simulation. Unfortunately, nearly all the physical parameters are related with temperature. They should be considered during self consistent simulation, which greatly slows down the speed. The $\mathbf{DDML2}$ solver runs $50-70\Percent$ slower than $\mathbf{DDML1}$. However, it seems no convergence degradation happens in most of the case. The discretization scheme can be found at [[TODO]].
+
+\section{Level 3 Energy Balance Equation}\label{sec:Equation:EBML3} \index{EBML3!Equation}
+Energy Balance Model \cite{PISCES-2ET} is introduced into GENIUS code for simulating short channel MOSFET. This is a simplification of full hydrodynamic (HD) model \cite{Aste2003}. The current density expressions from the drift-diffusion model are modified to include additional coupling to the carrier temperature. Also, reduced carrier energy conservation equations, which derived from second order moment of Boltzmann Transport Equation, are solved consistently with drift-diffusion model. The simplification from HD to EB makes sophisticated Scharfetter-Gummel discretization still can be used in the numerical solution, which ensures the stability.
+
+\marginhead{Current Equation for EBM}\index{Drift-diffusion current!EBML3}
+The current density $\vec{J}_n$ and $\vec{J}_p$ are then expressed as:
+\begin{equation}\begin{array}{l}
+ \vec{J}_n  = q\mu_n n \vec{E}_n + k_b \mu_n \left( {n\nabla T_n + T_n \nabla n} \right)  \\
+ \vec{J}_p  = q\mu_p p \vec{E}_p - k_b \mu_p \left( {p\nabla T_p + T_p \nabla p} \right)
+\end{array}\end{equation}
+where, $T\_n$ and $T\_p$ are electron and hole temperature, respectively. The difference between above equations and carrier density equations in $\mathbf{DDML2}$ is lattice temperature replaced by carrier temperature.
+
+\marginhead{Energy Balance Equations}\index{Energy-balance equation!EBML3}
+In addition, the energy balance model includes the following electron and hole energy balance equations:
+\begin{equation}\begin{array}{l}
+\displaystyle \frac{\partial \left( {n\omega _n } \right)} {\partial t} + \nabla \cdot \vec{S}_n  = \vec{E}_n \cdot \vec{J}_n +H_n \\
+\displaystyle \frac{\partial \left( {p\omega _p } \right)} {\partial t} + \nabla \cdot \vec{S}_p = \vec{E}_p \cdot \vec{J}_p +H_p
+\end{array}\end{equation}
+where, $\omega _n$ and $\omega _p$ are electron and hole energy. For HD model, the carrier energy includes thermal and kinetic terms $\omega _c =\frac{3}{2}k_bT_c + \frac{1}{2}m^* v_c^2$, but only thermal energy for EB model $\omega _c = \frac{3}{2}k_bT_c$. Here $c$ stands for $n$ or $p$. $\omega_0=\frac{3}{2}k_bT$ is the carrier equilibrium energy, for carrier temperature equals to lattice temperature.
+
+$\vec{S}_n$ and $\vec{S}_p$ are the flux of energy:
+
+\begin{equation}\begin{array}
+\displaystyle \vec{S}_n  = - \kappa _n \nabla T_n - \left( \omega_n + k_b T_n \right) \frac{\vec{J}_n} {q}  \\
+\displaystyle \vec{S}_p  = - \kappa _p \nabla T_p + \left( \omega_p + k_b T_p \right) \frac{\vec{J}_p} {q}
+\end{array}\end{equation}
+The heat conductivity parameter for carriers can be expressed as:
+
+\begin{equation}
+\kappa_c=(\frac{2}{5}+\gamma)\frac{{k_b}^2}{q}T_c\mu_cc
+\end{equation}
+where $c$ stands for $n$ and $p$, respectively. The constant parameter $\gamma$ equals $-0.7$ in the GENIUS software.
+\par
+The $H_n$ and $H_p$ are the rate of net loss of
+      carrier kinetic energy:
+\par
+\startwidetext
+\begin{subequations}
+\begin{align}
+ H_n =  \left( R_{\rm Aug} - G \right) \cdot \left( E_g + \frac{3k_b T_p } {2} \right) -
+        \frac{3k_b T_n } {2}\left( R_{\rm SHR} + R_{\rm dir} - G \right) 
+  -\frac{{n\left( {\omega _n - \omega _0 } \right)}}{{\tau _n }} \\
+ H_p =  \left( R_{\rm Aug} - G \right) \cdot \left( E_g + \frac{3k_b T_n } {2} \right) -
+        \frac{3k_b T_p}{2}\left( R_{\rm SHR} + R_{\rm dir} - G \right) 
+  - \frac{p\left( \omega _p - \omega _0 \right)}{\tau _p }
+\end{align}
+\end{subequations}
+\stopwidetext
+\marginhead{Lattice Heat Equation for EBM}\index{Heat flow equation!EBML3}At last, the lattice heat flow equation should be rewritten as:
+\par
+\par
+\begin{equation}
+\rho c_p \frac{\partial T}{\partial t} = \nabla \cdot \kappa \nabla T + H
+\end{equation}
+where
+\par
+\begin{equation}
+H = R_{\rm SHR} \cdot \left( E_g + \frac{3k_b T_p } {2} + \frac{3k_b T_n } {2} \right) + \frac{
+        n\left( \omega _n - \omega _0 \right)} {\tau _n } + \frac{p\left( \omega _p - \omega _0 \right)}{\tau _p
+        }
+\end{equation}
+The carrier energy is mainly contributed by joule heating term $\vec{E}_c\cdot
+      \vec{J}_c$, and heating (cooling) due to carrier generation (recombination) term. The carriers exchange
+      energy with lattice by collision, which described by energy relaxation term
+$\tau_{\omega
+      _c}$. This model is suitable for sub-micron MOS (channel length
+$1\sim 0.1
+      \uMeter$) and advanced BJT simulation. However, the computation burden of EB method is much higher than
+      DD. And the convergence of EB solver is difficult to achieve, which requires more strict initial value and more
+      powerful inner linear solver. The discretization scheme can be found at [[TODO]].
+\par
+From above discussion, all the governing equations of DD/EB method is elliptical or parabolic. From
+      mathematic point of view, does not like hyperbolic system\footnote{One have to face discontinuous problem, i.e. shock wave.}, the solution of elliptical or parabolic system is always smooth. The required numerical technique
+      is simple and mature for these systems. As a result, the DD and EB method is preferred against full hydrodynamic
+      method.
+\par
+
+\section{Band Structure Model}
+The band structure parameters, including bandgap $E_g$, effective density of
+      states in the conduction band $N_c$ and valence band $N_v$, and intrinsic carrier concentration
+$n_{ie}$, are the most
+      important and fundamental physical parameters for semiconductor material
+\cite[Sze1981]{}.
+\par
+\marginhead{Effective Density of States}Effective density of states\index{Density of states!effective}
+in the conduction and valence band are defined as follows:
+\par
+\par
+\begin{subequations}
+\begin{align}
+ N_{c}  \equiv 2\left( \frac{{m_{n}}^{*}k_{b}T}{2\pi\hbar^2}\right)^{3/2}\\
+ N_{v}  \equiv 2\left( \frac{{m_{p}}^{*}k_{b}T}{2\pi\hbar^2}\right)^{3/2}
+\end{align}
+\end{subequations}
+The temperature dependencies of effective density of states is fairly simple:
+\par
+\begin{subequations}
+\begin{align}
+ N_{c}\left(T\right) = N_c \left( 300\Kelvin \right)\left( \frac{T}{300\Kelvin}\right)^{1.5}\\
+ N_{v}\left(T\right)  = N_v \left( 300\Kelvin \right)\left( \frac{T}{300\Kelvin}\right)^{1.5}
+\end{align}
+\end{subequations}
+\marginhead{Bandgap}The bandgap in GENIUS is expressed as follows:
+\par
+\par
+\begin{subequations}
+\begin{align}
+ E_g (T) = E_g (0) - \frac{\alpha T^{\rm 2} }{T + \beta} \\
+  =E_g (300) + \alpha\left[ \frac{300^{\rm 2} }{300 + \beta} - \frac{T^2}{T + \beta} \right]
+\end{align}
+\end{subequations}
+\marginhead{Bandgap Narrowing due to Heavy Doping}When bandgap narrowing effects\index{Bandgap narrowing!Slotboom model}
+due to heavy doping takes place \cite[Slotboom1977]{}, the band edge shifts:
+\par
+\par
+\begin{equation}
+\Delta E_g = \frac{E_{\rm bgn}}{2k_b T}\left[ \ln \frac{N_{\rm total}}{N_{\rm ref}} + \sqrt {\left(
+        \ln \frac{N_{\rm total}}{N_{\rm ref}} \right)^2 + C_{\rm bgn}} \right].
+\end{equation}
+The intrinsic concentration should be modified:
+\par
+\begin{equation}
+n_{ie}=\sqrt{N_c N_v } \exp\left(-\frac{E_g}{2 k_b T} \right) \cdot \exp(\Delta E_g)
+\end{equation}
+Since the carrier current \eqref{eq:Equation:DDML1:DrivingField},
+p. \pageref{eq:Equation:DDML1:DrivingField} involves the energy level of
+      conduction band $N_{c}$ and valence band $N_{v}$, the
+      bandgap shift should be attributed to them. The bandgap narrowing is attributed half to the conduction band and
+      another half to the valence band as default:
+\par
+\begin{subequations}
+\begin{align}
+ E_c'  =E_c-\frac{1}{2}\Delta E_g \\
+ E_v'  =E_v+\frac{1}{2}\Delta E_g
+\end{align}
+\end{subequations}
+The parameters used in the default band structure model is listed in
+\ref{tab:Equation:Band:Default:Param}, p. \pageref{tab:Equation:Band:Default:Param}.
+\par
+
+
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:Band:Default:Param}Parameters of the Default band structure model}\\
+\cgdtrb
+ Symbol
+& Parameter
+& Unit
+& Silicon
+& GaAs\\
+\hline
+$E_g(300)$
+& $\mathbf{EG300}$
+& $\eVolt$
+& 1.1241
+& 1.424
+\\
+ $\alpha$
+& $\mathbf{EGALPH}$
+& $\eVolt\Per\Kelvin$
+& $2.73\times10^{-4}$
+& $5.405\times10^{-4}$
+\\
+ $\beta$
+& $\mathbf{EGBETA}$
+& $\Kelvin$
+& $0$
+& $204$
+\\
+ $E_{\rm bgn}$
+& $\mathbf{V0.BGN}$
+& $\eVolt$
+& $6.92\times10^{-3}$
+& 0
+\\
+ $N_{\rm ref}$
+& $\mathbf{N0.BGN}$
+& $cm^3$
+& $1.30\times10^{17}$
+& $1\times10^{17}$
+\\
+ $C_{\rm bgn}$
+& $\mathbf{CON.BGN}$
+& -
+& $0.5$
+& $0.5$
+\\
+ $m_n$
+& $\mathbf{ELECMASS}$
+& $m_0$
+& $1.0903$
+& $0.067$
+\\
+ $m_p$
+& $\mathbf{HOLEMASS}$
+& $m_0$
+& $1.1525$
+& $0.6415$
+\\
+ $N_c(300)$
+& $\mathbf{NC300}$
+& $cm^3$
+& $2.86\times10^{19}$
+& $4.7\times10^{17}$
+\\
+ $N_v(300)$
+& $\mathbf{NV300}$
+& $cm^3$
+& $3.10\times10^{19}$
+& $7.0\times10^{18}$\\
+\bottomrule
+\end{longtabu}
+
+\subsection{Band structure of compound semiconductors}
+[[TODO]]
+\par
+\subsubsection{Band Structure of SiGe}
+[[TODO]]
+\par
+\subsubsection{Band Structure of Tertiary Compound Semiconductor}
+[[TODO]]
+\par
+\marginhead{Bandgap}[[TODO]]
+\par
+\par
+\marginhead{Electron Affinity}[[TODO]]
+\par
+\par
+\marginhead{Effective Mass}[[TODO]]
+\par
+\par
+\marginhead{Density of States}[[TODO]]
+\par
+\par
+\subsection{Schenk's Bandgap Narrowing Model}
+[[TODO]] Equations of Schenk's model
+\par
+The Schenk's bandgap narrowing model is available for silicon, and can be loaded with the option
+$\mathbf{Schenk}$ in the $\mathbf{PMI}$ command.
+\par
+\section{Carrier Recombination}
+Three recombination mechanisms are considered in GENIUS at present, including Shockley-Read-Hall, Auger, and
+      direct (or radiative) recombination. The total recombination is considered as the sum of all:
+\par
+\begin{equation}
+U = U_n = U_p = U_{\rm SRH} + U_{\rm dir} + U_{\rm Auger}
+\end{equation}
+where $U_{\rm SRH}$, $U_{\rm dir}$ and $U_{\rm Auger}$ are SRH recombination, direct recombination and Auger recombination,
+      respectively.
+\par
+\marginhead{SRH Recombination}Shockley-Read-Hall (SRH) recombination\index{SRH recombination} see index ''Shockley-Read-Hall recombination''
+rate is determined by the following formula:
+\par
+\par
+\begin{equation}
+U_{\rm SRH}=\dfrac{pn-{n_{ie}}^2}{\tau_p\left[n+n_{ie}\exp\left(\dfrac{\bf
+        ETRAP}{kT_L}\right)\right]+\tau_n\left[p+n_{ie}\exp\left(\dfrac{ -{\bf ETRAP}}{kT_L}\right)\right]}
+\end{equation}
+where $\tau_n$ and $\tau_p$ are carrier life
+      time\index{Carrier life-time}, which dependent on impurity concentration
+\cite[Roulston1982]{}.
+\par
+\begin{subequations}
+\begin{align}
+ \tau_n  =\frac{{\bf TAUN0}}{1+N_{\rm total}/ {\bf NSRHN}} \\
+ \tau_p  =\frac{{\bf TAUP0}}{1+N_{\rm total}/ {\bf NSRHP}}
+\end{align}
+\end{subequations}
+\marginhead{Auger Recombination}The Auger recombination\index{Auger recombination}
+is a three-carrier recombination process, involving either two electrons and one hole or two
+        holes and one electron. This mechanism becomes important when carrier concentration is large.
+\par
+\par
+\begin{equation}
+U_{\rm Auger}={\bf AUGN} \left(pn^2-n{n_{ie}}^2 \right)+{\bf AUGP}(np^2-p{{n_{ie}}^2})
+\end{equation}
+where $\mathbf{AUGN}$ and $\mathbf{AUGP}$ are Auger coefficient for electrons and
+      holes. The value of Auger recombination $U_{\rm Auger}$ can be negative some times,
+      which refers to Auger generation.
+\par
+\marginhead{Direct Recombination}The direct recombination\index{Direct recombination}
+model expresses the recombination rate as a function of the carrier concentrations
+$n$ and $p$, and the effective intrinsic density $n_{ie}$:
+\par
+\par
+\begin{equation}
+U_{\rm dir}={\bf DIRECT}(np-{n_{ie}}^2)
+\end{equation}
+The default value of the recombination parameters are listed in
+\ref{tab:Equation:Recomb:Param}, p. \pageref{tab:Equation:Recomb:Param}:
+\par
+
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:Recomb:Param}Default values of recombination parameters} \\
+\cgdtrb
+ Parameter
+& Unit
+& Silicon
+& GaAs
+& Ge\\
+\hline
+$\mathbf{ETRAP}$
+& $\eVolt$
+& 0
+& 0
+& 0
+\\
+ $\mathbf{DIRECT}$
+& $cm^3s^{-1}$
+& 1.1e-14
+& 7.2e-10
+& 6.41e-14
+\\
+ $\mathbf{AUGN}$
+& $cm^6s^{-1}$
+& 1.1e-30
+& 1e-30
+& 1e-30
+\\
+ $\mathbf{AUGP}$
+& $cm^6s^{-1}$
+& 0.3e-30
+& 1e-29
+& 1e-30
+\\
+ $\mathbf{TAUN0}$
+& $\Second$
+& 1e-7
+& 5e-9
+& 1e-7
+\\
+ $\mathbf{TAUP0}$
+& $\Second$
+& 1e-7
+& 3e-6
+& 1e-7
+\\
+ $\mathbf{NSRHN}$
+& $cm^3$
+& 5e16
+& 5e17
+& 5e16
+\\
+ $\mathbf{NSRHP}$
+& $cm^3$
+& 5e16
+& 5e17
+& 5e16\\
+\bottomrule
+\end{longtabu}
+
+\marginhead{Surface Recombination}At semiconductor-insulator interfaces, additional SRH recombination can be introduced. The surface
+        recombination rate has the unit $cm^{-2}s{-1}$, and is calculated
+        with
+\par
+\par
+\begin{equation}
+U_{\rm Surf}=\dfrac{pn-{n_{ie}}^2}{\dfrac{1}{\bf STAUN}\left(n+n_{ie}\right)+\dfrac{1}{\bf
+        STAUP}\left(p+n_{ie}\right)}.
+\end{equation}
+The surface recombination velocities, $\mathbf{STAUN}$ and $\mathbf{STAUP}$, have
+      the unit of \cMeter\Per\Second, and the default value of 0.
+\par
+\section{Mobility Models}
+\label{sec:Equation:Mobility}
+Carrier mobility is one of the most important parameters in the carrier transport model. The DD model
+      itself, developed at early 1980s, is still being used today due to advanced mobility model enlarged its ability to
+      sub-micron device.
+\par
+Mobility modeling is normally divided into: low field behavior, high field behavior and mobility in the
+      (MOS) inversion layer.
+\par
+The low electric field behavior has carriers almost in equilibrium with the lattice. The low-field mobility
+      is commonly denoted by the symbol $\mu_{n0}$, $\mu_{p0}$.
+      The value of this mobility is dependent upon phonon and impurity scattering. Both of which act to decrease the low
+      field mobility. Since scattering mechanism is depended on lattice temperature, the low-field mobility is also a
+      function of lattice temperature.
+\par
+The high electric field behavior shows that the carrier mobility declines with electric field because the
+      carriers that gain energy can take part in a wider range of scattering processes. The mean drift velocity no
+      longer increases linearly with increasing electric field, but rises more slowly. Eventually, the velocity doesn't
+      increase any more with increasing field but saturates at a constant velocity. This constant velocity is commonly
+      denoted by the symbol $v_{sat}$. Impurity scattering is relatively insignificant for
+      energetic carriers, and so $v_{sat}$ is primarily a function of the lattice
+      temperature.
+\par
+Modeling carrier mobilities in inversion layers introduces additional complications. Carriers in inversion
+      layers are subject to surface scattering, carrier-carrier scattering, velocity overshoot and quantum mechanical
+      size quantization effects. These effects must be accounted for in order to perform accurate simulation of MOS
+      devices. The transverse electric field is often used as a parameter that indicates the strength of inversion layer
+      phenomena.
+\par
+It can be seen that some physical mechanisms such as velocity overshoot and quantum effect which can't be
+      described by DD method at all, can be taken into account by comprehensive mobility model. The comprehensive
+      mobility model extends the application range of DD method. However, when the EB method (which accounts for
+      velocity overshoot) and QDD method (including quantum effect) are used, more calibrations are needed to existing
+      mobility models.
+\par
+\subsection{Bulk Mobility Models}
+The first family of mobility models were designed to model the carrier transport at low electric fields.
+        They usually focus on the temperature and doping concentration dependence of the carrier mobilities. The
+        surface-related or transverse E-field effects are \emph{not}
+included in these models. On the
+        other hand, in GENIUS, these low-field mobilities models are coupled to a velocity saturation model to account
+        for the carrier velocity saturation effect. This family of mobility models are suitable for bulk device, such as
+        bipolar transistors.
+\par
+In brief, the low field carrier mobility is first computed, then a velocity saturation formula is applied
+        to yield the corrected mobility value. Three choices are available for the low-field mobility calculation, each
+        described in one of the following sub-sections. The choices of velocity saturation is described in the last
+        sub-section.
+\par
+\subsubsection{Analytic Mobility Model}
+\label{sec:Equation:Mobility:Bulk:Analytic}
+\index{mobility!Analytic model}In the GENIUS code, the Analytic Mobility model
+\cite[Selberherr1984P]{} is the
+          default low field mobility model for all the material. It is an concentration and temperature dependent
+          empirical mobility model expressed as:
+\par
+\begin{equation}
+\mu_{0}=\mu_{\rm min}+\dfrac{\mu_{\rm max}\left(\dfrac{T}{300}\right)^\nu-\mu_{\rm
+            min}}{1+\left(\dfrac{T}{300}\right)^\xi \left(\dfrac{N_{\rm total}}{N_{\rm ref}}\right)^\alpha}
+\end{equation}
+where $N_{\rm total}=N_A+N_D$ is the total impurity concentration.
+\par
+Default parameters for Si, GaAs and Ge are listed below:
+\par
+
+\setlength\LTleft{-3cm}
+\begin{longtable}{lllllll}
+\caption{\label{tab:Equation:Mobility:Analytic:Param}Default parameter values of the analytic mobility model}\\
+\toprule
+ Symbol
+& Parameter
+& Unit
+& Si:n
+& Si:p
+& GaAs:n
+& GaAs:p\\
+\hline
+ $\mu_{\rm min}$
+& $\mathbf{MUN.MIN}$ / $\mathbf{MUP.MIN}$
+& $cm^2V^{-1}s^{-1}$
+& 55.24
+& 49.70
+& 0.0
+& 0.0
+\\
+ $\mu_{\rm max}$
+& $\mathbf{MUN.MAX}$ / $\mathbf{MUP.MAX}$
+& $cm^2V^{-1}s^{-1}$
+& 1429.23
+& 479.37
+& 8500.0
+& 400.0
+\\
+ $\nu$
+& $\mathbf{NUN}$ / $\mathbf{NUP}$
+& -
+& -2.3
+& -2.2
+& -1.0
+& -2.1
+\\
+ $\xi$
+& $\mathbf{XIN}$ / $\mathbf{XIP}$
+& -
+& -3.8
+& -3.7
+& 0.0
+& 0.0
+\\
+ $\alpha$
+& $\mathbf{ALPHAN}$ / $\mathbf{ALPHAP}$
+& -
+& 0.73
+& 0.70
+& 0.436
+& 0.395
+\\
+ $N_{\rm ref}$
+& $\mathbf{NREFN}$ / $\mathbf{NREFP}$
+& $cm^{-3}$
+& 1.072e17
+& 1.606e17
+& 1.69e17
+& 2.75e17\\
+\bottomrule
+\end{longtable}
+\setlength\LTleft{\fill}
+
+
+In GENIUS, the analytic model is the simplest mobility model, and is available for a wide range of materials. For some materials, such as silicon, some more advanced mobility models are available.
+
+
+\par
+\par
+\subsubsection{Masetti Analytic Model}
+\label{sec:Equation:Mobility:Bulk:Masetti}
+\index{mobility!Masetii model}The doping-dependent low-field mobility model proposed by Masetti et
+          al.\cite[Masetti1983]{} is an alternative to the default analytic model. The general expression
+          for the low-field mobility is
+\par
+\begin{equation}
+\mu_{\rm dop} = \mu_{\rm min1} \exp\left( -\frac{P_c} {N_{\rm tot}} \right) + \frac{\mu_{\rm
+            const} - \mu_{\rm min2}}{1+\left( N_{\rm tot}/C_r \right)^\alpha } - \frac{\mu_1}{1 + \left( C_s/N_{\rm tot}
+            \right)^\beta }
+\end{equation}
+where $N_{\rm tot}$ is the total doping concentration. The term
+$\mu_{\rm const}$ is the temperature-dependent, phonon-limited mobility
+\par
+\begin{equation}
+\mu_{\rm const} = \mu_{\rm max} \left( \frac{T}{300} \right)^{\zeta}
+\end{equation}
+where $T$ is the lattice temperature.
+\par
+The parameters of the Masetti model is listed in \ref{tab:Equation:Mobility:Masetti:Param},
+p. \pageref{tab:Equation:Mobility:Masetti:Param}.
+          The Masetti model is the default mobility model for the 4H-SiC material.
+\par
+
+\setlength\LTleft{-1.4cm}
+\begin{longtable}{lllll}
+\caption{\label{tab:Equation:Mobility:Masetti:Param}Parameters of the Masetti mobility model}\\
+\toprule
+ Symbol
+& Parameter
+& Unit
+& 4H-SiC:n
+& 4H-SiC:p\\
+\hline
+$\mu_{\rm max}$
+& $\mathbf{MUN.MAX}$ / $\mathbf{MUP.MAX}$
+& $cm^2V^{-1}s^{-1}$
+& 947.0
+& 124.0
+\\
+ $\zeta$
+& $\mathbf{MUN.ZETA}$ / $\mathbf{MUP.ZETA}$
+& -
+& 1.962
+& 1.424
+\\
+ $\mu_{\rm min1}$
+& $\mathbf{MUN.MIN1}$ / $\mathbf{MUP.MIN1}$
+& $cm^2V^{-1}s^{-1}$
+& 0
+& 15.9
+\\
+ $\mu_{\rm min2}$
+& $\mathbf{MUN.MIN2}$ / $\mathbf{MUP.MIN2}$
+& $cm^2V^{-1}s^{-1}$
+& 0
+& 15.9
+\\
+ $\mu_1$
+& $\mathbf{MUN1}$ / $\mathbf{MUP1}$
+& $cm^2V^{-1}s^{-1}$
+& 0
+& 0
+\\
+ $P_c$
+& $\mathbf{PCN}$ / $\mathbf{PCP}$
+& $cm^{-3}$
+& 0
+& 0
+\\
+ $C_r$
+& $\mathbf{CRN}$ / $\mathbf{CRP}$
+& $cm^{-3}$
+& $1.94\times 10^{17}$
+& $1.76\times 10^{19}$
+\\
+ $C_s$
+& $\mathbf{CSN}$ / $\mathbf{CSP}$
+& $cm^{-3}$
+& 0
+& 0
+\\
+ $\alpha$
+& $\mathbf{MUN.ALPHA}$ / $\mathbf{MUP.ALPHA}$
+& -
+& 0.61
+& 0.34
+\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+ $\beta$
+& $\mathbf{MUN.BETA}$ / $\mathbf{MUP.BETA}$
+& -
+& 0
+& 0\\
+\bottomrule
+\end{longtable}
+\setlength\LTleft{\fill}
+
+
+\par
+\subsubsection{Philips Mobility Model}
+\label{sec:Equation:Mobility:Bulk:Philips}
+\index{mobility!Philips model}Another low field mobility model implemented into GENIUS is the Philips Unified Mobility model
+\cite[Klaassen1992-1]{},\cite[Klaassen1992-2]{}. This model takes into account the
+          distinct acceptor and donor scattering, carrier-carrier scattering and carrier screening, which is recommended
+          for bipolar devices simulation.
+\par
+The electron mobility is described by the following expressions:
+\par
+\begin{equation}
+{\mu_{0,n}}^{-1} = {\mu_{{\rm Lattice},n}}^{-1} + {\mu _{D + A + p}}^{-1}
+\end{equation}
+where $\mu_{0,n}$ is the total low field electron mobilities, $\mu_{{\rm Lattice},n}$
+is the electron mobilities due to lattice scattering, $\mu_{D + A + p}$
+is the electron and hole mobilities due to donor (D), acceptor (A),
+          screening (P) and carrier-carrier scattering.
+\par
+\begin{equation}
+\mu_{{\rm Lattice},n}=\mu_{\rm max} \left( \frac{T}{300} \right)^{-2.285}
+\end{equation}
+\begin{equation}
+\mu _{D + A + p} = \mu_{1,n} \left( \frac{N_{{\rm sc,}n}}{N_{{\rm sc,eff,}n}} \right) \left(
+            \frac{N_{\rm ref}}{N_{{\rm sc,}n} } \right)^\alpha + \mu_{2,n} \left( \frac{n + p}{N_{{\rm sc,eff,}n}}
+            \right)
+\end{equation}
+The parameters $\mu_{1,n}$ and $\mu_{2,n}$ are
+          given as:
+\par
+\begin{subequations}
+\begin{align}
+ \mu_{1,n}  = \frac{ \mu_{\rm max }^2 }{ \mu_{\rm max } - \mu_{\rm min } }
+            \left(\frac{T}{300} \right)^{3\alpha - 1.5} \\
+ \mu_{2,n}  = \frac{ \mu_{\rm max } \cdot \mu_{\rm min } }{ \mu_{\rm max } - \mu_{\rm min}
+            } \left( \frac{300}{T} \right)^{1.5}
+\end{align}
+\end{subequations}
+where ${N_{{\rm sc,}n} }$ and ${N_{{\rm
+          sc,eff,}n}}$ is the impurity-carrier scattering concentration and effect impurity-carrier scattering
+          concentration given by:
+\par
+\begin{subequations}
+\begin{align}
+N_{{\rm sc,}n} = {N_D}^* + N_A^* + p \\
+N_{{\rm sc,eff,}n} = {N_D}^* + {N_A}^* G\left( {P_n } \right) + \frac{p}{ F\left( {P_n } \right)
+            }
+\end{align}
+\end{subequations}
+where $N_D^*$ and $N_A^*$ take ultra-high doping
+          effects into account and are defined by:
+\par
+\begin{subequations}
+\begin{align}
+ {N_D}^* = N_D \left( 1 + \dfrac{1}{C_D + \left( \dfrac{N_{D,{\rm ref}}}{N_D} \right)^2 }
+            \right) \\
+ {N_A}^* = N_A \left( 1 + \dfrac{1}{C_A + \left( \dfrac{N_{A,{\rm ref}}}{N_A } \right)^2 }
+            \right)
+\end{align}
+\end{subequations}
+The screening factor functions $G\left( P_n \right)$ and $F\left( P_n \right)$
+take the repulsive potential for acceptors and the finite mass of
+          scattering holes into account.
+\par
+\startwidetext
+\begin{equation}
+G\left( P_n \right) = 1 - \frac{0.89233}{\left[ 0.41372 + P_n \left(
+            \frac{m_0}{m_e}\frac{T}{300} \right)^{0.28227} \right]^{0.19778} } + \frac{0.005978}{\left[ P_n \left(
+            \frac{m_e}{m_0}\frac{T}{300} \right)^{0.72169} \right]^{1.80618}}
+\end{equation}
+\stopwidetext
+\begin{equation}
+F\left( P_n \right) = \frac{0.7643{P_n}^{0.6478} + 2.2999 + 6.5502\frac{m_e}{m_h} }
+            {{P_n}^{0.6478} + 2.3670 - 0.8552\frac{m_e}{m_h} }
+\end{equation}
+The $P_n$ parameter that takes screening effects into account is given
+          by:
+\par
+\begin{equation}
+P_n = \left[ {\frac{ f_{cw} }{ N_{\rm sc,ref} \cdot {N_{{\rm sc,}n}}^{-2/3} } + \dfrac{ f_{BH}
+            }{ \dfrac{ N_{\rm c,ref} } {n + p}\left( \dfrac{m_e}{m_0} \right)}} \right]^{-1} \left( \frac{T}{300}
+            \right)^2
+\end{equation}
+Similar expressions hold for holes. The default parameters for Philips model are listed in
+\ref{tab:Equation:Mobility:Philips:Param}, p. \pageref{tab:Equation:Mobility:Philips:Param}:
+\par
+
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:Mobility:Philips:Param}Default values of Philips mobility model parameters} \\
+\cgdtrb
+ Symbol
+& Parameter
+& Unit
+& Si:n
+& Si:p\\
+\hline
+ $\mu_{\rm min}$
+& $\mathbf{MMNN.UM}$ / $\mathbf{MMNP.UM}$
+& $cm^2V^{-1}s^{-1}$
+& 55.24
+& 49.70
+\\
+ $\mu_{\rm max}$
+& $\mathbf{MMXN.UM}$ / $\mathbf{MMXP.UM}$
+& $cm^2V^{-1}s^{-1}$
+& 1417.0
+& 470.5
+\\
+ $\alpha$
+& $\mathbf{ALPN.UM}$ / $\mathbf{ALPP.UM}$
+& -
+& 0.68
+& 0.719
+\\
+ $N_{\rm ref}$
+& $\mathbf{NRFN.UM}$ / $\mathbf{NRFP.UM}$
+& $cm^{-3}$
+& 9.68e16
+& 2.23e17
+\\
+ $C_D$
+& $\mathbf{CRFD.UM}$
+& -
+& 0.21
+& 0.21
+\\
+ $C_A$
+& $\mathbf{CRFA.UM}$
+& -
+& 0.5
+& 0.5
+\\
+ $N_{\rm D,ref}$
+& $\mathbf{NRFD.UM}$
+& $cm^{-3}$
+& 4.0e20
+& 4.0e20
+\\
+ $N_{\rm A,ref}$
+& $\mathbf{NRFA.UM}$
+& $cm^{-3}$
+& 7.2e20
+& 7.2e20
+\\
+ $m_e$
+& $\mathbf{me_over_m0}$
+& $m_0$
+& 1.0
+& -
+\\
+ $m_h$
+& $\mathbf{mh_over_m0}$
+& $m_0$
+& -
+& 1.258
+\\
+ $f_{cw}$
+&
+& -
+& 2.459
+& 2.459
+\\
+ $f_{BH}$
+&
+& -
+& 3.828
+& 3.828
+\\
+ $N_{\rm sc, ref}$
+& $\mathbf{NSC.REF}$
+& $cm^{-2}$
+& 3.97e13
+& 3.97e13
+\\
+ $N_{\rm c,ref}$
+& $\mathbf{CAR.REF}$
+& $cm^{-3}$
+& 1.36e20
+& 1.36e20\\
+\bottomrule
+\end{longtabu}
+In the actual code, Philips model is corrected by Caughey-Thomas expression for taking high field
+          velocity saturation effects into account. This model can be loaded by
+$\mathbf{Philips}$ keyword
+          in the $\mathbf{PMI}$ statements.
+\par
+\subsubsection{Velocity Saturation}
+\label{sec:Equation:Mobility:Bulk:VSat}
+\index{velocity saturation}
+\par
+\marginhead{Silicon-like materials}\index{velocity saturation!Caughey-Thomas model}For silicon-like materials, the Caughey-Thomas expression
+\cite[Caughey1967]{}, is
+            used:
+\par
+\par
+\begin{equation}
+\mu = \dfrac{\mu _{0} }{\left[ 1 + \left( \dfrac{\mu _{0} E_{\parallel} }{v_{\rm sat} }
+            \right)^\beta \right]^{1/\beta} }
+\end{equation}
+where $E_{\parallel}$ is the electric field parallel to current flow.
+$v_{\rm sat}$ is the saturation velocities for electrons or holes. They are
+          computed by default from the expression:
+\par
+\begin{equation}
+v_{\rm sat} (T) = \frac{ v_{\rm sat0} }{ 1 + \alpha \cdot \exp \left( \frac{T}{600} \right)
+            }
+\end{equation}
+The parameters and the default values for silicon is listed in \ref{tab:Equation:Vsat:Si:Param},
+p. \pageref{tab:Equation:Vsat:Si:Param}.
+\par
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:Vsat:Si:Param}Velocity saturation parameters of silicon-like materials} \\
+\cgdtrb
+ Symbol
+& Parameter
+& Unit
+& Si:n
+& Si:p\\
+\hline
+$v_{\rm sat0}$
+& $\mathbf{VSATN0}$ / $\mathbf{VSATP0}$
+& $\cMeter\Per\Second$
+& $2.4\times10^7$
+& $2.4\times10^7$
+\\
+ $\beta$
+& $\mathbf{BETAN}$ / $\mathbf{BETAP}$
+& -
+& 2.0
+& 1.0
+\\
+ $\alpha$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.A}$
+& -
+& 0.8
+& 0.8\\
+\bottomrule
+\end{longtabu}
+
+\marginhead{GaAs-like materials}\index{velocity saturation!GaAs-like}For GaAs-like materials, another expression due to
+\cite[Barnes1976]{} is used to
+            describe the negative differential resistance:
+\par
+\par
+\begin{equation}
+u = \frac{ \mu _{0} + \dfrac{ v_{sat} }{ E_{\parallel} } \left( \dfrac{E_{\parallel} }{ E_{0} }
+            \right)^4 } {1 + \left( \dfrac{E_{\parallel} }{ E_{0} } \right)^4 }
+\end{equation}
+where $E_{0}$ is the reference field, and the saturation velocity
+\par
+\begin{equation}
+v_{sat} (T) = A_{\rm vsat} - B_{\rm vsat} T
+\end{equation}
+The negative differential property of carrier mobility is described in this model. When electric field
+          increases in this model, the carrier drift velocity ($\mu E_{\parallel}$) reaches
+          a peak and then begins to decrease at high fields due to the transferred electron effect.
+\par
+The parameters are listed in \ref{tab:Equation:Vsat:GaAs:Param},
+p. \pageref{tab:Equation:Vsat:GaAs:Param}.
+\par
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:Vsat:GaAs:Param}Velocity saturation parameters of GaAs-like materials} \\
+\cgdtrb
+ Symbol
+& Parameter
+& Unit
+& GaAs:n
+& GaAs:p\\
+\hline
+ $A_{\rm vsat}$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.B}$
+& $\cMeter\Per\Second$
+& $1.13\times10^{7}$
+& $1.13\times10^{7}$
+\\
+ $B_{\rm vsat}$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.B}$
+& $\cMeter\Per\Second\Per\Kelvin$
+& $1.2\times10^{4}$
+& $1.2\times10^{4}$\\
+\bottomrule
+\end{longtabu}
+
+\par
+\marginhead{GaAs-specific model}\index{velocity saturation!hyper-tangent model}When using this model for GaAs MESFET device simulation, the negative differential property
+            may cause the drain output characteristics (current vs. voltage) exhibit an unrealistic oscillation
+            behavior. Another model to describe high field effects developed by Yeager
+\cite[Yeager1986]{} can be used.
+\par
+\par
+\begin{equation}
+\mu = \frac{v_{\rm sat} }{ E_{\parallel}} \tanh \left( \frac{\mu _0 E_{\parallel} } {v_{\rm sat}
+            } \right)
+\end{equation}
+This GaAs-specific model can be loaded by $\mathbf{Hypertang}$ keyword in
+$\mathbf{PMI}$ statement.
+\par
+\marginhead{4H-SiC-specific model}For 4H-SiC, the saturation velocity is calculated with the following formula
+\par
+\par
+\begin{equation}
+v_{sat} (T) = A_{\rm vsat} - B_{\rm vsat} \left( \frac{T}{300} \right)
+\end{equation}
+where the parameters are listed in
+\par
+\begin{longtabu}{llllll}
+\caption{\label{tab:Equation:Vsat:4HSiC:Param}Velocity saturation parameters of 4H-SiC} \\
+\cgdtrb
+ Symbol
+& Parameter
+& Unit
+& 4H-SiC:n
+& 4H-SiC:p\\
+\hline
+ $A_{\rm vsat}$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.B}$
+& $\cMeter\Per\Second$
+& $1.07\times10^{7}$
+& $8.37\times10^{6}$
+\\
+ $B_{\rm vsat}$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.B}$
+& $\cMeter\Per\Second$
+& $0$
+& $0$\\
+\bottomrule
+\end{longtabu}
+
+\subsection{Unified Mobility Models}
+The other family of mobility models are the unified mobility models. The effect of high transverse and
+        parallel E-field is an integral part in the design of these mobility models. As a result, these models are
+        recommended for silicon MOSFET simulation. On the other hand, the availability of the unified models is limited
+        to a few materials, such as silicon and silicon-germanium.
+\par
+\subsubsection{Lombardi Surface Mobility Model}
+\label{sec:Equation:Mobility:Unified:Lombardi}
+\index{mobility!Lombardi model}Along an insulator-semiconductor interface, the carrier mobilities can be substantially lower
+          than in the bulk of the semiconductor due to surface-related scattering. If no surface degradation is
+          considered, the drain-source current may exceed about
+$30\Percent$ for MOS
+          simulation.
+\par
+The Lombardi mobility model \cite[Lombardi1988]{} is an empirical model that is able to
+          describe the carrier mobility in the MOSFET inversion layer. The Lombardi model consists of three
+          components
+\par
+\begin{itemize}
+\item $\mu_b$, the doping-dependent bulk mobility. This component mainly
+                accounts for the ionized impurity scattering.
+\par
+\item $\mu_{\rm ac}$, the mobility degradation due to acoustic phonon
+                scattering in the inversion layer. Due to the quantum confinement in the potential well at the
+                interface, this mobility degradation is a strong function of the transverse electric field.
+\par
+\item $\mu_{\rm sr}$, the mobility degradation due to the surface roughness
+                scattering. This component is also a strong function of the transverse electric field.
+\par
+\end{itemize}
+To obtain the final value of carrier mobility, the three components are combined using the
+          Matthiessen's rule:
+\par
+\begin{equation}
+{\mu_{\rm s}}^{ - 1} = {\mu_b}^{-1} + {\mu _{\rm ac}}^{ - 1} + {\mu _{\rm
+            sr}}^{-1}.
+\end{equation}
+\marginhead{Bulk Component}The bulk mobility component in Lombardi's model is similar to that of Masetti's model, which
+            reads
+\par
+\par
+\begin{equation}
+\mu_b = \mu_0 \exp\left( -\frac{P_c} {N_{\rm tot}} \right) + \frac{\mu_{\rm max} -
+            \mu_0}{1+\left( N_{\rm tot}/C_r \right)^\alpha } - \frac{\mu_1}{1 + \left( C_s/N_{\rm tot} \right)^\beta
+            }
+\end{equation}
+\begin{equation}
+\mu_{\rm max} = \mu_2 \left( \frac{T}{300} \right)^\zeta
+\end{equation}
+\marginhead{Acoustic Phonon Component}The acoustic phonon limited mobility component is
+\par
+\par
+\begin{equation}
+\mu_{\rm ac} = \frac{B}{E_\bot} + \dfrac{C \cdot {N_{\rm total}}^{\lambda} }{ T \sqrt[3]{E_\bot}
+            }
+\end{equation}
+where $E_\bot$ is the transverse component of the electric field.
+\par
+\marginhead{Surface Roughness Component}Finally, the surface roughness limited mobility is expressed as
+\par
+\par
+\begin{equation}
+\label{eq:Equation:Mobility:Lombardi:SR}
+\mu_{\rm sr} = \frac{D}{E_{\bot}^{\gamma} }.
+\end{equation}
+The Lombardi model is uses the Caughey-Thomas model for velocity saturation calculation, see
+\nameref{sec:Equation:Mobility:Bulk:VSat}, p. \pageref{sec:Equation:Mobility:Bulk:VSat}
+for details.
+\par
+The parameters used in the Lombardi model is summarized in \ref{tab:Equation:Mobility:Lombardi:Param},
+p. \pageref{tab:Equation:Mobility:Lombardi:Param}.
+\par
+
+\setlength\LTleft{-1cm}
+\begin{longtable}{llllll}
+\caption{\label{tab:Equation:Mobility:Lombardi:Param}Parameters of Lombardi mobility model}\\
+\toprule
+ Symbol
+& Parameter
+& Unit
+& Si:n
+& Si:p\\
+\hline
+ $\alpha$
+& $\mathbf{EXN1.LSM}$ / $\mathbf{EXP1.LSM}$
+& -
+& 0.680
+& 0.719
+\\
+ $\beta$
+& $\mathbf{EXN2.LSM}$ / $\mathbf{EXP2.LSM}$
+& -
+& 2.0
+& 2.0
+\\
+ $\zeta$
+& $\mathbf{EXN3.LSM}$ / $\mathbf{EXP3.LSM}$
+& -
+& 2.5
+& 2.2
+\\
+ $\lambda$
+& $\mathbf{EXN4.LSM}$ / $\mathbf{EXP4.LSM}$
+& -
+& 0.125
+& 0.0317
+\\
+ $\gamma$
+& $\mathbf{EXN8.LSM}$ / $\mathbf{EXP8.LSM}$
+& -
+& 2.0
+& 2.0
+\\
+ $\mu_0$
+& $\mathbf{MUN0.LSM}$ / $\mathbf{MUP0.LSM}$
+& $cm^2V^{-1}s^{-1}$
+& $52.2$
+& $44.9$
+\\
+ $\mu_1$
+& $\mathbf{MUN1.LSM}$ / $\mathbf{MUP1.LSM}$
+& $cm^2V^{-1}s^{-1}$
+& $43.4$
+& $29.0$
+\\
+ $\mu_2$
+& $\mathbf{MUN2.LSM}$ / $\mathbf{MUP2.LSM}$
+& $cm^2V^{-1}s^{-1}$
+& $1417.0$
+& $470.5$
+\\
+ $P_c$
+& $\mathbf{PC.LSM}$
+& $cm^{-3}$
+& 0 (fixed)
+& $9.23\times 10^{16}$
+\\
+ $C_r$
+& $\mathbf{CRN.LSM}$ / $\mathbf{CRP.LSM}$
+& $cm^{-3}$
+& $9.68\times 10^{16}$
+& $2.23\times 10^{17}$
+\\
+ $C_s$
+& $\mathbf{CSN.LSM}$ / $\mathbf{CSP.LSM}$
+& $cm^{-3}$
+& $3.43\times 10^{20}$
+& $6.10\times 10^{20}$
+\\
+ $B$
+& $\mathbf{BN.LSM}$ / $\mathbf{BP.LSM}$
+& $\cMeter\Per\Second$
+& $4.75\times 10^{7}$
+& $9.93\times 10^{6}$
+\\
+ $C$
+& $\mathbf{CN.LSM}$ / $\mathbf{CP.LSM}$
+& -
+& $1.74\times 10^{5}$
+& $8.84\times 10^{5}$
+\\
+ $D$
+& $\mathbf{DN.LSM}$ / $\mathbf{DP.LSM}$
+& -
+& $5.82\times 10^{14}$
+& $2.05\times 10^{14}$
+\\
+ $v_{\rm sat0}$
+& $\mathbf{VSATN0}$ / $\mathbf{VSATP0}$
+& $\cMeter\Per\Second$
+& $2.4\times 10^7$
+& $2.4\times 10^7$
+\\
+ $\beta$
+& $\mathbf{BETAN}$ / $\mathbf{BETAP}$
+& -
+& 2.0
+& 1.0
+\\
+ $\alpha$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.A}$
+& -
+& 0.8
+& 0.8\\
+\bottomrule
+\end{longtable}
+\setlength\LTleft{\fill}
+Hewlett-Packard mobility model can be loaded by $\mathbf{Lombardi}$
+keyword in the $\mathbf{PMI}$ statement.
+\par
+\subsubsection{Lucent High Field Mobility Model}
+\label{sec:Equation:Mobility:Unified:Lucent}
+\index{mobility!Lucent model}The Lucent Mobility model \cite[Darwish1997]{}
+is an all-inclusive model which
+          suitable for MOS simulation. This model incorporates Philips Unified Mobility model and the Lombardi Surface
+          Mobility model, as well as accounting for high field effects. For low longitudinal field, the carrier mobility
+          is given by Matthiessen's rule:
+\par
+\begin{equation}
+\mu_{0} = \left[ \frac{1}{\mu_{\rm b}} + \frac{1}{\mu_{\rm ac} } + \frac{1}{\mu_{\rm sr} }
+            \right]^{-1}
+\end{equation}
+where $\mu_b$ is the bulk mobility comes from the Philips model, and
+$\mu_{\rm ac}$ and $\mu_{\rm sr}$ come from the Lombardi
+          model. The details of these models are described in \nameref{sec:Equation:Mobility:Bulk:Philips},
+p. \pageref{sec:Equation:Mobility:Bulk:Philips} and \nameref{sec:Equation:Mobility:Unified:Lombardi},
+p. \pageref{sec:Equation:Mobility:Unified:Lombardi}, and will not be repeated here.
+\par
+There is however a modification to the surface roughness formula
+\eqref{eq:Equation:Mobility:Lombardi:SR}, p. \pageref{eq:Equation:Mobility:Lombardi:SR}. The constant exponent
+$\lambda$ is
+          replaced by the following function
+\par
+\begin{equation}
+\lambda = A + \dfrac{ F\cdot (n+p) } { N_{\rm tot} ^ \nu }.
+\end{equation}
+The Lucent model uses the Caughey-Thomas model for velocity saturation calculation, see
+\nameref{sec:Equation:Mobility:Bulk:VSat}, p. \pageref{sec:Equation:Mobility:Bulk:VSat}
+for details.
+\par
+The parameters of the Lucent model is listed in \ref{tab:Equation:Mobility:Lucent:Param},
+p. \pageref{tab:Equation:Mobility:Lucent:Param}.
+\par
+
+\setlength\LTleft{-1.4cm}
+\begin{longtable}{lllll}
+\caption{\label{tab:Equation:Mobility:Lucent:Param}Default values of Lucent mobility model parameters} \\
+\toprule
+ Symbol
+& Parameter
+& Unit
+& Si:n
+& Si:p\\
+\hline
+ $\mu_{\rm min}$
+& $\mathbf{MMNN.UM}$ / $\mathbf{MMNP.UM}$
+& $cm^2V^{-1}s^{-1}$
+& 55.24
+& 49.70
+\\
+ $\mu_{\rm max}$
+& $\mathbf{MMXN.UM}$ / $\mathbf{MMXP.UM}$
+& $cm^2V^{-1}s^{-1}$
+& 1417.0
+& 470.5
+\\
+ $\alpha$
+& $\mathbf{ALPN.UM}$ / $\mathbf{ALPP.UM}$
+& -
+& 0.68
+& 0.719
+\\
+ $N_{\rm ref}$
+& $\mathbf{NRFN.UM}$ / $\mathbf{NRFP.UM}$
+& $cm^{-3}$
+& 9.68e16
+& 2.23e17
+\\
+ $C_D$
+& $\mathbf{CRFD.UM}$
+& -
+& 0.21
+& 0.21
+\\
+ $C_A$
+& $\mathbf{CRFA.UM}$
+& -
+& 0.5
+& 0.5
+\\
+ $N_{\rm D,ref}$
+& $\mathbf{NRFD.UM}$
+& $cm^{-3}$
+& 4.0e20
+& 4.0e20
+\\
+ $N_{\rm A,ref}$
+& $\mathbf{NRFA.UM}$
+& $cm^{-3}$
+& 7.2e20
+& 7.2e20
+\\
+ $m_e$
+& $\mathbf{me_over_m0}$
+& $m_0$
+& 1.0
+& -
+\\
+ $m_h$
+& $\mathbf{mh_over_m0}$
+& $m_0$
+& -
+& 1.258
+\\
+ $f_{cw}$
+&
+& -
+& 2.459
+& 2.459
+\\
+ $f_{BH}$
+&
+& -
+& 3.828
+& 3.828
+\\
+ $N_{\rm sc, ref}$
+& $\mathbf{NSC.REF}$
+& $cm^{-2}$
+& 3.97e13
+& 3.97e13
+\\
+ $N_{\rm c,ref}$
+& $\mathbf{CAR.REF}$
+& $cm^{-3}$
+& 1.36e20
+& 1.36e20
+\\
+ $v_{\rm sat0}$
+& $\mathbf{VSATN0}$ / $\mathbf{VSATP0}$
+& $\cMeter\Per\Second$
+& $2.4\times10^7$
+& 2.47
+\\
+ $\lambda$
+& $\mathbf{EXN4.LUC}$ / $\mathbf{EXP4.LUC}$
+& -
+& 0.0233
+& 0.0119
+\\
+ $\nu$
+& $\mathbf{EXN9.LUC}$ / $\mathbf{EXP9.LUC}$
+& -
+& 0.0767
+& 0.123
+\\
+ $A$
+& $\mathbf{AN.LUC}$ / $\mathbf{AP.LUC}$
+& -
+& $2.58$
+& $2.18$
+\\
+ $B$
+& $\mathbf{BN.LUC}$ / $\mathbf{BP.LUC}$
+& $\cMeter\Per\Second$
+& $3.61\times 10^{7}$
+& $1.51\times 10^{7}$
+\\
+ $C$
+& $\mathbf{CN.LUC}$ / $\mathbf{CP.LUC}$
+& -
+& $1.70\times 10^{4}$
+& $4.18\times 10^{3}$
+\\
+ $D$
+& $\mathbf{DN.LUC}$ / $\mathbf{DP.LUC}$
+& -
+& $3.58\times 10^{18}$
+& $3.58\times 10^{18}$
+\\
+ $F$
+& $\mathbf{FN.LUC}$ / $\mathbf{FP.LUC}$
+& -
+& $6.85\times 10^{-21}$
+& $7.82\times 10^{-21}$
+\\
+ $K$
+& $\mathbf{KN.LUC}$ / $\mathbf{KP.LUC}$
+& -
+& $1.70$
+& $0.90$
+\\
+ $v_{\rm sat0}$
+& $\mathbf{VSATN0}$ / $\mathbf{VSATP0}$
+& $\cMeter\Per\Second$
+& $2.4\times10^7$
+& $2.4\times10^7$
+\\
+ $\beta$
+& $\mathbf{BETAN}$ / $\mathbf{BETAP}$
+& -
+& 2.0
+& 1.0
+\\
+ $\alpha$
+& $\mathbf{VSATN.A}$ / $\mathbf{VSATP.A}$
+& -
+& 0.8
+& 0.8\\
+\bottomrule
+\end{longtable}
+\setlength\LTleft{\fill}
+
+The Lucent model can be loaded by $\mathbf{Lucent}$ keyword in the
+$\mathbf{PMI}$ statements. This is an accurate model recommended for MOS devices. However, its computation cost is higher
+          than other mobility models. At the same time, it is also less numerically stable.
+\par
+\par
+\subsubsection{Hewlett-Packard High Field Mobility Model}
+\label{sec:Equation:Mobility:Unified:HP}
+\index{mobility!HP model}It is reported that Hewlett-Packard mobility model
+\cite[Cham1986]{} achieves the
+          same accuracy as Lucent model with relatively small computational burden in the MOS simulation.
+\par
+This model also takes into account dependence on electric fields both parallel ($E_\parallel$) and perpendicular ($E_\bot$) to the direction
+          of current flow. The mobility is calculated from
+\par
+\begin{equation}
+\mu = \dfrac{\mu _{\bot} } {\sqrt {1 + \dfrac{ \left( \dfrac{\mu_{\bot} E_{\parallel} }{v_{c} }
+            \right)^2 } {\dfrac{\mu_{\bot} E_{\parallel} }{v_{c} } + \gamma } + \dfrac{\mu_{\bot} E_{\parallel} } {v_{s}
+            } } }
+\end{equation}
+where the tranverse field dependent component $\mu_{\bot}$ is given
+          as:
+\par
+
+
+\begin{equation}
+\mu_{\bot} = \  \mu_{0}   \text{if } N_{\rm total} > N_{\rm ref} \\
+             \dfrac{\mu_0}{ 1+\dfrac{E_{\bot}}{E_{\rm ref}} }
+\end{equation}
+
+
+The low field mobility $\mu_{0}$ is calculated from the $\mathbf{Analytic}$
+model, as described in \nameref{sec:Equation:Mobility:Bulk:Analytic},
+p. \pageref{sec:Equation:Mobility:Bulk:Analytic}.
+\par
+The parameters of the Hewlett-Packard mobility model and its default values for silicon is listed in
+\ref{tab:Equation:Mobility:HP:Param}, p. \pageref{tab:Equation:Mobility:HP:Param}.
+\par
+
+\setlength\LTleft{-1cm}
+\begin{longtable}{lllll}
+\caption{\label{tab:Equation:Mobility:HP:Param}Default values of HP mobility model parameters}\\
+\toprule
+ Symbol
+& Parameter
+& Unit
+& Si:n
+& Si:p\\
+\hline
+ $\mu_{\rm min}$
+& $\mathbf{MUN.MIN}$ / $\mathbf{MUP.MIN}$
+& $cm^2V^{-1}s^{-1}$
+& 55.24
+& 49.70
+\\
+ $\mu_{\rm max}$
+& $\mathbf{MUN.MAX}$ / $\mathbf{MUP.MAX}$
+& $cm^2V^{-1}s^{-1}$
+& 1429.23
+& 479.37
+\\
+ $\nu$
+& $\mathbf{NUN}$ / $\mathbf{NUP}$
+& -
+& -2.3
+& -2.2
+\\
+ $\xi$
+& $\mathbf{XIN}$ / $\mathbf{XIP}$
+& -
+& -3.8
+& -3.7
+\\
+ $\alpha$
+& $\mathbf{ALPHAN}$ / $\mathbf{ALPHAP}$
+& -
+& 0.73
+& 0.70
+\\
+ $N_{\rm ref}$
+& $\mathbf{NREFN}$ / $\mathbf{NREFP}$
+& $cm^{-3}$
+& $1.072\times 10^{17}$
+& $1.606\times 10^{17}$
+\\
+ $\mu_0$
+& $\mathbf{MUN0.HP}$ / $\mathbf{MUP0.HP}$
+& $cm^2V^{-1}s^{-1}$
+& 774.0
+& 250
+\\
+ $v_c$
+& $\mathbf{VCN.NP}$ / $\mathbf{VCP.HP}$
+& $cm.s^{-1}$
+& $4.9\times 10^6$
+& $2.928 \times 10^6$
+\\
+ $v_s$
+& $\mathbf{VSN.NP}$ / $\mathbf{VSP.HP}$
+& $cm.s^{-1}$
+& $1.036\times 10^7$
+& $1.2\times 10^7$
+\\
+ $\gamma$
+& $\mathbf{GN.HP}$ / $\mathbf{GP.HP}$
+& -
+& 8.8
+& 1.6
+\\
+ $N_{\rm ref}$
+& $\mathbf{NREFN}$ / $\mathbf{NREFP}$
+& $cm^{-3}$
+& $5\times 10^{17}$
+& $5\times 10^{17}$
+\\
+ $E_{\rm ref}$
+& $\mathbf{ECN.HP}$ / $\mathbf{ECP.HP}$
+& $V.cm^{-1}$
+& $5.5\times 10^5$
+& $2.78\times 10^5$\\
+\bottomrule
+\end{longtable}
+\setlength\LTleft{\fill}
+
+The Hewlett-Packard mobility model can be loaded by $\mathbf{HP}$
+keyword in the $\mathbf{PMI}$ statement.
+\par
+\subsection{Mobility Models of Complex Compound Semiconductors}
+[[TODO]]
+\par
+\subsection{Carrier Temperature Based Mobility Model}
+We should notice here, all the above mobility models are developed under the framework of DD method. Since
+        DD is an approximate model for semiconductor, the difference between DD model and real device is corrected by
+        mobility models! These mobility model contains some physical model that DD does not consider. For example, the
+        high field correction has already contains the effect of hot carriers. The surface mobility for MOSFET not only
+        considers the mobility degrade due to surface roughness, but also contains the effect caused by carrier
+        concentration decrease due to quantum well in inverse layer. These corrections extended the application range of
+        DD model, also make the mobility model rather complex.
+\par
+When the physical model is more accurate, the carrier mobility model can be less complicated. Thus, the
+        mobility models suitable for DD model may NOT be suitable for energy balance model. There are some mobility
+        models developed special for energy balance model \cite[PISCES-2ET]{}. However, they are yet to be
+        implemented in GENIUS.
+\par
+\section{Generation Model}
+\subsection{Impact Ionization}
+\label{sec:Equation:Generation:II}
+\index{Impact ionization}The generation rate of electron-hole pairs due to the carrier impact ionization (II) is generally
+        modeled as \cite[Sze1981]{}:
+\par
+\begin{equation}
+G^{II} = \alpha_n \dfrac{\left\vert \vec{J}_n \right\vert }{q} + \alpha_p \dfrac{ \left\vert
+          \vec{J}_p \right\vert }{q}
+\end{equation}
+where $\alpha_n$ and $\alpha_p$ are electron and
+        hole ionization coefficients, related with electrical field, material and temperature.
+\par
+Three models are implemented in Genius to calculate the ionization coefficient.
+\par
+\subsubsection{Selberherr Model}
+\index{Impact ionization!Selberherr model}Selberherr gives an empirical formula
+\cite[Selberherr1984]{}, based on the
+          expression derived by Chynoweth\cite[Chynoweth1958]{}:
+\par
+\begin{equation}
+\alpha _{n,p} = \alpha _{n,p}^\infty (T)\exp \left[ - \left( \frac{E_{n,p}^{\rm Crit} }{E_{n,p}
+            } \right)^{\gamma_{n,p}} \right]
+\end{equation}
+where $E_{n,p}$ is the magnitude of driving fields. When $\mathbf{EdotJ}$
+model is used, $E_{n,p}$ can be given by:
+\par
+\begin{subequations}
+\begin{align}
+ E_n = \frac{ \vec{E} \cdot \vec{J}_n } { \left\vert \vec{J}_n \right\vert }\\
+ E_p = \frac{ \vec{E} \cdot \vec{J}_p } { \left\vert \vec{J}_p \right\vert }
+\end{align}
+\end{subequations}
+and for $\mathbf{GradQf}$ model:
+\par
+\begin{subequations}
+\begin{align}
+ E_n = \left\vert \nabla \phi_{F_n} \right\vert \\
+ E_p = \left\vert \nabla \phi_{F_p} \right\vert
+\end{align}
+\end{subequations}
+where $E_{n,p}^{\rm Crit}=\dfrac{E_g}{q\lambda_{n,p}}$, for which
+$\lambda_{n,p}$ are the optical-phonon mean free paths for electrons and holes given
+          by:
+\par
+\begin{subequations}
+\begin{align}
+ \lambda_n (T) = \lambda_{n,0} \cdot \tanh \left( \dfrac{E_{\rm op}}{2k_b T} \right) \\
+ \lambda_p (T) = \lambda_{p,0} \cdot \tanh \left( \dfrac{E_{\rm op}}{2k_b T} \right)
+\end{align}
+\end{subequations}
+in the above expressions, $E_{op}$ is the optical-phonon energy.
+$\lambda_{n,0}$ and $\lambda_{p,0}$ are the phonon mean free
+          paths for electrons and holes at $300\Kelvin$.
+\par
+The temperature dependent factors $\alpha_n^\infty$ and $\alpha_p^\infty$
+are expressed as:
+\par
+\begin{subequations}
+\begin{align}
+ \alpha_n^\infty = \alpha_{n,0} + \alpha_{n,1} \cdot T + \alpha_{n,2} \cdot T^2\\
+ \alpha_p^\infty = \alpha_{p,0} + \alpha_{p,1} \cdot T + \alpha_{p,2} \cdot T^2
+\end{align}
+\end{subequations}
+The Selberherr model is the default avalanche model for many materials in Genius. One can also
+          explicitly load it with the option $\mathbf{Selberherr}$
+in the $\mathbf{PMI}$ statements.The parameters used for Selberherr model are listed in
+\ref{tab:Equation:II:Selberherr:Param}, p. \pageref{tab:Equation:II:Selberherr:Param}.
+\par
+
+\begin{longtabu}{llllll}
+\caption{\label{tab:Equation:II:Selberherr:Param}Default values of Impact Ionization model parameters} \\
+\cgdtrb
+ Symbol
+& Parameter
+& Unit
+& Silicon
+& GaAs
+& Ge\\
+\hline
+ $\lambda_{n,0}$
+& $\mathbf{LAN300}$
+& $\cMeter$
+& 1.04542e-6
+& 3.52724e-6
+& 6.88825e-7
+\\
+ $\lambda_{p,0}$
+& $\mathbf{LAP300}$
+& $\cMeter$
+& 6.32079e-7
+& 3.67649e-6
+& 8.39505e-7
+\\
+ $\gamma_{n}$
+& $\mathbf{EXN.II}$
+& -
+& 1.0
+& 1.6
+& 1.0
+\\
+ $\gamma_{p}$
+& $\mathbf{EXP.II}$
+& -
+& 1.0
+& 1.75
+& 1.0
+\\
+ $E_{\rm op}$
+& $\mathbf{OP.PH.EN}$
+& $\eVolt$
+& 6.3e-2
+& 3.5e-2
+& 3.7e-2
+\\
+ $\alpha_{n,0}$
+& $\mathbf{N.IONIZA}$
+& $\Inverse\cMeter$
+& 7.030e5
+& 2.994e5
+& 1.55e7
+\\
+ $\alpha_{n,1}$
+& $\mathbf{N.ION.1}$
+& $\Inverse\cMeter$
+& 0.0
+& 0.0
+& 0.0
+\\
+ $\alpha_{n,2}$
+& $\mathbf{N.ION.2}$
+& $\Inverse\cMeter$
+& 0.0
+& 0.0
+& 0.0
+\\
+ $\alpha_{p,0}$
+& $\mathbf{P.IONIZA}$
+& $\Inverse\cMeter$
+& 1.528e6
+& 2.215e5
+& 1e7
+\\
+ $\alpha_{p,1}$
+& $\mathbf{P.ION.1}$
+& $\Inverse\cMeter$
+& 0.0
+& 0.0
+& 0.0
+\\
+ $\alpha_{p,2}$
+& $\mathbf{P.ION.2}$
+& $\Inverse\cMeter$
+& 0.0
+& 0.0
+& 0.0\\
+\bottomrule
+\end{longtabu}
+
+\par
+\subsubsection{van Overstraeten - de Man model}
+\index{Impact ionization!van Overstraeten - de Man model}The model also uses the ionization coefficient derived by Chynoweth
+\cite[Chynoweth1958]{}
+\par
+\begin{equation}
+\alpha = \gamma a \exp \left( -\frac{ \gamma b }{ E } \right),
+\end{equation}
+where
+\par
+\begin{equation}
+\gamma = \dfrac{\tanh \left(\dfrac{\hbar\omega_{\rm op} }{2kT_0} \right) } { \tanh \left(
+            \dfrac{\hbar\omega_{\rm op}}{2kT} \right) }.
+\end{equation}
+The van Overstraeten - de Man model uses two sets of values for parameter
+$a$ and $b$ at high and low electric field. The threshold for
+          the switch is $E_0$.
+\par
+The parameters are listed in \ref{tab:Equation:II:Overstraeten:Param},
+p. \pageref{tab:Equation:II:Overstraeten:Param}.
+\par
+The van Overstraeten - de Man model is can be selected with the
+$\mathbf{vanOverstraetendeMan}$ option in the $\mathbf{PMI}$ command. It is the default
+          model for 4H-SiC, InN, InAs and InSb materials.
+\par
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:II:Overstraeten:Param}van Overstraeten - de Man Impact Ionization model parameters}\\
+\cgdtrb
+ Parameter
+& Parameter
+& Unit
+& 4H-SiC:n
+& 4H-SiC:p\\
+\hline
+ $b$
+& $\mathbf{AN.II.LO}$ / $\mathbf{AP.II.LO}$
+& $\Inverse\cMeter$
+& $4.2\times10^5$
+& $4.2\times10^5$
+\\
+ $b$
+& $\mathbf{AN.II.HI}$ / $\mathbf{AP.II.HI}$
+& $\Inverse\cMeter$
+& $4.2\times10^5$
+& $4.2\times10^5$
+\\
+ $b$
+& $\mathbf{BN.II.LO}$ / $\mathbf{BP.II.LO}$
+& $V/cm$
+& $1.67\times10^7$
+& $1.67\times10^7$
+\\
+ $b$
+& $\mathbf{BN.II.HI}$ / $\mathbf{BP.II.HI}$
+& $V/cm$
+& $1.67\times10^7$
+& $1.67\times10^7$
+\\
+ $E_0$
+& $\mathbf{E0N.II}$ / $\mathbf{EOP.II}$
+& $V/cm$
+& $4\times10^5$
+& $4\times10^5$
+\\
+ $\hbar\omega_{\rm op}$
+& $\mathbf{EN.OP.PH}$ / $\mathbf{EP.OP.PH}$
+& $\eVolt$
+& 1.0
+& 1.0\\
+\bottomrule
+\end{longtabu}
+
+\subsubsection{Valdinoci Model}
+\index{Impact ionization!Valdinoci model}GENIUS has another Valdinoci model for silicon device which has been reported to produce correct
+          temperature dependence of breakdown voltage of junction diodes as high as
+$400^{\circ}C$ \cite[Valdinoci1999]{}. It can be loaded with the
+$\mathbf{Valdinoci}$ option in the $\mathbf{PMI}$ statements.
+\par
+The electron impact ionization rate for Valdinoci model reads:
+\par
+\begin{equation}
+\alpha _n = \frac{E_{\parallel} } { a_n (T) + b_n (T) \exp \left( \dfrac{d_n(T)}{ E_{\parallel}
+            + c_n(T)} \right) }
+\end{equation}
+where
+\par
+\begin{subequations}
+\begin{align}
+ a_n(T) = {\bf A0N} + {\bf A1N} \cdot T^{\bf A2N} \\
+ b_n(T) = {\bf B0N} \cdot \exp \left( {\bf B1N} \cdot T \right) \\
+ c_n (T) = {\bf C0N} + {\bf C1N} \cdot T^{\bf C2N} + {\bf C3N} \cdot T^2 \\
+ d_n (T) = {\bf D0N} + {\bf D1N} \cdot T + {\bf D2N} \cdot T^2
+\end{align}
+\end{subequations}
+Similar expressions hold for holes. The parameters for Valdinoci model are listed in
+\ref{tab:Equation:II:Valdinoci:Param}, p. \pageref{tab:Equation:II:Valdinoci:Param}.
+\par
+\begin{longtabu}{lllll}
+\caption{\label{tab:Equation:II:Valdinoci:Param}Default values of Valdinoci Impact Ionization model parameters} \\
+\cgdtrb
+ Parameter
+& Silicon:n
+& Parameter
+& Silicon:p
+& Unit\\
+\hline
+$\mathbf{A0N}$
+& 4.3383
+& $\mathbf{A0P}$
+& 2.376
+& $V$
+\\
+ $\mathbf{A1N}$
+& $-2.42\times10^{-12}$
+& $\mathbf{A1P}$
+& 0.01033
+& $V \times K^{A2X}$
+\\
+ $\mathbf{A2N}$
+& 4.1233
+& $\mathbf{A2P}$
+& 1.0
+& -
+\\
+ $\mathbf{B0N}$
+& 0.235
+& $\mathbf{B0P}$
+& 0.17714
+& $\Volt$
+\\
+ $\mathbf{B1N}$
+& 0.0
+& $\mathbf{B1P}$
+& $-2.178\times10^{-3}$
+& $\Inverse\Kelvin$
+\\
+ $\mathbf{C0N}$
+& $1.6831\times10^4$
+& $\mathbf{C0P}$
+& 0.0
+& $V.cm^{-1}$
+\\
+ $\mathbf{C1N}$
+& 4.3796
+& $\mathbf{C1P}$
+& $9.47\times10^{-3}$
+& $V.cm^{-1}\Kelvin^{-{\bf C2X}}$
+\\
+ $\mathbf{C2N}$
+& 1.0
+& $\mathbf{C2P}$
+& 2.4924
+& -
+\\
+ $\mathbf{C3N}$
+& 0.13005
+& $\mathbf{C3P}$
+& 0.0
+& $V.cm^{-1}\ISquare\Kelvin$
+\\
+ $\mathbf{D0N}$
+& $1.233735\times10^6$
+& $\mathbf{D0P}$
+& $1.4043\times10^6$
+& $V.cm^{-1}$
+\\
+ $\mathbf{D1N}$
+& $1.2039\times10^3$
+& $\mathbf{D1P}$
+& $2.9744\times10^3$
+& $V.cm^{-1}\Inverse\Kelvin$
+\\
+ $\mathbf{D2N}$
+& 0.56703
+& $\mathbf{D2P}$
+& 1.4829
+& $V.cm^{-1}\ISquare\Kelvin$\\
+\bottomrule
+\end{longtabu}
+
+\par
+\subsection{Band-to-band Tunneling}
+\index{Band-to-band tunneling!Kane's model}
+\par
+\marginhead{Kane's model}The carrier generation by band-band tunneling
+$G^{BB}$ is also considered by
+          Genius, which can be expressed as \cite[Kane1959]{}\cite[Liou1990]{}:
+\par
+\par
+\begin{equation}
+G^{BB} = {\rm A.BTBT} \cdot \frac{E^2}{ \sqrt {E_g} } \cdot \exp \left( -{\rm B.BTBT} \cdot
+          \dfrac{ {E_g}^{3/2} }{E} \right)
+\end{equation}
+where $E$ is the magnitude of electrical field.
+\par
+\section{High Energy Particles}
+As a heavy ion passes through the device, it will interact with some silicon atoms and transfer energy to
+      the semiconductor lattice, which generates electron-hole pairs along it trajectory. The simulation of high-energy
+      particle and the energy deposition in semiconductor can be simulated with the Geant4 or other Monte Carlo
+      simulation tool. On the other hand, the generation of electron-hole pairs and the effects to the device behavior
+      must be simulated in a 3D device simulator.
+\par
+Assuming the proton hit the diode at $t=0\Second$, and the electron-hole
+      generation rate follows a Gaussian time dependence, with a maximum at
+$t_{\rm max}$,
+      and a characteristic time $\tau$, the carrier generation rate can be calculated
+      by
+\par
+\begin{equation}
+G = G_0 \exp \left[ -\frac{(t-t_{\rm max})^2}{2\tau^2} \right] .
+\end{equation}
+On the other hand, the Monte Carlo simulators such as Geant4 provides the total energy deposition data,
+      which relate to $G$ by
+\par
+\begin{equation}
+\label{eq:Particle:E}
+E = \eta \int\limits_0^{\infty} G_0 \exp \left[ -\frac{(t-t_{\rm max})^2}{2\tau^2} \right]
+        dt.
+\end{equation}
+where $\eta$ is the average energy loss for each generated electron-hole pair.
+      We therefore have the normalization factor
+\par
+\begin{equation}
+\label{eq:Particle:G0}
+G_0 = \frac{2E}{\eta \tau \sqrt{\pi}} .
+\end{equation}
+\section{Fermi-Dirac Statistics}
+\index{Fermi-Dirac distribution}In general, the electron and hole concentrations in semiconductors are defined by Fermi-Dirac
+      distributions and density of states:
+\par
+\begin{subequations}
+\begin{align}
+ n = N_c {\cal F}_{1/2} \left(\eta _n\right) \\
+ p = N_v {\cal F}_{1/2} \left(\eta _p\right)
+\end{align}
+\end{subequations}
+The $\eta _n$ and $\eta _p$ are defined as
+      follows:
+\par
+\begin{subequations}
+\begin{align}
+ \eta_n = \frac{ E_{F_n} - E_c }{k_b T} = {{\cal F}_{1/2}}^{-1} \left(\frac{n}{N_c}\right) \\
+ \eta_p = \frac{ E_v - E_{F_p} }{k_b T} = {{\cal F}_{1/2}}^{-1} \left(\frac{p}{N_v}\right)
+\end{align}
+\end{subequations}
+where $E_{F_n}$ and $E_{F_p}$ are the electron and
+      hole Fermi energies. The relationship of Fermi energy and Fermi potential is
+$E_{F_n}=-q\phi_n$, $E_{F_p}=-q\phi_p$.
+\par
+\marginhead{Evaluate Inverse Fermi Integral}${{\cal F}_{1/2}}^{-1}$
+is the inverse Fermi integral of order one-half. Joyce
+        and Dixon gives its approximation analytic expression in the year of 1977
+\cite[Joyce1977]{}, which
+        can be given by:
+\startwidetext
+\begin{equation}
+{{\cal F}_{1/2}}^{-1} (x) =   \log(x) + ax + bx^2 + cx^3 + dx^4 x < 8.463
+         \left[ \left( {\dfrac{3\sqrt \pi }{4} x} \right)^{3/4} - \dfrac{\pi^2}{6} \right]^{1/2}
+\end{equation}
+\stopwidetext
+otherwise,
+\begin{subequations}
+\begin{align}
+ a = 0.35355339059327379 \\
+ b = 0.0049500897298752622 \\
+ c = 1.4838577128872821 \times 10^{-4} \\
+ d = 4.4256301190009895 \times 10^{-6}
+\end{align}
+\end{subequations}
+In the GENIUS code, the $\eta _n$ and $\eta _p$ are
+      derived from carrier concentration by Joyce-Dixon expression.
+\par
+For convenience, we introduce floowing two parameters as referred by
+\cite[SEDAN1985]{}:
+\par
+\begin{subequations}
+\begin{align}
+ \gamma_n = \frac{ {\cal F}_{1/2} \left( \eta_n \right) } { \exp \left( \eta _n \right) }  \\
+ \gamma_p = \frac{ {\cal F}_{1/2} \left( \eta_p \right) } { \exp \left( \eta _p \right) }
+\end{align}
+\end{subequations}
+The carrier concentration for Fermi statistics and Boltzmann statistics can be described uniformly
+      by:
+\par
+\begin{subequations}
+\begin{align}
+ n = N_c \gamma_n \exp \left( \eta _n \right) \\
+ p = N_v \gamma_p \exp \left( \eta _p \right)
+\end{align}
+\end{subequations}
+where $\gamma_n=\gamma_p=1$ for Boltzmann statistics, and less than
+$1.0$ for Fermi statistics.
+\par
+\marginhead{DD Equation with Fermi Statistics}Consider the drift-diffusion current
+\eqref{eq:Equation:DDML1:DDMCurrent}, p. \pageref{eq:Equation:DDML1:DDMCurrent}
+when the carrier
+        satisfies Fermi statistics and forces zero net current in equilibrium state, one can get the modified current
+        equation, for which the Einstein relationship:
+\par
+\par
+\begin{subequations}
+\begin{align}
+ D_n = \frac{k_b T}{q} \mu_n \\
+ D_p = \frac{k_b T}{q} \mu_p
+\end{align}
+\end{subequations}
+should be replaced by:
+\par
+\begin{subequations}
+\begin{align}
+ D_n = \frac{k_b T}{q} \mu_n {\cal F}_{1/2} \left( \eta_n \right)/{\cal F}_{-1/2} \left(
+        \eta_n \right) \\
+ D_p = \frac{k_b T}{q} \mu_p {\cal F}_{1/2} \left( \eta _p \right)/{\cal F}_{-1/2} \left(
+        \eta_p \right)
+\end{align}
+\end{subequations}
+where ${\cal F}_{-1/2}$ is the Fermi integral of order minus one-half. The
+      corresponding current equation for electrons is
+\par
+\begin{equation}
+\label{eq:Equation:FermiDirac:Jn1}
+\vec{J}_n = \mu_n \left( qn \vec{E}_n + k_b T \lambda_n \nabla n \right)
+\end{equation}
+where
+\par
+\begin{equation}
+\lambda_n = \frac{ {\cal F}_{1/2} \left(\eta _n\right) } { {\cal F}_{-1/2} \left(\eta _n\right)
+        }
+\end{equation}
+The Fermi integral has an useful property:
+\par
+\begin{equation}
+\frac{\partial}{\partial \eta}{\cal F}_\nu (\eta) = {\cal F}_{\nu - 1} (\eta)
+\end{equation}
+From the above property, one can derive two useful derivatives:
+\par
+\begin{subequations}
+\begin{align}
+ \frac{\partial }{\partial n} \eta_n (n) = \frac{\lambda_n}{n} \\
+ \frac{\partial }{\partial n} \gamma_n (n) = \frac{ \gamma _n }{n} \left( {1 - \lambda_n } \right)
+\end{align}
+\end{subequations}
+With the two derivatives, \eqref{eq:Equation:FermiDirac:Jn1}, p. \pageref{eq:Equation:FermiDirac:Jn1}
+can be rewritten into the following
+      equivalent formula:
+\par
+\begin{equation}
+\vec{J}_n = \mu_n \left( qn \vec{E}_n + k_b T\nabla n - n k_b T\nabla \left( \ln \gamma _n \right)
+        \right)
+\end{equation}
+The last term is the modification to Einstein relationship, which can be combinated into potential term. As
+      a result, the current \eqref{eq:Equation:DDML1:DDMCurrent},
+p. \pageref{eq:Equation:DDML1:DDMCurrent} keeps unchanged, but the effective driving
+      force should be modified as:
+\par
+\begin{equation}
+\vec{E}_n = \frac{1}{q}\nabla E_c - \frac{k_b T}{q}\nabla \left( \ln (N_c ) - \ln (T^{3/2} ) \right)
+        - \frac{ k_b T}{q}{\nabla \left( \ln \gamma _n \right)}
+\end{equation}
+The same formula exists for holes:
+\par
+\begin{equation}
+\vec{E}_p = \frac{1}{q}\nabla E_v + \frac{k_b T}{q}\nabla \left( \ln (N_v ) - \ln (T^{3/2} ) \right)
+        + \frac{ k_b T}{q}{\nabla \left( \ln \gamma _p \right)}
+\end{equation}
+As a conclusion, when Fermi statistics is considered, the formula of DD method keeps unchanged, only an
+      extra potential term should be considered. However, Fermi statistics also effect the implement of Ohmic boundary
+      condition, please refer to [[TODO]]
+\par
+\chapter{Genius Command Reference}
+\section{Introduction}
+\subsection{Format of Input Card}
+GENIUS code takes its input from a user specified card file. Each line of the card file is a particular
+        statement, identified by the first keyword on the card. The remaining parts of the line are the parameters of
+        that statement. The statement has the format as follow:
+\par
+\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},language=IDL]
+KEYWORD [parameters]
+\end{lstlisting}
+The words on a line should be separated by blanks or tabs. If more than one line of input is necessary for
+        a particular statement, it may be continued on subsequent lines by placing a backslash sign \textbackslash{} as the last
+        non-blank character on the current line.
+\par
+GENIUS code parses the input file by GNU flex and bison. It first read the
+        pattern file located at \$GENIUS\_DIR/lib/genius.key
+which provides the keyword names and
+        parameter attributes before the parse work. After that, the grammar of user provide file is matched by this
+        pattern. With this flexible mechanism, adding new statement to GENIUS is fairly easy.
+\par
+Parameters may be one of five types: float, integer, bool, string or enumeration. The float point number
+        supports C style double precision real number. The integer value also supports C style integer. The bool value
+        can be True, On, False and Off. String value is made up of lower line, dot, blank, number and alpha characters.
+        The string should not begin with number; quotation marks are only needed when string contains blank. The
+        enumerate value is a string with its value in a limited range which is predefined in the pattern file. At last,
+        the length of string (including enumerate string) is limited to 80 characters.
+\par
+All the parameter specification has the same format as
+\par
+\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},language=IDL]
+parameter_name = [number|integer|bool|string|enumeration]
+\end{lstlisting}
+In the card descriptions, keywords, parameters, enumerate strings are not case sensitive. And their names
+        does not need to be typed in full; only enough characters to ensure unique identification is necessary. However
+        user input strings is case sensitive, because file name may be specified by the string. Comments must begin with
+        '\#' and can be either an separated line or locate at the end of current statement.
+\par
+\marginhead{The sequence of input deck}Most of the cards GENIUS used are sequence insensitive. The order of occurrence of cards is significant
+          in only two cases. The mesh generation cards must have the right order, or it can't work properly. And GENIUS
+          will execute the 'driven' cards sequentially. So the placement order of 'driven' cards will affect simulation
+          result.
