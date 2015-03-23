@@ -1,5 +1,6 @@
 \geometry{left=5.5cm, marginparwidth=3.5cm,right=2cm,bottom=1in}
 \newcommand\company{Cogenda Co. Ltd}
+\newdateformat{theyear}{\THEYEAR}
 
 \hypersetup{colorlinks,linkcolor={DarkBlue},citecolor={DarkRed},urlcolor={Blue}}
 \usetikzlibrary{calc,shapes.geometric}
@@ -8,6 +9,7 @@
 
 \definecolor{mybluei}{RGB}{88,147,119}
 \definecolor{myblueii}{RGB}{88,147,119}
+\definecolor{mygray}{RGB}{230,230,230}
 
 \newcommand\ChapterFont{\huge\huge\color{myblueii}}
 \newcommand\SectionFont{\usefont{T1}{qhv}{b}{n}\selectfont}
@@ -24,7 +26,8 @@
 
 \renewcommand\maketitle{%
 \pagestyle{empty}\newgeometry{margin=2cm}
-%\bgdhex
+\setcounter{page}{-20}
+\bgdhex
 %\bgd
 \null\vspace{4.0cm}
 \begin{flushright}
@@ -49,7 +52,7 @@
 
 \newcommand\backcover{
 \clearpage\pagestyle{empty}\newgeometry{margin=3cm}
-%\bgdhex
+\bgdhex
 \null
 \vfill
 % {\bf\Huge \CGD@value@title}\\ \\ {\sf\Large\CGD@value@mname}\\ \vspace{0.6cm}\\
@@ -148,15 +151,13 @@ contact@cogenda.com & shenchen@cn.cogenda.com \\
 \newcommand{\marginhead}[1]{\marginpar{\vspace*{1.4em}\color{myblueii}\raggedleft\SectionFont #1}} 
 %\newcommand{\marginhead}[1]{\marginpar{\color{myblueii}\raggedleft\SectionFont #1}} 
 
+\newenvironment{wtable}[2][\fill]
+{\rmfamily\footnotesize\setlength\LTleft{#1}\begin{longtable}{#2}}
+{\end{longtable}\setlength\LTleft{\fill}}
+
 \newenvironment{widetext}%
 {\begin{adjustwidth}{\dimexpr-\marginparwidth-\marginparsep}{}\flushright}%
 {\end{adjustwidth}}%
-\newcommand{\startwidetext}{\begin{widetext}}
-\newcommand{\stopwidetext}{\end{widetext}}
-
-\newcommand{\startGeniusCmdSynopsis}{\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},language=IDL]}
-\newcommand{\stopGeniusCmdSynopsis}{\end{lstlisting}}
-
 
 \newcommand{\gradientbox}[3]{%
   \begin{tikzpicture}
@@ -170,7 +171,7 @@ contact@cogenda.com & shenchen@cn.cogenda.com \\
 %    \rotatebox{90}{
       \gradientbox{blue!20}{white}{%
         \begin{minipage}{\paperwidth}%
-          \hspace*{ \stretch{1} }\textcopyright~2014 Cogenda.\hspace*{ \stretch{1} }
+          \hspace*{ \stretch{1} }\textcopyright~2008-{\theyear\today} Cogenda.\hspace*{ \stretch{1} }
         \end{minipage}%
 %      }
     }%
@@ -227,8 +228,9 @@ contact@cogenda.com & shenchen@cn.cogenda.com \\
 
 \end{tikzpicture}
 }
-\newcommand\bgdhex{\AddToShipoutPicture*{\AtPageLowerLeft{\hex}}}
 
+
+\newcommand\bgdhex{\AddToShipoutPicture*{\AtPageLowerLeft{\hex}}}
 \newcommand\cgdtrb{\toprule\rowfont\bfseries}
 
 
@@ -236,6 +238,7 @@ contact@cogenda.com & shenchen@cn.cogenda.com \\
 % fancy_style
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%-----------------------------------------------Header define------------------------------
+\setlength{\headheight}{21pt}
 \fancypagestyle{plain}{%
 \fancyhf{}
 \fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
@@ -252,34 +255,10 @@ contact@cogenda.com & shenchen@cn.cogenda.com \\
 \fancyhf{} % clear all header and footer fields
 \fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
 \fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
-\fancyhead[L]{\gradientbox{white}{blue!40}{\begin{minipage}{\textwidth+\marginparwidth}{\nouppercase{\small\rightmark}}\end{minipage}}}
-%\fancyhead[L]{\rightmark}
-%\fancyhead[R]{\thepage}
-%\fancyhead[RE,LO]{\nouppercase{\small\rightmark}}
-\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\renewcommand{\headrule}{{\color{blue!80}%
-     \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
-}
-%%-----------------------------------------------Header define------------------------------
-\fancypagestyle{plain}{%
-\fancyhf{}
-\fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
-\fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
-%\fancyfoot[CO]{\bfseries \thepage} % except the center
-%\fancyhead[RO]{\thepage}
-\fancyhead{}%
-\fancyfoot[RO,LE]{\small\ttfamily $\cdot$~\thepage~$\cdot$}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-}
 
-\fancypagestyle{heading}{%
-\fancyhf{} % clear all header and footer fields
-\fancyheadoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
-\fancyfootoffset[RE,LO]{\dimexpr\marginparsep+\marginparwidth}
-\fancyhead[L]{\gradientbox{white}{blue!40}{\begin{minipage}{\textwidth+\marginparwidth}{\nouppercase{\small\rightmark}}\end{minipage}}}
+%\fancyhead[L]{\gradientbox{blue!20}{white}{\nouppercase{\small\rightmark}}}
+\fancyhead[RE,LO]{\gradientbox{blue!20}{white}{\begin{minipage}{\textwidth+\marginparwidth}{\nouppercase{\small\rightmark}}\end{minipage}}}
+
 %\fancyhead[L]{\rightmark}
 %\fancyhead[R]{\thepage}
 %\fancyhead[RE,LO]{\nouppercase{\small\rightmark}}
@@ -291,3 +270,35 @@ contact@cogenda.com & shenchen@cn.cogenda.com \\
 }
 
 
+\lstset{
+  frame=tb,
+  commentstyle=\color{red!50!green!50!blue!50},
+  keywordstyle=\color{mybluei}\bfseries,
+  backgroundcolor=\color{mygray},
+  stringstyle=\ttfamily,
+  basicstyle=\footnotesize,
+  breaklines=true, 
+  breakautoindent=true
+}
+\lstdefinestyle{GeniusCmd}{
+  frame=tb,
+  commentstyle=\color{red!50!green!50!blue!50},
+  keywordstyle=\color{mybluei}\bfseries,
+  backgroundcolor=\color{mygray},
+  stringstyle=\ttfamily,
+  basicstyle=\footnotesize,
+  breaklines=true, 
+  breakautoindent=true
+}
+
+\lstdefinestyle{GeniusCode}{
+  frame=tb,
+  commentstyle=\color{blue!70},
+  keywordstyle=\color{red}\bfseries,
+  backgroundcolor=\color{mygray},
+  stringstyle=\ttfamily,
+  morekeywords={GLOBAL,ELIMINATE,MESH,HOOK}, 
+  basicstyle=\footnotesize,
+  breaklines=true, 
+  breakautoindent=true
+}

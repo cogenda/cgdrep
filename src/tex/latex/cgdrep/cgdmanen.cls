@@ -16,11 +16,9 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[font=small,labelfont=bf]{caption}
 
-\RequirePackage{amsmath,amssymb,amsfonts,array,booktabs,calc,changepage,esint,enumitem,eso-pic,fancyhdr,float,hyperref,ifxetex,listings,lmodern,longtable,makeidx,nameref,refstyle,siunitx,tabu,tcolorbox,tikz,times,units,varioref,xeCJK}%,tocloft,paralist
+\RequirePackage{amsmath,amssymb,amsfonts,array,booktabs,calc,changepage,datetime,esint,enumitem,eso-pic,fancyhdr,float,hyperref,ifxetex,listings,lmodern,longtable,makeidx,nameref,refstyle,siunitx,tabu,tcolorbox,tikz,times,units,varioref,xeCJK}%,tocloft,paralist
 
 \input{cgd-docattr.def}
 \input{cgd-style.def}
 \input{cgdman-style.def}
 \input{cgd-font-en.def}
-\input{cgdman-temp.def}
-

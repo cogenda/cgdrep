@@ -10,9 +10,9 @@ main.pdf: main.tex main.bib *.tex
 	[[ -d obj/ ]] || mkdir obj
 	xelatex $(PDFLATEX_FLAGS) main
 #	bibtex obj/main
-#	makeindex obj/main
-#	xelatex $(PDFLATEX_FLAGS) main
-#	xelatex $(PDFLATEX_FLAGS) main
+	makeindex obj/main
+	xelatex $(PDFLATEX_FLAGS) main
+	xelatex $(PDFLATEX_FLAGS) main
 	mv obj/main.pdf ./
 
 display: main.pdf
