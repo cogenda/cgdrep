@@ -35,6 +35,8 @@
 \RequirePackage{units}
 \RequirePackage{subfig,tikz}
 \RequirePackage{tabularx}
+\RequirePackage{makeidx}
+
 
 \hypersetup{colorlinks,linkcolor={DarkBlue},citecolor={DarkRed},urlcolor={Blue}}
 

@@ -1,4 +1,5 @@
 \documentclass{cgdrepcn}
+\makeindex
 \begin{document}
 \title{}                % 标题。上限 17 个汉字宽度，不可以换行。
 \subtitle{}             % 可选副标题。上限 20 个汉字，不可以换行。
@@ -28,14 +29,16 @@
 
 \frontmatter            % 封面页
 \tableofcontents        % 目录页
-\clearpage\listoffigures\listoftables\lstlistoflistings  % 根据需要，可以有插图目录、表的目录和代码目录
+%\clearpage\listoffigures\listoftables\lstlistoflistings  % 根据需要，可以有插图目录、表的目录和代码目录
 
 \mainmatter
 正文从这里开始。
+
 \LaTeX\cite{oetiker1995not} is great!
 % \input{introduction} \input{problem} % 建议章节用独立的 tex 文件。
 \appendix
 \bibliographystyle{ieeetr}
 \bibliography{main}
+\printindex{}
 \backmatter
 \end{document}
