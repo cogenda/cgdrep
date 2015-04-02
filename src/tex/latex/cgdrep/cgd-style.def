@@ -75,5 +75,17 @@
 \newcommand\guimenuitem[1]{\CGD@menu@box{#1}\let\guimenuitem\guimenuitema}
 \newcommand\guimenuitema[1]{\raisebox{1pt}{\color{Gray}▸}\CGD@menu@box{#1}}
 
+\newcommand*{\cleartoleftpage}{%
+  \clearpage
+    \if@twoside
+    \ifodd\c@page
+      \hbox{}\newpage
+      \if@twocolumn
+        \hbox{}\newpage
+      \fi
+    \fi
+  \fi
+}
+
 \endinput
 

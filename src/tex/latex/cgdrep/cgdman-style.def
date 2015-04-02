@@ -25,8 +25,7 @@
 \providecommand\CGD@value@mname{}
 
 \renewcommand\maketitle{%
-\pagestyle{empty}\newgeometry{margin=2cm}
-\setcounter{page}{-20}
+\pagestyle{empty}\pagenumbering{roman}\newgeometry{margin=2cm}
 \bgdhex
 %\bgd
 \null\vspace{4.0cm}
@@ -48,10 +47,16 @@
 \vspace{1.5cm}
 \null
 \restoregeometry
+
+\input{copyright}
+\cleardoublepage\pagestyle{plain}\pagenumbering{roman}
+\tableofcontents{}
+\cleardoublepage\pagestyle{heading}\pagenumbering{arabic}%\setcounter{page}{1}
 }
 
 \newcommand\backcover{
-\clearpage\pagestyle{empty}\newgeometry{margin=3cm}
+\cleartoleftpage\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{0}
+\newgeometry{margin=3cm}
 \bgdhex
 \null
 \vfill

@@ -26,6 +26,7 @@
 \newcommand\backmatter{%
 \setcounter{secnumdepth}{-2}  % turn off section numbering
 \setcounter{tocdepth}{-2}
+\backcover
 }
 
 \endinput
