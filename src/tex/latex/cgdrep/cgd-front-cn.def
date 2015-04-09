@@ -73,13 +73,12 @@
 \begin{flushright}
 {\small\CGD@value@docid} \\
 \fbox{\bf\CGD@value@classification} \\
-\CJKfamily{hei}\Large~\CGD@value@title:\CGD@value@subtitle~
+\CJKfamily{hei}\large~\CGD@value@fulltitle
 \end{flushright}
 \vfill
 \begin{center}
 \includegraphics[scale=0.6]{logo1.png} \\
 \CJKfamily{hei}\large 苏州珂晶达电子有限公司 \\
-{\small~\CGD@value@date~}\\
 \vspace{0.3cm} \null
 \end{center}
 }

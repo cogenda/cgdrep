@@ -1,21 +1,27 @@
-all: main_en.pdf
-
 ### Compilation Flags
 PDFLATEX_FLAGS  = -halt-on-error -output-directory obj/
 
 TEXINPUTS = .:obj/
 TEXMFOUTPUT = obj/
 
-main_en.pdf: main_en.tex 
-	[[ -d obj/ ]] || mkdir obj
-	xelatex $(PDFLATEX_FLAGS) main_en
-	bibtex obj/main_en
-	xelatex $(PDFLATEX_FLAGS) main_en
-	xelatex $(PDFLATEX_FLAGS) main_en
-	mv obj/main_en.pdf ./
+main.pdf: *.tex
+	if [ ! -d obj ]; then mkdir obj; fi
+	xelatex $(PDFLATEX_FLAGS) main
+	mv obj/main.pdf ./
+
+all: main.tex main.bib *.tex
+	if [ ! -d obj ]; then mkdir obj; fi
+	xelatex $(PDFLATEX_FLAGS) main
+	bibtex obj/main
+	makeindex obj/main
+	xelatex $(PDFLATEX_FLAGS) main
+	xelatex $(PDFLATEX_FLAGS) main
+	mv obj/main.pdf ./
+
+display: main.pdf
+	evince main.pdf
 
 clean:
 	rm -rf obj
-	rm -rf main_en.pdf
 
 

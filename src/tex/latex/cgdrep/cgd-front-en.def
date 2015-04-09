@@ -4,7 +4,7 @@
 \newcommand\docattr[1][]{\setkeys{docattr}{#1}}
 
 \renewcommand\maketitle{%
-\cleardoublepage\pagestyle{empty}
+\cleardoublepage\pagestyle{empty}\pagenumbering{roman}
 \noindent{\small\CGD@value@docid} \\
 \hfill \fbox{\bf\CGD@value@classification}
 \null\vspace{5.0cm}
@@ -77,6 +77,21 @@
     \thickhline \end{tabular}
   \fi
   \end{center}
+}
+
+\newcommand\backcover{
+\cleartoleftpage\pagestyle{empty}\pagenumbering{roman}\setcounter{page}{0}
+\begin{flushright}
+{\small\CGD@value@docid} \\
+\fbox{\bf\CGD@value@classification} \\
+\large~\CGD@value@fulltitle
+\end{flushright}
+\vfill
+\begin{center}
+\includegraphics[scale=0.6]{logo1.png} \\
+\sf\Large Cogenda Pte Ltd \\
+\vspace{2cm} \null
+\end{center}
 }
 
 \endinput
