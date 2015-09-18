@@ -112,7 +112,7 @@ Singapore 079027.        & Suzhou, Jiangsu Province, \\
 %    \rotatebox{90}{
       \gradientbox{thmch!30}{white}{%
         \begin{minipage}{\paperwidth}%
-          \hspace*{ \stretch{1} }\textcopyright~2008-{\theyear\today} Cogenda.\hspace*{ \stretch{1} }
+          \hspace*{ \stretch{1} }\textcopyright~2008-{\theyear\today} Cogenda Pte Ltd \hspace*{ \stretch{1} }
         \end{minipage}%
       }
 %    }%

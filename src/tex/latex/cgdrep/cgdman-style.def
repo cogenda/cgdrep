@@ -1,5 +1,5 @@
 \geometry{left=5.5cm, marginparwidth=3.5cm,right=2cm,bottom=1in}
-\newcommand\company{Cogenda Co. Ltd}
+\newcommand\company{Cogenda Pte Ltd}
 \newcommand\cmplg{\includegraphics[scale=0.6]{logom.png} \\  \fontspec{Gill Sans MT}\LARGE \company \\ }
 \newdateformat{theyear}{\THEYEAR}
 
@@ -11,7 +11,8 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-\definecolor{thmch}{rgb}{0,0,1}\newcommand\thmcc{\pgfmathresult,\pgfmathresult,1}
+\definecolor{thmch}{rgb}{0,0,1}
+\newcommand{\thmcc}{\pgfmathresult,\pgfmathresult,1}
 
 %\definecolor{mybluei}{RGB}{88,147,119}
 \definecolor{mybluei}{RGB}{20,70,50}
