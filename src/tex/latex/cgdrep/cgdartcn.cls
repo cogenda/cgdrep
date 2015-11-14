@@ -14,23 +14,42 @@
 \newcommand\kt{\CJKfamily{kaiti}}
 
 %%%% Chinese Headings
-\CTEXsetup[nameformat={\LARGE\bfseries}]{part}
-\CTEXsetup[titleformat={\LARGE\bfseries}]{part}
+\@ifclasslater{ctexart}{2015/06/19}
+{
+  \ctexset{
+    part = {
+      nameformat  = \LARGE\bfseries,
+      titleformat = \LARGE\bfseries
+    },
+    section = {
+      format      = \Large\bfseries\flushleft,
+      beforeskip  = .5ex plus .2ex minus 0.2ex,
+      afterskip   = .5ex plus .2ex
+    },
+    subsection = {
+      beforeskip  = .5ex plus .2ex minus 0.2ex,
+      afterskip   = .5ex plus .2ex
+    },
+    subsubsection = {
+      beforeskip  = .5ex plus .2ex minus 0.2ex,
+      afterskip   = .5ex plus .2ex
+    }
+  }
+}
+{
+  \CTEXsetup[nameformat={\LARGE\bfseries}]{part}
+  \CTEXsetup[titleformat={\LARGE\bfseries}]{part}
 
-\CTEXsetup[format={\flushleft}]{chapter}
-\CTEXsetup[nameformat={\LARGE\bfseries}]{chapter}
-\CTEXsetup[titleformat={\LARGE\bfseries}]{chapter}
-\CTEXsetup[beforeskip={0pt},afterskip={10pt}]{chapter}
+  \CTEXsetup[format={\Large\bfseries\flushleft}]{section}
+  \CTEXsetup[beforeskip={0pt},afterskip={1pt}]{section}
+  \CTEXsetup[beforeskip={0pt},afterskip={1pt}]{subsection}
+  \CTEXsetup[beforeskip={0pt},afterskip={1pt}]{subsubsection}
 
-\CTEXsetup[format={\Large\bfseries\flushleft}]{section}
-\CTEXsetup[beforeskip={0pt},afterskip={1pt}]{section}
-\CTEXsetup[beforeskip={0pt},afterskip={1pt}]{subsection}
-\CTEXsetup[beforeskip={0pt},afterskip={1pt}]{subsubsection}
-
-\renewcommand\figurename{图}
-\renewcommand\tablename{表}
-\renewcommand\lstlistingname{代码}
-\renewcommand\lstlistlistingname{代码}
+  \renewcommand\figurename{图}
+  \renewcommand\tablename{表}
+  \renewcommand\lstlistingname{代码}
+  \renewcommand\lstlistlistingname{代码}
+}
 
 \input{cgd-docattr.def}
 \renewcommand\CGD@value@classification{内部}
