@@ -1,3 +1,5 @@
+SHELL = /bin/bash
+
 ### Compilation Flags
 PDFLATEX_FLAGS  = -halt-on-error -output-directory obj/
 
