@@ -19,7 +19,8 @@
 \definecolor{myblueii}{RGB}{20,70,50}
 \definecolor{mygray}{RGB}{230,230,230}
 
-\newcommand\fontpn{\fontspec{Corbel}}
+%\newcommand\fontpn{\fontspec{Corbel}}
+\newcommand\fontpn{\fontspec{Cambria}}
 
 \newcommand\ChapterFont{\huge\huge\color{myblueii}}
 %\newcommand\SectionFont{\usefont{T1}{qhv}{b}{n}\selectfont}

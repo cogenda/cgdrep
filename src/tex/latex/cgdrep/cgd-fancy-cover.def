@@ -81,17 +81,20 @@ Singapore 079027.        & Suzhou, Jiangsu Province, \\
     }
   }
 
+\ifx\rndr\undefined\newcommand\rndr{0.3}\fi
+\ifx\fixr\undefined\newcommand\fixr{0.65}\fi
+
 \foreach \x in {0,...,16}{% 
      \ifodd\x 
          \foreach \y in {0,...,20}
             {
-              \pgfmathparse{0.35*rnd+0.55}
+              \pgfmathparse{\rndr*rnd+\fixr}
               \definecolor{rndc}{rgb}{\thmcc}
               \node[fill=rndc,hexa] at ({\x/2+\x/4},{(\y+1/2)*sin(60)}) {};}
     \else
          \foreach \y in {0,...,20}
              {
-              \pgfmathparse{0.35*rnd+0.55}
+              \pgfmathparse{\rndr*rnd+\fixr}
               \definecolor{rndc}{rgb}{\thmcc}
               \node[fill=rndc,hexa] at ({\x/2+\x/4},{\y*sin(60)}) {};}
     \fi}
