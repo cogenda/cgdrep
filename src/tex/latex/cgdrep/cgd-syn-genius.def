@@ -1,18 +1,18 @@
 \definecolor{colorgk}{RGB}{90,0,60}
 \definecolor{colorgv}{RGB}{0,80,60}
-\newcommand\fontg{\smaller\fontspec{Calibri}}
-\newcommand\fontgk{\color{colorgk}\bfseries}
+\newcommand\fontg{\smaller\ttfamily}
+\newcommand\fontgk{\color{colorgk}\ttfamily\bfseries}
 
 \lstset{
 aboveskip=-0.5em,
 belowskip=-0.5em,
  captionpos=t,
   frame=tb,
-  language=bash,
- numbers=none,
+  language={},
+  numbers=none,
   backgroundcolor=\color{gray!10},
   commentstyle=\color{black!70},
-  basicstyle=\small\fontg,
+  basicstyle=\fontg,
   stringstyle=\color{green!40!black},
   breaklines=true, 
   breakautoindent=true,
