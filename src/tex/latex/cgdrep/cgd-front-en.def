@@ -1,7 +1,7 @@
 % cgd-front-en.def: English front matter definitions
 % vim: ft=tex
 
-\newcommand\docattr[1][]{\setkeys{docattr}{#1}}
+\newcommand\docattr[1]{\setkeys{docattr}{#1}}
 
 \renewcommand\maketitle{%
 \cleardoublepage\pagestyle{empty}\pagenumbering{roman}

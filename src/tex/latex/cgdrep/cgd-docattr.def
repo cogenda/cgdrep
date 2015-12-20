@@ -40,5 +40,14 @@
 \define@key{docattr}{clientemail}{\def\CGD@value@clientemail{#1}} % 客户联系方式
 \providecommand\CGD@value@clientemail{}
 
+\define@key{docattr}{productname}{\def\CGD@value@productname{#1}} % 产品名称
+\providecommand\CGD@value@productname{}
+
+\define@key{docattr}{productdesc}{\def\CGD@value@productdesc{#1}} % 产品描述
+\providecommand\CGD@value@productdesc{}
+
+\define@key{docattr}{productver}{\def\CGD@value@productver{#1}} % 产品版本
+\providecommand\CGD@value@productver{}
+
 \endinput
 

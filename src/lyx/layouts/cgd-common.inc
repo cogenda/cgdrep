@@ -1,11 +1,10 @@
-Format 35
+Format 49
 
 Style Front_Matter
         Category        Structure
         LatexType       Command
         LatexName       frontmatter
         KeepEmpty       1
-        OptionalArgs    0
         Margin          First_Dynamic
         NextNoIndent    1
         ParSkip         0
@@ -41,26 +40,23 @@ Style Back_Matter
 End
 
 Style Doc_Attr 
-        Margin          Static
+        Margin          Dynamic
         LatexType       Command
         LatexName       docattr
         Category        FrontMatter
         InTitle         1
-        KeepEmpty       1
         NextNoIndent    1
-        ParSkip         0
-        TopSep          2.5
-        BottomSep       0.5
-        ParSep          0
-        Align           Center
+        Align           Left
         LabelType       Static
-        LabelBottomSep  0
-        LeftMargin      M
-        LabelString     "Document Info"
-        Font
-          Size                Small
+        LabelString     "Doc Attr:"
+        LabelSep        M
+        LabelFont
+          Size          Small
         EndFont
-        OptionalArgs    1
+        TextFont
+          Size          Small
+          Color         blue
+        EndFont
 End
 
 Style Revisions
@@ -78,9 +74,9 @@ Style Revisions
         BottomSep             0.7
         ParSep                0.7
         Align                 Center
-        LabelType             Centered_Top_Environment
+        LabelType             Above
         LabelString           "Revision History"
-        LabelBottomSep        0.5
+        LabelBottomSep        2.5
         Font
           Size                Small
         EndFont

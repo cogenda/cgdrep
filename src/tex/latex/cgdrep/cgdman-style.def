@@ -144,5 +144,9 @@
      \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
 }
 
+\newenvironment{wlongtab}[1][\fill]
+{\setlength\LTleft{#1}}
+{\setlength\LTleft{\fill}}
+
 \input{cgd-fancy-cover.def}
 \input{cgd-syn-genius.def}

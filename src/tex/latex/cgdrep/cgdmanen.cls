@@ -19,6 +19,10 @@
 \RequirePackage{amsmath,amssymb,amsfonts,array,booktabs,calc,changepage,datetime,esint,enumitem,eso-pic,fancyhdr,fixltx2e,float,fontspec,hyperref,ifxetex,listings,lmodern,longtable,makeidx,nameref,refstyle,relsize,siunitx,tabu,tcolorbox,tikz,times,units,varioref}%,tocloft,paralist,xeCJK
 
 \input{cgd-docattr.def}
+\renewcommand\CGD@value@doctype{manual}
+\renewcommand\CGD@value@classification{Public}
+\renewcommand\CGD@value@email{support@cogenda.com}
+
 \input{cgd-style.def}
 \input{cgdman-style.def}
 \input{cgd-font-en.def}
