@@ -24,6 +24,5 @@ display: main.pdf
 	evince main.pdf
 
 clean:
-	rm -rf obj
-
+	rm -rf obj main.pdf
 
