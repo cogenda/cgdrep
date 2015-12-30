@@ -4,11 +4,10 @@
 %%%% Font definition
 \setmainfont{STIXGeneral}
 \setsansfont{DejaVu Sans}
-\setmonofont{M+ 1m regular}[
+\setmonofont[
   ItalicFont={M+ 1m regular},
   ItalicFeatures = {FakeSlant=0.2},
   BoldFont={M+ 1m medium},
   BoldItalicFont={M+ 1m medium},
   BoldItalicFeatures = {FakeSlant=0.2}
-]
-
+]{M+ 1m regular}
