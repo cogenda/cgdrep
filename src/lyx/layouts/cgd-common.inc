@@ -76,7 +76,7 @@ Style Revisions
         Align                 Center
         LabelType             Above
         LabelString           "Revision History"
-        LabelBottomSep        2.5
+        LabelBottomSep        3.5
         Font
           Size                Small
         EndFont
