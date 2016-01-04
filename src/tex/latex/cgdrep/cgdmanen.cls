@@ -17,6 +17,7 @@
 \RequirePackage[font=small,labelfont=bf]{caption}
 
 \RequirePackage{amsmath,amssymb,amsfonts,array,booktabs,calc,changepage,datetime,esint,enumitem,eso-pic,fancyhdr,fixltx2e,float,fontspec,hyperref,ifxetex,listings,lmodern,longtable,makeidx,nameref,refstyle,relsize,siunitx,tabu,tcolorbox,tikz,times,units,varioref}%,tocloft,paralist,xeCJK
+\RequirePackage{unicode-math}
 
 \input{cgd-docattr.def}
 \renewcommand\CGD@value@doctype{manual}

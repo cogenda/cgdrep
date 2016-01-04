@@ -3,6 +3,7 @@
 
 %%%% Font definition
 \setmainfont{STIXGeneral}
+\setmathfont{STIX Math}
 \setsansfont{DejaVu Sans}
 \setmonofont[
   ItalicFont={M+ 1m regular},
@@ -11,3 +12,5 @@
   BoldItalicFont={M+ 1m medium},
   BoldItalicFeatures = {FakeSlant=0.2}
 ]{M+ 1m regular}
+
+
