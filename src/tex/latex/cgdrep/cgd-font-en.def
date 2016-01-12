@@ -3,7 +3,7 @@
 
 %%%% Font definition
 \setmainfont{STIXGeneral}
-\setmathfont{STIX Math}
+\setmathfont{xits-math.otf}
 \setsansfont{DejaVu Sans}
 \setmonofont[
   ItalicFont={M+ 1m regular},
