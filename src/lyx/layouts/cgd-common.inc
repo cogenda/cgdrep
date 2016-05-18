@@ -1,5 +1,19 @@
 Format 49
 
+Provides amsmath    1
+Provides amssymb    1
+Provides amstext    1
+Provides array      1
+Provides listings   1
+Provides enumitem   1
+Provides hyperref   1
+Provides makeidx    1
+Provides multirow   1
+Provides subfig     1
+Provides units      1
+Provides wasysym    1
+Provides xcolor     1
+
 Style Front_Matter
         Category        Structure
         LatexType       Command
@@ -39,7 +53,7 @@ Style Back_Matter
         LabelString     "--- Back Matter ---"
 End
 
-Style Doc_Attr 
+Style Doc_Attr
         Margin          Dynamic
         LatexType       Command
         LatexName       docattr
@@ -124,7 +138,7 @@ Style Paragraph_Item
         Category              List
         Margin                Static
         LatexType             Item_Environment
-        LatexName             paraitem 
+        LatexName             paraitem
         NextNoIndent          1
         LeftMargin            MMN
         LabelSep              xx
@@ -183,5 +197,3 @@ InsetLayout Flex:GuiMenu
           Family        Roman
         EndFont
 End
-
-
