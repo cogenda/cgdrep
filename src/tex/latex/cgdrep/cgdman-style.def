@@ -95,8 +95,8 @@
 \titlespacing*{name=\chapter,numberless}{0pt}{0pt}{-10mm}
 
 \reversemarginpar
-%\newcommand{\marginhead}[1]{\marginpar{\vspace*{1.4em}\color{myblueii}\raggedleft\SectionFont #1}} 
-\newcommand{\marginhead}[1]{\hspace{0pt}\marginpar{\color{myblueii}\raggedleft\fontpn\small #1}} 
+ \newcommand{\marginhead}[1]{\hspace{0pt}\marginpar{\vspace*{-0.67em}\color{myblueii}\raggedleft #1}} 
+%\newcommand{\marginhead}[1]{\hspace{0pt}\marginpar{\color{myblueii}\raggedleft\fontpn\small #1}} 
 
 \newenvironment{widetext}%
 {\begin{adjustwidth}{\dimexpr-\marginparwidth-\marginparsep}{}\flushright}%

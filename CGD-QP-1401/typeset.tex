@@ -3,8 +3,25 @@
 
 一般，每一个表格（图片、代码）都当有一对\filename{Caption} 和\filename{Label}。\filename{Caption} 是这个表格（图片、代码）的名字，其字号比正文小半号。\filename{Label} 是引用它时用的标识，\filename{Label} 本身的内容并不出现在排版后的\filename{pdf}页面上。以下分别讲如何实现表格、图片和代码格式的实现方法。
 
+\section{变量和公式}
+一般原则是：
+\begin{itemize}
+\item 正文中（包括图中、表中和公式中）变量符号用斜体；
+\item 矢量和矩阵符号用粗斜体；
+\item 数字和单位符号用正体。
+\end{itemize}
+几个需要注意的细节：
+\begin{itemize}
+\item 变量名称尽量用单个字母表示，如 $L$ 表示 LET；
+\item 上下标若是由变量转化来的则用斜体，如 $v_x$ 和 $x_t$；
+\item 上下标如果不是变量转化来的，比如说明性字符，则用正体，如 $L\ped{th}$；
+\item 坐标轴（如 $x$、$y$和$z$）用斜体；
+\item 序号 $i$、$j$和$k$ 是变量，用斜体；
+\item 自然常数 $\eu$ 和微分符号 $\diff$ 用正体。
+\end{itemize}
+
 \section{表格}
-用户没有特别需要的话，我们希望表格都采用三线表，首行为其\filename{header}，用黑体。字号比正文小半号，位置居中。如表~\ref{triline}：
+用户没有特别需要的话，我们希望表格都采用三线表，首行为其\filename{header}，用黑体。表格文字字号比正文小半号，位置居中。如表~\ref{triline}：
 \begin{ctable}{triline}{三线表}{llll}
  版本 & 日期       & 负责人       & 备注 \\ \hline 
  1.0  & 2013.12.24 & 沈忱、纪冬梅 & 初稿 \\
