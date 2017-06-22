@@ -1,4 +1,4 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -15,9 +15,9 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
-\font_math auto
+\font_math default
 \font_default_family default
-\use_non_tex_fonts false
+\use_non_tex_fonts true
 \font_sc false
 \font_osf false
 \font_sf_scale 100
@@ -73,8 +73,6 @@
 \begin_body
 
 \begin_layout Standard
-
-\lang chinese-simplified
 \begin_inset FormulaMacro
 \newcommand{\erf}{\operatorname{erf}}
 {\mathrm{erf}}
@@ -84,8 +82,6 @@
 \end_layout
 
 \begin_layout Standard
-
-\lang chinese-simplified
 \begin_inset FormulaMacro
 \newcommand{\Diff}{\diff}
 {\mathrm{d}}
@@ -138,7 +134,7 @@ This is a demonstration on the usage of the technical report Lyx template.
 \begin_layout Revisions
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -299,8 +295,8 @@ LaTeX
 \end_layout
 
 \begin_layout Standard
-The LaTeXmacro package contains a rich set of predefined styles and format
- for technical documents based on the TeXtypesetting engine
+The LaTeXmacro package contains a rich set of predefined styles and format for
+ technical documents based on the TeXtypesetting engine
 \begin_inset CommandInset citation
 LatexCommand cite
 key "oetiker1995not"
@@ -765,8 +761,6 @@ Math typeset examples goes here.
 \end_layout
 
 \begin_layout Standard
-
-\lang chinese-simplified
 \begin_inset Formula 
 \[
 -\frac{\rho}{\varepsilon}=\nabla\cdot\left(\nabla V\right)=\frac{\partial^{2}V}{\partial x^{2}}+\frac{\partial^{2}V}{\partial y^{2}}+\frac{\partial^{2}V}{\partial z^{2}}
