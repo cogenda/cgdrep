@@ -1,6 +1,6 @@
 \geometry{left=5.5cm, marginparwidth=3.5cm,right=2cm,bottom=1in}
 \newcommand\company{Cogenda Pte Ltd}
-\newcommand\cmplg{\includegraphics[scale=0.6]{logom.png} \\  \fontspec{Gill Sans MT}\LARGE \company \\ }
+\newcommand\cmplg{\includegraphics[scale=0.6]{logom.png} \\  \fontspec{DejaVu Sans}\Large \company \\ }
 \newdateformat{theyear}{\THEYEAR}
 
 \definecolor{click}{RGB}{0,0,70}
@@ -19,14 +19,11 @@
 \definecolor{myblueii}{RGB}{20,70,50}
 \definecolor{mygray}{RGB}{230,230,230}
 
-%\newcommand\fontpn{\fontspec{Corbel}}
-\newcommand\fontpn{\fontspec{Cambria}}
+\newcommand\fontpn{\fontspec{SourceSerifPro-Regular.otf}}
 
 \newcommand\ChapterFont{\huge\huge\color{myblueii}}
-%\newcommand\SectionFont{\usefont{T1}{qhv}{b}{n}\selectfont}
-\newcommand\SectionFont{\fontspec{Cambria}\bfseries}
-%\newcommand\chaptertitlefont{\usefont{T1}{qhv}{m}{n}\selectfont\scshape}
-\newcommand\chaptertitlefont{\fontspec{Cambria}\bfseries}
+\newcommand\SectionFont{\fontspec{SourceSerifPro-Semibold.otf}}
+\newcommand\chaptertitlefont{\fontspec{SourceSerifPro-Semibold.otf}}
 \renewcommand\chaptertitlename{CHAPTER}%
 
 

@@ -2,10 +2,10 @@
 % vim:ft=tex
 
 %%%% Chinese Font definition
-\setCJKmainfont[ItalicFont={SimSun}]{SimSun}
-\setCJKsansfont{WenQuanYi Zen Hei}
-\setCJKmonofont{WenQuanYi Zen Hei}
-\setCJKfamilyfont{hei}{SimHei}
-\setCJKfamilyfont{kaiti}{KaiTi_GB2312}
+\setCJKmainfont[ItalicFont={Noto Serif SC}]{Noto Serif SC}
+\setCJKsansfont{Noto Sans SC}
+\setCJKmonofont{Noto Sans SC Light}
+\setCJKfamilyfont{hei}{Noto Sans SC Medium}
+\setCJKfamilyfont{kaiti}{Noto Serif SC Medium}
 
 

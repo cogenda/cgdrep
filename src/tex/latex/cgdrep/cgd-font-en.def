@@ -4,6 +4,8 @@
 %%%% Font definition
 \setmainfont{STIXGeneral}
 \setmathfont{xits-math.otf}
+\setmathfont[range=\mathup/{num,latin,Latin,greek,Greek}]{STIXGeneral}
+\setmathfont[range=\int]{xits-math.otf}
 \setsansfont{DejaVu Sans}
 \setmonofont[
   ItalicFont={M+ 1m regular},
