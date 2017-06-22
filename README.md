@@ -1,4 +1,7 @@
-# README
+# cgdrep
+
+[![CircleCI](https://circleci.com/gh/cogenda/cgdrep/tree/master.svg?style=svg)](https://circleci.com/gh/cogenda/cgdrep/tree/master)
+
 
 This is the LaTeX template for writing technical reports 
 used at Cogenda Pte Ltd.
