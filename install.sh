@@ -11,6 +11,8 @@
 #   $ ./install --global
 #
 
+LOCALFONTREPO="${LOCALFONTREPO:-http://172.16.100.152:18181/fonts}"
+
 reconfig_lyx() {
     echo -n "Refreshing Lyx configuration               ... "
     lyx -batch -x reconfigure examples/report_lyx/main_en.lyx
@@ -49,19 +51,33 @@ if [[ -d $LYXDIR ]]
 then
     echo -n "Lyx user dir found in $LYXDIR, installing Lyx layouts       ... "
     cp src/lyx/layouts/* $LYXDIR/layouts/
+
     reconfig_lyx
-    echo "Done"
 fi
+
+if [[ -d $LYXDIR ]]
+then
+    # install template documents
+    cp examples/report_lyx/main_cn.lyx $LYXDIR/templates/report_cn.lyx
+    cp examples/report_lyx/main_en.lyx $LYXDIR/templates/report_en.lyx
+
+    # change template directory
+    if [ "$DISPLAY" ]
+    then
+        lyx -x "lyxrc-apply \\template_path \"$LYXDIR/templates\"" -x preferences-save -x lyx-quit
+    fi
+fi
+echo "Done"
 
 ##################### Part 3 : Install fonts #########################
 
 FONTS=(
-    "NotoSansSC,Noto Sans SC,https://noto-website.storage.googleapis.com/pkgs/NotoSansSC.zip,httpfff://"
-    "NotoSerifSC,Noto Serif SC,https://noto-website.storage.googleapis.com/pkgs/NotoSerifSC.zip"
-    "XITS,XITS,https://cloud.github.com/downloads/khaledhosny/xits-math/xits-1.106.zip"
-    "STIX,STIXGeneral,https://jaist.dl.sourceforge.net/project/stixfonts/Past%20Releases/STIXv1.1.0.zip"
-    "mplus,M+ 1m,https://www.fontsquirrel.com/fonts/download/M-1m"
-    "SourceSerifPro,Source Serif Pro,https://github.com/adobe-fonts/source-serif-pro/archive/2.000R.zip"
+    "NotoSansSC,Noto Sans SC,$LOCALFONTREPO/NotoSansSC.zip,https://noto-website.storage.googleapis.com/pkgs/NotoSansSC.zip"
+    "NotoSerifSC,Noto Serif SC,$LOCALFONTREPO/NotoSerifSC.zip,https://noto-website.storage.googleapis.com/pkgs/NotoSerifSC.zip"
+    "XITS,XITS,$LOCALFONTREPO/xits-1.106.zip,https://cloud.github.com/downloads/khaledhosny/xits-math/xits-1.106.zip"
+    "STIX,STIXGeneral,$LOCALFONTREPO/STIXv1.1.0.zip,https://jaist.dl.sourceforge.net/project/stixfonts/Past%20Releases/STIXv1.1.0.zip"
+    "mplus,M+ 1m,$LOCALFONTREPO/M-1m.zip,https://www.fontsquirrel.com/fonts/download/M-1m"
+    "SourceSerifPro,Source Serif Pro,$LOCALFONTREPO/SourceSerifPro.zip,https://github.com/adobe-fonts/source-serif-pro/archive/2.000R.zip"
 )
 install_one_font() {
     fname="$1"
@@ -71,13 +87,16 @@ install_one_font() {
     FTMP=$(mktemp)
     for url in "$url1" "$url2"
     do
-        curl -L -o $FTMP "$url1"
+        curl -L -o $FTMP "$url"
         if [[ $? -eq 0 ]]
         then
             fdir="$FONTDIR/$fname"
             [[ -d "$fdir" ]] || mkdir -p "$fdir"
             (cd "$fdir" && unzip -o $FTMP)
-	    break
+            if [[ $? -eq 0 ]]
+            then
+                break
+            fi
         fi
     done
     rm $FTMP
