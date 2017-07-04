@@ -84,15 +84,18 @@ install_one_font() {
     url1="$2"
     url2="$3"
 
+    dirSave=$(pwd)
     FTMP=$(mktemp)
     for url in "$url1" "$url2"
     do
-        curl -L -o $FTMP "$url"
+        curl -L -s --connect-timeout 20 -o $FTMP "$url"
         if [[ $? -eq 0 ]]
         then
             fdir="$FONTDIR/$fname"
             [[ -d "$fdir" ]] || mkdir -p "$fdir"
-            (cd "$fdir" && unzip -o $FTMP)
+
+            cd "$fdir";
+            unzip -o $FTMP
             if [[ $? -eq 0 ]]
             then
                 break
@@ -100,6 +103,7 @@ install_one_font() {
         fi
     done
     rm $FTMP
+    cd $dirSave
 }
 
 install_fonts() {
