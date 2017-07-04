@@ -1,4 +1,4 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -70,9 +70,32 @@
 \begin_body
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+本模板适用于中等长度（10-100页），分多个章节的中文技术文档。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\erf}{\operatorname{erf}}
 {\mathrm{erf}}
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+常用数学快捷键定义。不要改动。
+\end_layout
+
 \end_inset
 
 
@@ -87,40 +110,222 @@
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Bar}[1]{\overline{\hbox{#1}}}
+{\mathrm{\overline{#1}}}
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 技术报告样本
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+文档正标题
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout SubTitle
 使用Lyx模板
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+文档副标题
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Date
-2014.1.5
+2017.7.4
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+最后一次实质性更新本报告的日期。格式为YYYY.MM.DD
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Author
 沈忱
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+仅填写一个责任作者，即负责解释、更新本文档的作者。
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
-docid=CGD-QP-XXX
+docid=CGD-TT-YYNN
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+填写说明：
+\end_layout
+
+\begin_layout Plain Layout
+docid格式为 CGD-XX-YYNN。其中，CGD为公司名缩写，TT为文档类型代号，YY为年份的后2位，NN为编号。新建文档时，请向主管申请一个唯一的文档编
+号。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Doc Attr
+type=技术报告
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TP 技术方案 
+\end_layout
+
+\begin_layout Plain Layout
+TR 技术报告
+\end_layout
+
+\begin_layout Plain Layout
+MN 操作手册 
+\end_layout
+
+\begin_layout Plain Layout
+QP 质量流程 
+\end_layout
+
+\begin_layout Plain Layout
+MS 其他文档
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
 email=shenchen@cn.cogenda.com
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+责任作者的联系方式
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
 classification=公开
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+必须是下列选项之一：
+\end_layout
+
+\begin_layout Plain Layout
+公开：不包含本公司或客户的技术秘密的文档，可以自由发布给任何人。
+\end_layout
+
+\begin_layout Plain Layout
+限制：包含本公司或某客户的一般性技术秘密的文档。可以在公司内部交流或发布给该客户指定的联络人，但不能发布给其他任何人。
+\end_layout
+
+\begin_layout Plain Layout
+秘密：包含定有密级，或客户要求标记为秘密的文档。只能发布给特定获得授权的人，不能发布给公司内、外其他任何人。
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
-type=质量流程
+client=五道口职业技术学校
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+非必须。对于不针对特定客户的文档，可以删除。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Doc Attr
+clientemail=xyz@example.com
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+客户联系方式
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
 status=未定稿
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+“未定稿”或“定稿”
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Doc Attr
+relatedid=
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+可选。常见例子：
+\end_layout
+
+\begin_layout Plain Layout
+取代CGD-TT-YYMM
+\end_layout
+
+\begin_layout Plain Layout
+参见CGD-TT-YYMM、CGD-TT-YYOO
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Abstract
@@ -129,17 +334,19 @@ status=未定稿
 
 \begin_layout Revisions
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
-<features rotate="0" tabularvalignment="middle">
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="4.5cm">
+<column alignment="left" valignment="top" width="6cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 版本
 \end_layout
 
@@ -149,6 +356,8 @@ status=未定稿
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 日期
 \end_layout
 
@@ -158,6 +367,8 @@ status=未定稿
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 负责人
 \end_layout
 
@@ -167,6 +378,8 @@ status=未定稿
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 备注
 \end_layout
 
@@ -205,7 +418,685 @@ status=未定稿
 \begin_inset Text
 
 \begin_layout Plain Layout
-draft
+初稿
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2015.12.21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+沈忱
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+修改Doc Attr格式
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2017.7.4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+沈忱
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+补充排版格式说明；添加模板使用说明。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Revisions
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+必填。备注中需要对每次修订的内容，给出简短而确切的描述。诸如“完善文档”，“修改第三章”等含糊的描述是不可接受的。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Front Matter
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList listing
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+目录是必备的，其他列表可以根据实际情况省略。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Main Matter
+
+\end_layout
+
+\begin_layout Chapter
+格式要求
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+是基于
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TeX{}
+\end_layout
+
+\end_inset
+
+排版程序的格式宏包，定义了很多适合技术文档写作的格式
+\begin_inset CommandInset citation
+LatexCommand cite
+key "oetiker1995not"
+
+\end_inset
+
+。Lyx 是一个直观的文档撰写软件，会利用
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX{}
+\end_layout
+
+\end_inset
+
+把文档编译成PDF文件。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+如果需要使用下面例子中的格式，可以直接复制粘贴。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+变量和公式
+\end_layout
+
+\begin_layout Standard
+一般原则是:
+\end_layout
+
+\begin_layout Itemize
+正文中(包括图中、表中和公式中)变量符号用斜体;
+\end_layout
+
+\begin_layout Itemize
+矢量和矩阵符号用粗斜体，例如
+\begin_inset Formula $\nabla\cdot\mathbf{V}=0$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Itemize
+数字和单位符号用正体，例如
+\begin_inset Formula $\unit[10]{μm}$
+\end_inset
+
+，
+\begin_inset Formula $\unit[1]{M\text{Ω}}$
+\end_inset
+
+等。
+\end_layout
+
+\begin_layout Standard
+几个需要注意的细节:
+\end_layout
+
+\begin_layout Itemize
+变量名称尽量用单个字母表示，如
+\begin_inset Formula $L$
+\end_inset
+
+表示LET；
+\end_layout
+
+\begin_layout Itemize
+上下标若是由变量转化来的则用斜体，如
+\begin_inset Formula $v_{x}$
+\end_inset
+
+和
+\begin_inset Formula $x_{t}$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Itemize
+上下标如果不是变量转化来的，比如说明性字符，则用正体，如
+\begin_inset Formula $L_{\mathrm{th}}$
+\end_inset
+
+；
+\end_layout
+
+\begin_layout Itemize
+坐标轴（如
+\begin_inset Formula $x$
+\end_inset
+
+、
+\begin_inset Formula $y$
+\end_inset
+
+和
+\begin_inset Formula $z$
+\end_inset
+
+）用斜体；
+\end_layout
+
+\begin_layout Itemize
+序号
+\begin_inset Formula $i$
+\end_inset
+
+、
+\begin_inset Formula $j$
+\end_inset
+
+和
+\begin_inset Formula $k$
+\end_inset
+
+是变量，用斜体；
+\end_layout
+
+\begin_layout Itemize
+自然常数
+\begin_inset Formula $\mathrm{e}$
+\end_inset
+
+ 和微分符号
+\begin_inset Formula $\Diff$
+\end_inset
+
+用正体。
+\end_layout
+
+\begin_layout Section
+插图
+\end_layout
+
+\begin_layout Subsection
+浮动插图
+\end_layout
+
+\begin_layout Standard
+图
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:div_theorem-1"
+
+\end_inset
+
+给出了高斯定理中的体积和闭合曲面。
+\end_layout
+
+\begin_layout Standard
+说明在图片下方。图片居中。图片文件的位置，必须用相对路径来指定。建议用PNG、JPG、PDF、EPS等跨平台的通用文件格式。在多数情况下，建议在图片的
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+set width
+\end_layout
+
+\end_inset
+
+属性中，通过
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+textwidth
+\end_layout
+
+\end_inset
+
+的百分比来控制图片的大小。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Divergence_theorem.png
+	width 50text%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+包围体积
+\begin_inset Formula $V$
+\end_inset
+
+的闭合曲面
+\begin_inset Formula $S$
+\end_inset
+
+。
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:div_theorem-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+子插图
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement htbp
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Divergence_theorem.png
+	width 50text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+子插图说明1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Divergence_theorem.png
+	width 50text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+子插图说明2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+包围体积
+\begin_inset Formula $V$
+\end_inset
+
+的闭合曲面
+\begin_inset Formula $S$
+\end_inset
+
+。含有两个子插图。
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+表格
+\end_layout
+
+\begin_layout Subsection
+浮动表格
+\end_layout
+
+\begin_layout Standard
+表格说明在表格上方。多数情况下，建议用三线表，即只有表格顶部、表头、底部三条水平分隔线。
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+浮动表格
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="4.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+版本
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+日期
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+负责人
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+备注
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2013.12.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+沈忱
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+初稿
 \end_layout
 
 \end_inset
@@ -256,69 +1147,1358 @@ draft
 
 \end_layout
 
-\begin_layout Front Matter
+\begin_layout Plain Layout
 
 \end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsection
+长表格
+\end_layout
+
 \begin_layout Standard
-\begin_inset FloatList listing
+跨页的长表格。
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="20" columns="5">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="middle" width="7cm">
+<row endfirsthead="true" caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+信号引脚定义。
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:pin_list"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Main Matter
+\end_inset
+
 
 \end_layout
 
-\begin_layout Chapter
-LaTeX
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
-
-\backslash
-LaTeX{}
 \end_layout
 
 \end_inset
-
-是基于
-\begin_inset ERT
-status open
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
+\end_layout
 
-\backslash
-TeX{}
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+名字
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+I/O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+压焊点
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+管脚
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+描述
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+寄存器访问接口
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+HSTCLK
 \end_layout
 
 \end_inset
 
-排版程序的格式宏包，定义了很多适合技术文档写作的格式
-\begin_inset CommandInset citation
-LatexCommand cite
-key "oetiker1995not"
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W39
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+主机时钟。 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+HSTHRESET_N
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+主机硬复位，低有效。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SENABLE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+主机高位地址译码产生的片选，用于访问链路层寄存器。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SRWN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+读写控制信号，高读低写。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SADDR[5:0]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y26
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+主机访问寄存器的地址总线，半字地址，其中SADDR [0]、SADDR [1]、SADDR [2]分别与TI_BPHY、BETAMODE、CONTENDER复用
+。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y28
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y29
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y25
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y26
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y27
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SRWCOMPLETE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+读写完成信号。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+通用配置接口
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+RST_TX_N
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+复位链路层发送逻辑的脉冲信号，低有效。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+RST_RX_N
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+复位链路层接收逻辑脉冲信号，低有效。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+LPSIN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+来自主机侧时钟域的LPS控制。因为LPS控制着整个链路层的逻辑，所以最好在链路层逻辑之外的其他时钟域内产生LPS的信号源。对于LPSIN的产生，必须要满足IEE
+E1394-2008协议对
+\begin_inset Formula $T_{\mathrm{LPS\_RESET}}$
+\end_inset
+
+、
+\begin_inset Formula $T_{\mathrm{LPS\_DISABLE}}$
+\end_inset
+
+、
+\begin_inset Formula $T_{\mathrm{RESTORE}}$
+\end_inset
+
+时间参数的要求。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+CYCLEIN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+可选的
+\begin_inset Formula $\unit[8]{KHz}$
+\end_inset
+
+时钟输入。如果链路层逻辑作为根节点、并被使能了cycle source寄存器位，那么链路层逻辑会使用该输入作为1394等时周期定时器的计数源。这个信号在不使用时
+应该接低电平。在链路层逻辑中，这个信号会被SClk时钟同步。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+CYCLEOUT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\unit[8]{KHz}$
+\end_inset
+
+等时周期时钟输出。
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+特殊格式
+\end_layout
+
+\begin_layout Standard
+点击菜单项
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+File>Save As>Cray
+\end_layout
 
 \end_inset
 
 。
+\end_layout
+
+\begin_layout Standard
+Genius仿真软件的
+\begin_inset Flex Command
+status open
+
+\begin_layout Plain Layout
+Solve
+\end_layout
+
+\end_inset
+
+命令有一个
+\begin_inset Flex Parameter
+status open
+
+\begin_layout Plain Layout
+Type
+\end_layout
+
+\end_inset
+
+参数，最常用的取值是
+\begin_inset Flex UserInput
+status open
+
+\begin_layout Plain Layout
+DDML1
+\end_layout
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+程序列表
+\end_layout
+
+\begin_layout Standard
+可以在右键菜单中
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+Settings>Language
+\end_layout
+
+\end_inset
+
+选项中，设置代码的语言。
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Python 类的定义。
+\end_layout
+
+\end_inset
+
+class BankAccount(object):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, initial_balance=0):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance = initial_balance
+\end_layout
+
+\begin_layout Plain Layout
+
+    def deposit(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance += amount
+\end_layout
+
+\begin_layout Plain Layout
+
+    def withdraw(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance -= amount
+\end_layout
+
+\begin_layout Plain Layout
+
+    def overdrawn(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return self.balance < 0
+\end_layout
+
+\begin_layout Plain Layout
+
+my_account = BankAccount(15)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_account.withdraw(5)
+\end_layout
+
+\begin_layout Plain Layout
+
+print my_account.balance
+\end_layout
+
+\begin_layout Plain Layout
+
+import unittest
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def median(pool):
+\end_layout
+
+\begin_layout Plain Layout
+
+    copy = sorted(pool)
+\end_layout
+
+\begin_layout Plain Layout
+
+    size = len(copy)
+\end_layout
+
+\begin_layout Plain Layout
+
+    if size % 2 == 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+        return copy[(size - 1) / 2]
+\end_layout
+
+\begin_layout Plain Layout
+
+    else:
+\end_layout
+
+\begin_layout Plain Layout
+
+        return (copy[size/2 - 1] + copy[size/2]) / 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class TestMedian(unittest.TestCase):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def testMedian(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if __name__ == '__main__':
+\end_layout
+
+\begin_layout Plain Layout
+
+    unittest.main()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -433,7 +2613,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../latex/Divergence_theorem.png
+	filename Divergence_theorem.png
 	width 50text%
 
 \end_inset
@@ -444,7 +2624,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:div_theorem"
+name "fig:div_theorem-2"
 
 \end_inset
 
@@ -481,81 +2661,38 @@ name "fig:div_theorem"
 文件存档
 \end_layout
 
-\begin_layout Subsection
-应有文件
+\begin_layout Standard
+形政医，的单鱼市们毒修义。低外时实：写热向件去机传那同化的的检道害料第在强，才晚為……阳样国家完物、觉出没时月团因果技。
 \end_layout
 
 \begin_layout Standard
-要求每一份文档对应的不是一个文件而是一个目录，这个目录中应有两个文件： 
-\end_layout
-
-\begin_layout Enumerate
-最终的 pdf 文件。 
-\end_layout
-
-\begin_layout Enumerate
-生成这个 pdf 文档所需要的所有 tex 文件、图片文件及其他文件如插入代码、原始数据等，并压缩成 zip 或 gzip 包。
+究位用，意动裡数，社时加始许会神海及高不只男的精时高，有曾意式眼我们护出海思使经地、不生论。个实不王……的那林法教治也於玩我因求生照立息告到家学足罗人后的类能公
+字因路世难也见资车导是。外马构。好整从惊药……曾高式初那美况分来不裡然真施自，子般容屋大节，大然病常……影出家发业演量有；先现重上场市！口慢开技剧道策都路开和间
+可厂团从公学之可有随……类怎怀妈何式展空主不口转息己民。河利好……考分今，德适角体片！
 \end_layout
 
 \begin_layout Standard
-用于生成
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-TeX 
-\end_layout
-
-\end_inset
-
-文件的过程文件，比如 lyx 文件，不需要存放。 
-\end_layout
-
-\begin_layout Subsection
-文件位置
+适单技来数光存老待总心不金亲或差不球长笑提可信态险為我！李口站陆是一的不望民怎民大舞便先果，所钱业同童有红时。国经斯：妈我机，就年车器数们者看的政道从点底：八景
+入我：语论会；三得配情美系康自论，部前一难首文资门内也导而成家事天舞黑竟自间同看人来国向速动下不特答市起主来现看理不推於白眼著剧树力的呢学票情？界还眾代不球心不
+，发不人学口器大计。教即眼现管价一的何！难用常，示教妈点以……大中通气，上切都后先定纪香书称多女管时意上决几身部紧生那的：告术接然以拿公眼定系飞臺整议主加义方代
+传年……能收好海，个坡们势济我展得办密及来林国，期政公东持一及！名后最有们期那高？
 \end_layout
 
 \begin_layout Standard
-存在服务器上，全公司可读，总路径为：
-\begin_inset Flex Filename
-status open
-
-\begin_layout Plain Layout
-/home/public/document
-\end_layout
-
-\end_inset
-
-。以本文档为例，其完整的目录为：
-\begin_inset Flex Filename
-status open
-
-\begin_layout Plain Layout
-/home/public/document/QP/C-QP-001/V01/
-\end_layout
-
-\end_inset
-
-。其三层路径名：
-\end_layout
-
-\begin_layout Itemize
-QP 表示文档类型为质量流程， 
-\end_layout
-
-\begin_layout Itemize
-C-QP-001 为本文档的编号，
-\end_layout
-
-\begin_layout Itemize
-V01 表示版本。 
+研想格……所来始股青客年月排之时投两光朋计明要起立家底态一也天园，公这為会负开就手防信日过不中艺护但。
 \end_layout
 
 \begin_layout Standard
-这个路径里面有两个文件，一个pdf文件，一个原始文件的gzip包。
+此著机？
+\end_layout
+
+\begin_layout Standard
+上将些全语能什，无路我观把教三空亲那明别错同办最火未开小直為少：我心我者这我小北静让……不和受以不然十麼中说读显妈告前代。童算品行洲此随人来散点作令到主电。回可
+湾形班歷回哥工开，收那管车轮要政物化。此车破来。
+\end_layout
+
+\begin_layout Standard
+停印医先山种行能之事此队、看大设？理三市很任中依告园，严发两美急童水和上的有总因人父代界子到究写而外女后。
 \end_layout
 
 \begin_layout Subsection
@@ -563,211 +2700,49 @@ V01 表示版本。
 \end_layout
 
 \begin_layout Standard
-文档编号为 C-XX-xxx，其中 C 表示 Cogenda，XX 为字母，表示文档类型。xxx 为数字，为本文档的顺序号。
+这的据及放？收场车把口不提轻造白……开景上总南集管世看出利行你题安光爸可一特手其身年神问以交连种国土我麼也人华游不？
+\end_layout
+
+\begin_layout Standard
+由称福思观却书同有来作，明少园仍在清色全。一之思报过小是异然為大表年美保营校水无一如深包中初百极龙只给政！收化决达时！举对在子童居叶师到玩校前，现方初代比用？难
+也看业知样？任立家跑来？且大行。说一一次，说反手策百说来了為师备手负的条；客的法，年亲受站客看养可想负看生同麼兰新环速应！事次已得，营电。
+\end_layout
+
+\begin_layout Standard
+林期国……运外市调出麼，证到他事角不特，神作為提省真只来说念别表优这给带个标也助主只济光热！用用以於：况来信约唱，為我的外不基我信儿费已经无这病年半面高们用；位
+不走片过小吗长的楼始陆：都更者有制入。党放金面组们人上同成越表元科化就声器或三事论数湾力同国趣初都自麼主人则然上奖相目要，政復病、良牛一世销结他利、些金不，全十
+站感界河：灵了人车民花了提企则爸地决进优远到否热！
 \end_layout
 
 \begin_layout Section
-特殊格式
+即十自标时场
 \end_layout
 
 \begin_layout Standard
-点击菜单项
-\begin_inset Flex GuiMenu
-status collapsed
-
-\begin_layout Plain Layout
-File>Save As>Cray
-\end_layout
-
-\end_inset
-
-。
+客眼排子渐同学……的即十自标时场告去同雄目球师位的山势，臺重家时法发我别、地外问天痛為化高日；和前呢只，情应登竟李资举的痛对候学过！角止或事当料界原地是无也臺反
+；房国国问自大业年省。
 \end_layout
 
 \begin_layout Standard
-Genius仿真软件的
-\begin_inset Flex Command
-status collapsed
-
-\begin_layout Plain Layout
-Solve
-\end_layout
-
-\end_inset
-
-命令有一个
-\begin_inset Flex Parameter
-status collapsed
-
-\begin_layout Plain Layout
-Type
-\end_layout
-
-\end_inset
-
-参数，最常用的取值是
-\begin_inset Flex UserInput
-status collapsed
-
-\begin_layout Plain Layout
-DDML1
-\end_layout
-
-\end_inset
-
-。
-\end_layout
-
-\begin_layout Section
-程序列表
+进参面。也收间个的公。今和机味导自在日？气说分家间生上南们坐目自兴不农；我多角我她样、油家育不地维能在於一喜空做高，做使就提分裡界运脑人是望要，不理害强白调智公
+新可的你声毛往的生然异屋子生食的流是看？不认一可海他错又想这上意？景把看教定品！洲其口因地中然定时品养答的十从界机失打，的头起？黄不有法门时。起对為这美行家活且
+亮的因乐苦生笑回呢观中老所前然息感改学方山以，验春回小专老。告了未小电西儿艺……一声益上度著德北听故路改早身断对标无就生无太即来个是……跑到开福请这不牛国费电电
+让外社国站；头无呢鱼质术生本得一场命太广国楼！楼年言影术！化看妈在样说妈积回爸……吗平在只育助的不部高，才但民好保主在们民实，年白西；需歷地是红。利市地定城对：
+活苦提。
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "language=Python"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Python 类的定义。
+久进断常下虽管不人明谈算还们的视起商食！第间马的要是友小这新必山他，角也是放原息但成小不即不以点年业他极最果生不子思：丽语气预……他来的事规笑上改风微去读地系乎
+单社心臺？根致时以了到该国展成体裡变上就臺念业……后跑丽虽计衣万动一位现。走究什资如统再日痛重真待一味病取女天布人月际我，转社大加造年切常為流过没脑国好，本书赛
+表，才初满登一你山；十情向，学第明有水园面地定阳故个上歷长象无了美？错构热纸生对高鱼人经王法音样？写有受年你一；手个怀化我长；有正计业约视了力师取动程界果全作平
+是下游放时我口？
 \end_layout
 
-\end_inset
-
-class BankAccount(object):
-\end_layout
-
-\begin_layout Plain Layout
-
-    def __init__(self, initial_balance=0):
-\end_layout
-
-\begin_layout Plain Layout
-
-        self.balance = initial_balance
-\end_layout
-
-\begin_layout Plain Layout
-
-    def deposit(self, amount):
-\end_layout
-
-\begin_layout Plain Layout
-
-        self.balance += amount
-\end_layout
-
-\begin_layout Plain Layout
-
-    def withdraw(self, amount):
-\end_layout
-
-\begin_layout Plain Layout
-
-        self.balance -= amount
-\end_layout
-
-\begin_layout Plain Layout
-
-    def overdrawn(self):
-\end_layout
-
-\begin_layout Plain Layout
-
-        return self.balance < 0
-\end_layout
-
-\begin_layout Plain Layout
-
-my_account = BankAccount(15)
-\end_layout
-
-\begin_layout Plain Layout
-
-my_account.withdraw(5)
-\end_layout
-
-\begin_layout Plain Layout
-
-print my_account.balance
-\end_layout
-
-\begin_layout Plain Layout
-
-import unittest
-\end_layout
-
-\begin_layout Plain Layout
-
-def median(pool):
-\end_layout
-
-\begin_layout Plain Layout
-
-    copy = sorted(pool)
-\end_layout
-
-\begin_layout Plain Layout
-
-    size = len(copy)
-\end_layout
-
-\begin_layout Plain Layout
-
-    if size % 2 == 1:
-\end_layout
-
-\begin_layout Plain Layout
-
-        return copy[(size - 1) / 2]
-\end_layout
-
-\begin_layout Plain Layout
-
-    else:
-\end_layout
-
-\begin_layout Plain Layout
-
-        return (copy[size/2 - 1] + copy[size/2]) / 2
-\end_layout
-
-\begin_layout Plain Layout
-
-class TestMedian(unittest.TestCase):
-\end_layout
-
-\begin_layout Plain Layout
-
-    def testMedian(self):
-\end_layout
-
-\begin_layout Plain Layout
-
-        self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
-\end_layout
-
-\begin_layout Plain Layout
-
-if __name__ == '__main__':
-\end_layout
-
-\begin_layout Plain Layout
-
-    unittest.main()
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+失二心业此？集雄利品她所鱼调个不的考海都之那持十。下读向早。欢绝我人者内弟心空观资歌自，现师机到尽。有父然期脑不开家必是是有作起。全生关话音个由好；成济像所的来
+大什楼字话子大团。风举来求大重常出我母西此、业常的己正象买其呢？球我过行家平相平我座飞起！不组场只星但先也就麼。它度是当……的强阿笑行色价子维青！势课动雄，这报
+程校準明。的呢直卖远是此头意转成日速资时看，包五什钱久有外，杂到来我国明提又、北自头、传多人有，前失比斯来因然欢作……合体然门工，时教操给地的有中為依不工喜到最
+馆接指分完、跑片到民背纪他飞下境臺：下情片显闻马致收的夫点到几在地智湾之古学线设张玩因，日到反实育学製治，一速虽。
 \end_layout
 
 \begin_layout Chapter
@@ -785,6 +2760,52 @@ Math typeset examples goes here.
 \[
 -\frac{\rho}{\varepsilon}=\nabla\cdot\left(\nabla V\right)=\frac{\partial^{2}V}{\partial x^{2}}+\frac{\partial^{2}V}{\partial y^{2}}+\frac{\partial^{2}V}{\partial z^{2}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\varepsilon\nabla\psi=-q\left(p-n+N_{D}^{+}-N_{A}^{-}\right)\label{eq:chap:tcad:sec:physics:poisson}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\dfrac{\partial n}{\partial t} & = & \dfrac{1}{q}\nabla\cdot{\bf J}_{n}-(U-G)\label{eq:chap:tcad:sec:physics:eleccontin}\\
+\dfrac{\partial p}{\partial t} & = & -\dfrac{1}{q}\nabla\cdot{\bf J}_{p}-(U-G)\label{eq:chap:tcad:sec:physics:holecontin}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+{\bf J}_{n} & = & q\mu_{n}n{\bf E}_{n}+qD_{n}\nabla n\\
+{\bf J}_{p} & = & q\mu_{p}p{\bf E}_{p}-qD_{p}\nabla p
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U_{{\rm SRH}}=\dfrac{pn-n_{\mathrm{ie}}^{2}}{\tau_{p}\text{\left[n+n_{\mathrm{ie}}\exp\left(\dfrac{\mathtt{ETRAP}}{kT_{L}}\right)\right]+\tau_{n}\left[p+n_{\mathrm{ie}}\exp\left(-\dfrac{\mathtt{ETRAP}}{kT_{L}}\right)\right]}}
+\end{equation}
 
 \end_inset
 
