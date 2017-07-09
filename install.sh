@@ -60,6 +60,8 @@ then
     # install template documents
     cp examples/report_lyx/main_cn.lyx $LYXDIR/templates/report_cn.lyx
     cp examples/report_lyx/main_en.lyx $LYXDIR/templates/report_en.lyx
+    cp examples/report_lyx/main.bib    $LYXDIR/templates/
+    cp examples/report_lyx/Divergence_theorem.png $LYXDIR/templates/
 
     # change template directory
     if [ "$DISPLAY" ]

@@ -185,7 +185,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-docid格式为 CGD-XX-YYNN。其中，CGD为公司名缩写，TT为文档类型代号，YY为年份的后2位，NN为编号。新建文档时，请向主管申请一个唯一的文档编
+docid格式为 CGD-TT-YYNN。其中，CGD为公司名缩写，TT为文档类型代号，YY为年份的后2位，NN为编号。新建文档时，请向主管申请一个唯一的文档编
 号。
 \end_layout
 
@@ -1163,6 +1163,7 @@ status open
 \begin_layout Standard
 跨页的长表格。
 \end_layout
+
 
 \begin_layout Standard
 \align center
@@ -2508,7 +2509,7 @@ if __name__ == '__main__':
 \begin_layout Standard
 本章内容摘自
 \begin_inset Flex URL
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -2546,7 +2547,31 @@ key "katz1979history"
 \end_layout
 
 \begin_layout Standard
-设空间闭区域Ω是由分片光滑的闭曲面Σ所围成，函数P(x,y,z)、Q(x,y,z)、R(x,y,z)在Ω上具有一阶连续偏导数，则有 
+设空间闭区域
+\begin_inset Formula $\Omega$
+\end_inset
+
+是由分片光滑的闭曲面
+\begin_inset Formula $\Sigma$
+\end_inset
+
+所围成，函数
+\begin_inset Formula $P\left(x,y,z\right)$
+\end_inset
+
+、
+\begin_inset Formula $Q\left(x,y,z\right)$
+\end_inset
+
+、
+\begin_inset Formula $R\left(x,y,z\right)$
+\end_inset
+
+在
+\begin_inset Formula $\Omega$
+\end_inset
+
+上具有一阶连续偏导数，则有 
 \end_layout
 
 \begin_layout Standard
