@@ -11,7 +11,7 @@
 #   $ ./install --global
 #
 
-LOCALFONTREPO="${LOCALFONTREPO:-http://172.16.100.152:18181/fonts}"
+LOCALFONTREPO="${LOCALFONTREPO:-http://boron:18181/fonts}"
 
 reconfig_lyx() {
     echo -n "Refreshing Lyx configuration               ... "

@@ -4,7 +4,7 @@ defaults: &defaults
     - checkout
     - run:
         name: Install Tex and Lyx formats
-        command: ./install.sh --global
+        command: LOCALFONTREPO=file://tmp ./install.sh --global
     - run:
         name: Build all examples
         command: |
