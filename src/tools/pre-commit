@@ -1,0 +1,61 @@
+#!/bin/sh
+
+############################################################################
+#
+# This git hook examines the file version of lyx documents before commit
+# and convert it to lyx2.1 format if it's newer.
+#
+# To use it, place it in .git/hooks in the git repository.
+#
+############################################################################
+
+
+convert_lyx21() {
+    fname="$1"
+
+    # make a backup 
+    fnbak="${fname}.$(date +%Y%m%d%H%M%S).bak"
+    mv "${fname}" "${fnbak}"
+
+    # do conversion
+    lyx -batch -E lyx21x "${fname}" "$fnbak"
+}
+
+
+################### main 
+
+echo "Pre-commit check for Lyx files..."
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# Stash all unstaged changes
+TMPPATCH=$(mktemp)
+git diff --ignore-submodules --binary --exit-code --no-color --no-ext-diff > $TMPPATCH
+
+# Clear the working directory of unstaged changes
+git checkout -- .
+
+# Check for files that need conversion
+for fname in $(git diff --cached --name-only $against)
+do
+    VERNUM=$(head "${fname}" | sed -n -e 's/^\\lyxformat \([0-9][0-9]*\)/\1/p')
+    if [[ $VERNUM -gt 474 ]]
+    then
+        echo "Version of Lyx used to produce ${fname} is newer than 2.1, doing conversion..."
+        convert_lyx21 "${fname}"
+        git add "${fname}"
+    fi
+done
+
+# Apply stashed changes
+git apply $TMPPATCH
+rm $TMPPATCH
+
+exit 0
+
