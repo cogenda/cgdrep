@@ -73,9 +73,34 @@
 \begin_body
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This template is intended for medium-length technical reports (10-100 pages)
+ with multiple chapters in the English language.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\erf}{\operatorname{erf}}
 {\mathrm{erf}}
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Math shortcut definitions.
+ Don't modify.
+\end_layout
+
 \end_inset
 
 
@@ -90,40 +115,233 @@
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Bar}[1]{\overline{\hbox{#1}}}
+{\mathrm{\overline{#1}}}
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 Sample Technical Report
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Title
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout SubTitle
 A demo of the Lyx Template
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sub-title
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Date
-2014.01.05
+2017.9.1
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Date of last non-trivial modification.
+ In the format of YYYY.MM.DD.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Author
 Shen Chen
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Name of the corresponding author (one only).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
-docid=CGD-QP-XXX
+docid=CGD-TT-YYNN
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Notes:
+\end_layout
+
+\begin_layout Plain Layout
+The format of docid is CGD-TT-YYNN, where CGD is the abbreviated form of
+ company name, TT the document type code, YY the last two digits of the
+ year, and NN a serial number.
+ When creating a new document, obtain a docid assignment from your manager.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Doc Attr
+type=Technical Report
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TP Technical Report
+\end_layout
+
+\begin_layout Plain Layout
+TR Technical Proposal
+\end_layout
+
+\begin_layout Plain Layout
+MN User Manual
+\end_layout
+
+\begin_layout Plain Layout
+QP Quality Process Document
+\end_layout
+
+\begin_layout Plain Layout
+MS Miscellaneous Document
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
 email=shenchen@cn.cogenda.com
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Email address of the corresponding author.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
 classification=Public
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Must be one of the followings:
+\end_layout
+
+\begin_layout Plain Layout
+Public: Does not contain sensitive information of this company or of any
+ customers, can be disseminated to anyone.
+\end_layout
+
+\begin_layout Plain Layout
+Restricted: Does not contain information that is explicitly marked as confidenti
+al, but may contain sensitive infomation of this company or of some customers.
+ Dissemination is limited to the employees of this company and the designated
+ contact person of any approved customer.
+\end_layout
+
+\begin_layout Plain Layout
+Confidential: Contains infomation explicitly marked as confidential.
+ Dissemination is limited to the approved personnel, whether within or outside
+ the company.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
-type=Quality Process
+client=Hogwarts
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional.
+ If the document is not intended for any specific client, delete this.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Doc Attr
+clientemail=xyz@example.com
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Email address of the client.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Doc Attr
 status=Draft
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Draft or Final
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Doc Attr
+relatedid=
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Optional.
+ Common examples:
+\end_layout
+
+\begin_layout Plain Layout
+Obsoletes CGD-TT-YYMM
+\end_layout
+
+\begin_layout Plain Layout
+See also CGD-TT-YYMM, CGD-TT-YYOO
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Abstract
@@ -133,7 +351,7 @@ This is a demonstration on the usage of the technical report Lyx template.
 
 \begin_layout Revisions
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="4">
+<lyxtabular version="3" rows="5" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -216,7 +434,7 @@ draft
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -225,7 +443,7 @@ draft
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -234,7 +452,7 @@ draft
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -243,11 +461,87 @@ Shenchen
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Revise Doc Attr syntax
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2017.9.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shenchen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Typesetting examples; add template usage guides as Lyx notes.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -258,6 +552,35 @@ Revise Doc Attr syntax
 \end_inset
 
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Required.
+ In comments, one should provide a concise and accurate description on what
+ is changed in the revision.
+ Vague comments such as 
+\begin_inset Quotes eld
+\end_inset
+
+improve the document
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+revise chapter 3
+\begin_inset Quotes erd
+\end_inset
+
+, etc., are not acceptable.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Front Matter
@@ -271,14 +594,35 @@ LatexCommand tableofcontents
 \end_inset
 
 
-\begin_inset ERT
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList listing
+
+\end_inset
+
+
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-lstlistoflistings
+Table of Contents is required, the other lists are optional.
 \end_layout
 
 \end_inset
@@ -291,7 +635,7 @@ lstlistoflistings
 \end_layout
 
 \begin_layout Chapter
-LaTeX
+Typesetting
 \end_layout
 
 \begin_layout Standard
@@ -304,6 +648,1925 @@ key "oetiker1995not"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Section
+Variables and Formula
+\end_layout
+
+\begin_layout Standard
+The general rules are:
+\end_layout
+
+\begin_layout Itemize
+variable names should be typeset in math (slanted) face, e.g.
+ 
+\begin_inset Formula $F=ma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Vectors and matrices should be typeset in bold math face, e.g.
+ 
+\begin_inset Formula $\nabla\cdot\mathbf{V}=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+Numbers and units should be typeset in roman (upright) face, e.g.
+ 
+\begin_inset Formula $\unit[10]{μm}$
+\end_inset
+
+ and 
+\begin_inset Formula $\unit[1]{M\text{Ω}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A few details:
+\end_layout
+
+\begin_layout Itemize
+Use a single letter for vaiable names, e.g.
+ use 
+\begin_inset Formula $L$
+\end_inset
+
+ to represent LET;
+\end_layout
+
+\begin_layout Itemize
+When a single letter is not possible, use mathit face, e.g.
+ use 
+\begin_inset Formula $\mathit{FB}\left(x,y\right)$
+\end_inset
+
+ to represent the Fourier-Bessel function;
+\end_layout
+
+\begin_layout Itemize
+If a superscript/subscript originates from a variable, use math face, e.g.
+ 
+\begin_inset Formula $v_{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+If a superscript/subscript does not originate from a variable, use roman
+ (
+\backslash
+mathrm) face, e.g.
+ 
+\begin_inset Formula $L_{\mathrm{th}}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+use math face for axes of a coordinate system, e.g.
+ 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $z$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+indices 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $j$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+ are considered variables, use math face;
+\end_layout
+
+\begin_layout Itemize
+use roman (
+\backslash
+mathrm) face for natural constants such as 
+\begin_inset Formula $\mathrm{e}$
+\end_inset
+
+, function name 
+\begin_inset Formula $\erf\left(x\right)$
+\end_inset
+
+, and differentiation operator 
+\begin_inset Formula $\Diff$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Figures
+\end_layout
+
+\begin_layout Subsection
+Floating Figures
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:div_theorem-1"
+
+\end_inset
+
+ shows the closed surface used to illustrate Gauss's law.
+\end_layout
+
+\begin_layout Standard
+Figure caption goes below the graphics.
+ Graphics should be centered.
+\end_layout
+
+\begin_layout Standard
+Always use relative file path for graphics files.
+ The cross-platform file formats such as PNG, JPG, PDF and EPS are recommended.
+ 
+\end_layout
+
+\begin_layout Standard
+In most cases, use the 
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+set width
+\end_layout
+
+\end_inset
+
+ property to a percentage of 
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+textwidth
+\end_layout
+
+\end_inset
+
+ to control the size of the graphics.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement tbph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Divergence_theorem.png
+	width 50text%
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The surface 
+\begin_inset Formula $S$
+\end_inset
+
+ that encloses the volum 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:div_theorem-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sub-Figure
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement tbph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Divergence_theorem.png
+	width 50text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sub-figure 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Divergence_theorem.png
+	width 50text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+sub-figure 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The surface 
+\begin_inset Formula $S$
+\end_inset
+
+ that encloses the volum 
+\begin_inset Formula $V$
+\end_inset
+
+, with two sub-figures.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Table
+\end_layout
+
+\begin_layout Subsection
+Floating Table
+\end_layout
+
+\begin_layout Standard
+Table caption goes above the table.
+ In most cases, use 3-line table format.
+ That is, one horizontal line at the top, one line below the heading, and
+ one line at the bottom.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Floating table example.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="4.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ver.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Authors
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Comments
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2014.1.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shenchen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+draft
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2015.12.21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shenchen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Revise Doc Attr syntax
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2017.9.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shenchen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Typesetting examples; add template usage guides as Lyx notes.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Long Table
+\end_layout
+
+\begin_layout Standard
+Long tables that span across a few pages.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="20" columns="5">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="middle" width="7cm">
+<row endfirsthead="true" caption="true">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pin Definition.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:pin_list"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Pin Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+I/O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Pad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Pin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Register Access
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+HSTCLK
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W39
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Host clock.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+HSTHRESET_N
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Host hard reset.
+ Active low.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SENABLE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X28
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Enable
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SRWN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+High: Write; Low: Read
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SADDR[5:0]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y26
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Register address.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y28
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y29
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y25
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y26
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Y27
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+SRWCOMPLETE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Read/Write complete signal.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+General Configuration Interface
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+RST_TX_N
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Increasing impression interested expression he my at.
+ Respect invited request charmed me warrant to.
+ Expect no pretty as do though so genius afraid cousin.
+ Girl when of ye snug poor draw.
+ Mistake totally of in chiefly.
+ Justice visitor him entered for.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+RST_RX_N
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+So at within mr to simple assure.
+ Mr disposing continued it offending arranging in we.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+LPSIN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W41
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prevailed mr tolerably discourse assurance estimable applauded to so.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+CYCLEIN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Him everything melancholy uncommonly but solicitude inhabiting projection
+ off.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Flex Command
+status collapsed
+
+\begin_layout Plain Layout
+CYCLEOUT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+W10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Z2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Connection stimulated estimating excellence an to impression.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Special Formats
+\end_layout
+
+\begin_layout Standard
+Click menu item 
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+File>Save As>Cray
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Flex Command
+status open
+
+\begin_layout Plain Layout
+Solve
+\end_layout
+
+\end_inset
+
+ command in Genius Simulator has a 
+\begin_inset Flex Parameter
+status open
+
+\begin_layout Plain Layout
+Type
+\end_layout
+
+\end_inset
+
+ parameter, the most common choice of wich is 
+\begin_inset Flex UserInput
+status open
+
+\begin_layout Plain Layout
+DDML1
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Program Listing
+\end_layout
+
+\begin_layout Standard
+In the context menu 
+\begin_inset Flex GuiMenu
+status open
+
+\begin_layout Plain Layout
+Settings>Language
+\end_layout
+
+\end_inset
+
+ of the program listing below, you can select the language for synax highlightin
+g.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A Python Class
+\end_layout
+
+\end_inset
+
+class BankAccount(object):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, initial_balance=0):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance = initial_balance
+\end_layout
+
+\begin_layout Plain Layout
+
+    def deposit(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance += amount
+\end_layout
+
+\begin_layout Plain Layout
+
+    def withdraw(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance -= amount
+\end_layout
+
+\begin_layout Plain Layout
+
+    def overdrawn(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return self.balance < 0
+\end_layout
+
+\begin_layout Plain Layout
+
+my_account = BankAccount(15)
+\end_layout
+
+\begin_layout Plain Layout
+
+my_account.withdraw(5)
+\end_layout
+
+\begin_layout Plain Layout
+
+print my_account.balance
+\end_layout
+
+\begin_layout Plain Layout
+
+import unittest
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def median(pool):
+\end_layout
+
+\begin_layout Plain Layout
+
+    copy = sorted(pool)
+\end_layout
+
+\begin_layout Plain Layout
+
+    size = len(copy)
+\end_layout
+
+\begin_layout Plain Layout
+
+    if size % 2 == 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+        return copy[(size - 1) / 2]
+\end_layout
+
+\begin_layout Plain Layout
+
+    else:
+\end_layout
+
+\begin_layout Plain Layout
+
+        return (copy[size/2 - 1] + copy[size/2]) / 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class TestMedian(unittest.TestCase):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def testMedian(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if __name__ == '__main__':
+\end_layout
+
+\begin_layout Plain Layout
+
+    unittest.main()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -401,7 +2664,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../EnglishExample/Divergence_theorem.png
+	filename Divergence_theorem.png
 	width 50text%
 
 \end_inset
@@ -596,159 +2859,144 @@ and
 \end_layout
 
 \begin_layout Chapter
-Python Programming
+File Management
+\end_layout
+
+\begin_layout Section
+Detract yet delight written 
 \end_layout
 
 \begin_layout Standard
-This is a python program.
+farther his general.
+ If in so bred at dare rose lose good.
+ Feel and make two real miss use easy.
+ Celebrated delightful an especially increasing instrument am.
+ Indulgence contrasted sufficient to unpleasant in in insensible favourable.
+ Latter remark hunted enough vulgar say man.
+ Sitting hearted on it without me.
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-lstparams "language=Python"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Python Class Definition.
+Left till here away at to whom past.
+ Feelings laughing at no wondered repeated provided finished.
+ It acceptance thoroughly my advantages everything as.
+ Are projecting inquietude affronting preference saw who.
+ Marry of am do avoid ample as.
+ Old disposal followed she ignorant desirous two has.
+ Called played entire roused though for one too.
+ He into walk roof made tall cold he.
+ Feelings way likewise addition wandered contempt bed indulged.
+ 
 \end_layout
 
-\end_inset
-
-class BankAccount(object):
+\begin_layout Standard
+On recommend tolerably my belonging or am.
+ Mutual has cannot beauty indeed now sussex merely you.
+ It possible no husbands jennings ye offended packages pleasant he.
+ Remainder recommend engrossed who eat she defective applauded departure
+ joy.
+ Get dissimilar not introduced day her apartments.
+ Fully as taste he mr do smile abode every.
+ Luckily offered article led lasting country minutes nor old.
+ Happen people things oh is oppose up parish effect.
+ Law handsome old outweigh humoured far appetite.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-    def __init__(self, initial_balance=0):
+\begin_layout Subsection
+In post mean shot ye
 \end_layout
 
-\begin_layout Plain Layout
-
-        self.balance = initial_balance
+\begin_layout Standard
+There out her child sir his lived.
+ Design at uneasy me season of branch on praise esteem.
+ Abilities discourse believing consisted remaining to no.
+ Mistaken no me denoting dashwood as screened.
+ Whence or esteem easily he on.
+ Dissuade husbands at of no if disposal.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-    def deposit(self, amount):
+\begin_layout Standard
+Increasing impression interested expression he my at.
+ Respect invited request charmed me warrant to.
+ Expect no pretty as do though so genius afraid cousin.
+ Girl when of ye snug poor draw.
+ Mistake totally of in chiefly.
+ Justice visitor him entered for.
+ Continue delicate as unlocked entirely mr relation diverted in.
+ Known not end fully being style house.
+ An whom down kept lain name so at easy.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-        self.balance += amount
+\begin_layout Standard
+And sir dare view but over man.
+ So at within mr to simple assure.
+ Mr disposing continued it offending arranging in we.
+ Extremity as if breakfast agreement.
+ Off now mistress provided out horrible opinions.
+ Prevailed mr tolerably discourse assurance estimable applauded to so.
+ Him everything melancholy uncommonly but solicitude inhabiting projection
+ off.
+ Connection stimulated estimating excellence an to impression.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-    def withdraw(self, amount):
+\begin_layout Standard
+Woody equal ask saw sir weeks aware decay.
+ Entrance prospect removing we packages strictly is no smallest he.
+ For hopes may chief get hours day rooms.
+ Oh no turned behind polite piqued enough at.
+ Forbade few through inquiry blushes you.
+ Cousin no itself eldest it in dinner latter missed no.
+ Boisterous estimating interested collecting get conviction friendship say
+ boy.
+ Him mrs shy article smiling respect opinion excited.
+ Welcomed humoured rejoiced peculiar to in an.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-        self.balance -= amount
+\begin_layout Section
+Forfeited you engrossed 
 \end_layout
 
-\begin_layout Plain Layout
-
-    def overdrawn(self):
+\begin_layout Standard
+but gay sometimes explained.
+ Another as studied it to evident.
+ Merry sense given he be arise.
+ Conduct at an replied removal an amongst.
+ Remaining determine few her two cordially admitting old.
+ Sometimes strangers his ourselves her depending you boy.
+ Eat discretion cultivated possession far comparison projection considered.
+ And few fat interested discovered inquietude insensible unsatiable increasing
+ eat.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-        return self.balance < 0
+\begin_layout Standard
+Or kind rest bred with am shed then.
+ In raptures building an bringing be.
+ Elderly is detract tedious assured private so to visited.
+ Do travelling companions contrasted it.
+ Mistress strongly remember up to.
+ Ham him compass you proceed calling detract.
+ Better of always missed we person mr.
+ September smallness northward situation few her certainty something.
+ 
 \end_layout
 
-\begin_layout Plain Layout
-
-my_account = BankAccount(15)
-\end_layout
-
-\begin_layout Plain Layout
-
-my_account.withdraw(5)
-\end_layout
-
-\begin_layout Plain Layout
-
-print my_account.balance
-\end_layout
-
-\begin_layout Plain Layout
-
-import unittest
-\end_layout
-
-\begin_layout Plain Layout
-
-def median(pool):
-\end_layout
-
-\begin_layout Plain Layout
-
-    copy = sorted(pool)
-\end_layout
-
-\begin_layout Plain Layout
-
-    size = len(copy)
-\end_layout
-
-\begin_layout Plain Layout
-
-    if size % 2 == 1:
-\end_layout
-
-\begin_layout Plain Layout
-
-        return copy[(size - 1) / 2]
-\end_layout
-
-\begin_layout Plain Layout
-
-    else:
-\end_layout
-
-\begin_layout Plain Layout
-
-        return (copy[size/2 - 1] + copy[size/2]) / 2
-\end_layout
-
-\begin_layout Plain Layout
-
-class TestMedian(unittest.TestCase):
-\end_layout
-
-\begin_layout Plain Layout
-
-    def testMedian(self):
-\end_layout
-
-\begin_layout Plain Layout
-
-        self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
-\end_layout
-
-\begin_layout Plain Layout
-
-if __name__ == '__main__':
-\end_layout
-
-\begin_layout Plain Layout
-
-    unittest.main()
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+In up so discovery my middleton eagerness dejection explained.
+ Estimating excellence ye contrasted insensible as.
+ Oh up unsatiable advantages decisively as at interested.
+ Present suppose in esteems in demesne colonel it to.
+ End horrible she landlord screened stanhill.
+ Repeated offended you opinions off dissuade ask packages screened.
+ She alteration everything sympathize impossible his get compliment.
+ Collected few extremity suffering met had sportsman.
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -765,6 +3013,52 @@ Math typeset examples goes here.
 \[
 -\frac{\rho}{\varepsilon}=\nabla\cdot\left(\nabla V\right)=\frac{\partial^{2}V}{\partial x^{2}}+\frac{\partial^{2}V}{\partial y^{2}}+\frac{\partial^{2}V}{\partial z^{2}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\varepsilon\nabla\psi=-q\left(p-n+N_{D}^{+}-N_{A}^{-}\right)\label{eq:chap:tcad:sec:physics:poisson}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\dfrac{\partial n}{\partial t} & = & \dfrac{1}{q}\nabla\cdot{\bf J}_{n}-(U-G)\label{eq:chap:tcad:sec:physics:eleccontin}\\
+\dfrac{\partial p}{\partial t} & = & -\dfrac{1}{q}\nabla\cdot{\bf J}_{p}-(U-G)\label{eq:chap:tcad:sec:physics:holecontin}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+{\bf J}_{n} & = & q\mu_{n}n{\bf E}_{n}+qD_{n}\nabla n\\
+{\bf J}_{p} & = & q\mu_{p}p{\bf E}_{p}-qD_{p}\nabla p
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+U_{{\rm SRH}}=\dfrac{pn-n_{\mathrm{ie}}^{2}}{\tau_{p}\text{\left[n+n_{\mathrm{ie}}\exp\left(\dfrac{\mathtt{ETRAP}}{kT_{L}}\right)\right]+\tau_{n}\left[p+n_{\mathrm{ie}}\exp\left(-\dfrac{\mathtt{ETRAP}}{kT_{L}}\right)\right]}}
+\end{equation}
 
 \end_inset
 

@@ -687,7 +687,11 @@ status open
 \end_layout
 
 \begin_layout Itemize
-正文中(包括图中、表中和公式中)变量符号用斜体;
+正文中(包括图中、表中和公式中)变量符号用斜体，例如
+\begin_inset Formula $F=ma$
+\end_inset
+
+;
 \end_layout
 
 \begin_layout Itemize
@@ -720,6 +724,16 @@ status open
 \end_inset
 
 表示LET；
+\end_layout
+
+\begin_layout Itemize
+如果必须用多个字母表示一个变量，使用
+\backslash
+mathit字形，例如用
+\begin_inset Formula $\mathit{FB}\left(x,y\right)$
+\end_inset
+
+表示Fourier-Bessel函数；
 \end_layout
 
 \begin_layout Itemize
