@@ -58,4 +58,13 @@ belowskip=-0.5em,
 \textbf{Parameter} & \textbf{Type} & \textbf{Description} & \textbf{Default} & \textbf{Unit} \\ \hline}
 {\bottomrule \end{longtable}\setlength\LTleft{\fill}}
 
+\newenvironment{gvtable}
+{\small\setlength\LTleft{-37.5mm}\setlength\LTright{0pt}
+%\begin{longtable}{p{15mm}p{6mm}p{108mm}p{14mm}p{9.5mm}}
+\begin{longtable}{@{\extracolsep{\fill}}llp{100mm}ll}
+\toprule
+\textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Location} & \textbf{Unit} \\ \hline}
+{\bottomrule \end{longtable}\setlength\LTleft{\fill}}
+
+
 \newcommand\gptgroup[1]{\multicolumn{5}{l}{\textbf{#1}} \\ }
