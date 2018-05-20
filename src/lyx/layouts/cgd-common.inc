@@ -197,3 +197,40 @@ InsetLayout Flex:GuiMenu
           Family        Roman
         EndFont
 End
+
+InsetLayout Flex:AddrMem
+        CopyStyle       Flex:Filename
+        LatexName       addrMem
+        LabelString     "AddrMem"
+End
+
+InsetLayout Flex:AddrBin
+        CopyStyle       Flex:Filename
+        LatexName       addrBin
+        LabelString     "AddrBin"
+End
+
+InsetLayout Flex:AddrHex
+        CopyStyle       Flex:Filename
+        LatexName       addrHex
+        LabelString     "AddrHex"
+End
+
+InsetLayout Flex:CircMod
+        CopyStyle       Flex:Filename
+        LatexName       circMod
+        LabelString     "CircModule"
+End
+
+InsetLayout Flex:CircPin
+        CopyStyle       Flex:Filename
+        LatexName       circPin
+        LabelString     "CircPin"
+End
+
+InsetLayout Flex:CircNet
+        CopyStyle       Flex:Filename
+        LatexName       circNet
+        LabelString     "CircNet"
+End
+

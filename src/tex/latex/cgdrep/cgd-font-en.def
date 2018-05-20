@@ -14,5 +14,4 @@
   BoldItalicFont={M+ 1m medium},
   BoldItalicFeatures = {FakeSlant=0.2}
 ]{M+ 1m regular}
-
-
+\newfontface\LightMono{M+ 1m light}

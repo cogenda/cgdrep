@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -153,7 +153,7 @@ Sub-title
 \end_layout
 
 \begin_layout Date
-2017.9.1
+2018.5.20
 \begin_inset Note Note
 status open
 
@@ -356,7 +356,7 @@ This is a demonstration on the usage of the technical report Lyx template.
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="4.5cm">
+<column alignment="left" valignment="top" width="8cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -461,7 +461,7 @@ Shenchen
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -499,7 +499,7 @@ Shenchen
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -514,7 +514,7 @@ Typesetting examples; add template usage guides as Lyx notes.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.4
 \end_layout
 
 \end_inset
@@ -523,7 +523,7 @@ Typesetting examples; add template usage guides as Lyx notes.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2018.5.20
 \end_layout
 
 \end_inset
@@ -532,7 +532,7 @@ Typesetting examples; add template usage guides as Lyx notes.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Shenchen
 \end_layout
 
 \end_inset
@@ -541,7 +541,8 @@ Typesetting examples; add template usage guides as Lyx notes.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Add examples for typesetting memory addresses and circuit module/pin/net
+ names.
 \end_layout
 
 \end_inset
@@ -782,6 +783,134 @@ mathrm) face for natural constants such as
 
 , and differentiation operator 
 \begin_inset Formula $\Diff$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Memory Address
+\end_layout
+
+\begin_layout Standard
+Hexdecimal memory address 
+\begin_inset Flex AddrHex
+status open
+
+\begin_layout Plain Layout
+7FFF
+\end_layout
+
+\end_inset
+
+; binary memory address 
+\begin_inset Flex AddrBin
+status open
+
+\begin_layout Plain Layout
+0101_1100
+\end_layout
+
+\end_inset
+
+; and general memory address 
+\begin_inset Flex AddrMem
+status open
+
+\begin_layout Plain Layout
+0x31AB
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Circuit Module and Signal
+\end_layout
+
+\begin_layout Standard
+The circuit has modules 
+\begin_inset Flex CircMod
+status open
+
+\begin_layout Plain Layout
+Decoder
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CircMod
+status open
+
+\begin_layout Plain Layout
+SensAmp
+\end_layout
+
+\end_inset
+
+, and top-level pins 
+\begin_inset Flex CircPin
+status open
+
+\begin_layout Plain Layout
+Addr<31:0>
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CircPin
+status open
+
+\begin_layout Plain Layout
+WEN
+\end_layout
+
+\end_inset
+
+.
+ The word-lines and bit-lines are 
+\begin_inset Flex CircNet
+status open
+
+\begin_layout Plain Layout
+WL<511:0>
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CircNet
+status open
+
+\begin_layout Plain Layout
+BL<8:0>
+\end_layout
+
+\end_inset
+
+.
+ The 
+\begin_inset Flex CircMod
+status open
+
+\begin_layout Plain Layout
+SA
+\end_layout
+
+\end_inset
+
+ is enabled by 
+\begin_inset Flex CircNet
+status open
+
+\begin_layout Plain Layout
+SAE
+\end_layout
+
 \end_inset
 
 .
@@ -1423,8 +1552,8 @@ Register Access
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 HSTCLK
@@ -1480,8 +1609,8 @@ Host clock.
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 HSTHRESET_N
@@ -1537,8 +1666,8 @@ Host hard reset.
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SENABLE
@@ -1593,8 +1722,8 @@ Enable
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SRWN
@@ -1649,8 +1778,8 @@ High: Write; Low: Read
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SADDR[5:0]
@@ -1940,8 +2069,8 @@ Y27
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SRWCOMPLETE
@@ -2045,8 +2174,8 @@ General Configuration Interface
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 RST_TX_N
@@ -2107,8 +2236,8 @@ Increasing impression interested expression he my at.
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 RST_RX_N
@@ -2164,8 +2293,8 @@ So at within mr to simple assure.
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 LPSIN
@@ -2221,8 +2350,8 @@ Prevailed mr tolerably discourse assurance estimable applauded to so.
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 CYCLEIN
@@ -2279,8 +2408,8 @@ Him everything melancholy uncommonly but solicitude inhabiting projection
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 CYCLEOUT

@@ -88,6 +88,15 @@ and $\mathbf{F}$ is the vector field
   \mathbf{F} = 2 x\mathbf{i} + y^2\mathbf{j} + z ^2\mathbf{k}.
 \end{equation}
 
+Hexdecimal memory address \addrHex{7FFF};
+binary memory address \addrBin{0101\_1100}; and
+general memory address \addrMem{0x31AB}.
+
+The circuit has modules \circMod{Decoder} and \circMod{SensAmp}, and
+top-level pins \circPin{Addr<31:0>} and \circPin{WEN}. The word-lines
+and bit-lines are \circNet{WL<511:0>} and \circNet{BL<8:0>}.
+The \circMod{SA} is enabled by \circNet{SAE}.
+
 \appendix
 \chapter{Math Typesetting Examples}
 

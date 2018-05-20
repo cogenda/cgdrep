@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -148,7 +148,7 @@ status open
 \end_layout
 
 \begin_layout Date
-2017.7.4
+2018.5.20
 \begin_inset Note Note
 status open
 
@@ -505,7 +505,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.4
 \end_layout
 
 \end_inset
@@ -514,7 +514,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2018.5.20
 \end_layout
 
 \end_inset
@@ -523,7 +523,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+沈忱
 \end_layout
 
 \end_inset
@@ -532,7 +532,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+补充地址、电路模块、管脚格式的示例。
 \end_layout
 
 \end_inset
@@ -798,6 +798,132 @@ mathit字形，例如用
 \end_inset
 
 用正体。
+\end_layout
+
+\begin_layout Section
+内存地址
+\end_layout
+
+\begin_layout Standard
+地址（16进制）
+\begin_inset Flex AddrHex
+status open
+
+\begin_layout Plain Layout
+7FFF
+\end_layout
+
+\end_inset
+
+；地址（2进制）
+\begin_inset Flex AddrBin
+status open
+
+\begin_layout Plain Layout
+0101_1100
+\end_layout
+
+\end_inset
+
+和一般格式的地址
+\begin_inset Flex AddrMem
+status open
+
+\begin_layout Plain Layout
+0x31AB
+\end_layout
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Section
+电路模块和信号
+\end_layout
+
+\begin_layout Standard
+电路模块
+\begin_inset Flex CircMod
+status open
+
+\begin_layout Plain Layout
+Decoder
+\end_layout
+
+\end_inset
+
+和
+\begin_inset Flex CircMod
+status open
+
+\begin_layout Plain Layout
+SensAmp
+\end_layout
+
+\end_inset
+
+，顶层引脚
+\begin_inset Flex CircPin
+status open
+
+\begin_layout Plain Layout
+Addr<31:0>
+\end_layout
+
+\end_inset
+
+和
+\begin_inset Flex CircPin
+status open
+
+\begin_layout Plain Layout
+WEN
+\end_layout
+
+\end_inset
+
+。字线
+\begin_inset Flex CircNet
+status open
+
+\begin_layout Plain Layout
+WL<511:0>
+\end_layout
+
+\end_inset
+
+和位线
+\begin_inset Flex CircNet
+status open
+
+\begin_layout Plain Layout
+BL<8:0>
+\end_layout
+
+\end_inset
+
+。灵敏放大器
+\begin_inset Flex CircMod
+status open
+
+\begin_layout Plain Layout
+SA
+\end_layout
+
+\end_inset
+
+的启动信号为
+\begin_inset Flex CircNet
+status open
+
+\begin_layout Plain Layout
+SAE
+\end_layout
+
+\end_inset
+
+。
 \end_layout
 
 \begin_layout Section
@@ -1362,8 +1488,8 @@ I/O
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 HSTCLK
@@ -1418,8 +1544,8 @@ X4
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 HSTHRESET_N
@@ -1474,8 +1600,8 @@ X5
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SENABLE
@@ -1530,8 +1656,8 @@ X28
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SRWN
@@ -1586,8 +1712,8 @@ X4
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SADDR[5:0]
@@ -1878,8 +2004,8 @@ Y27
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 SRWCOMPLETE
@@ -1983,8 +2109,8 @@ X2
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 RST_TX_N
@@ -2039,8 +2165,8 @@ Z6
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 RST_RX_N
@@ -2095,8 +2221,8 @@ Z21
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 LPSIN
@@ -2164,8 +2290,8 @@ E1394-2008协议对
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 CYCLEIN
@@ -2225,8 +2351,8 @@ Z4
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Flex Command
-status collapsed
+\begin_inset Flex CircPin
+status open
 
 \begin_layout Plain Layout
 CYCLEOUT
@@ -2367,10 +2493,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Python 类的定义。
+Python class definition.
 \end_layout
 
 \end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 class BankAccount(object):
 \end_layout
