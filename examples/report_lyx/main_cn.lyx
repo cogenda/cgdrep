@@ -119,6 +119,24 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\micro}{\upmu}
+{\mathtt{\mu}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ohm}{\upOmega}
+{\mathtt{\Omega}}
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 技术报告样本
 \begin_inset Note Note
@@ -704,11 +722,11 @@ status open
 
 \begin_layout Itemize
 数字和单位符号用正体，例如
-\begin_inset Formula $\unit[10]{μm}$
+\begin_inset Formula $\unit[10]{\micro m}$
 \end_inset
 
 ，
-\begin_inset Formula $\unit[1]{M\text{Ω}}$
+\begin_inset Formula $\unit[1]{M\ohm}$
 \end_inset
 
 等。

@@ -124,6 +124,24 @@ Math shortcut definitions.
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\micro}{\upmu}
+{\mathtt{\mu}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ohm}{\upOmega}
+{\mathtt{\Omega}}
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 Sample Technical Report
 \begin_inset Note Note
@@ -680,11 +698,11 @@ Vectors and matrices should be typeset in bold math face, e.g.
 \begin_layout Itemize
 Numbers and units should be typeset in roman (upright) face, e.g.
  
-\begin_inset Formula $\unit[10]{μm}$
+\begin_inset Formula $\unit[10]{\micro m}$
 \end_inset
 
  and 
-\begin_inset Formula $\unit[1]{M\text{Ω}}$
+\begin_inset Formula $\unit[1]{M\ohm}$
 \end_inset
 
 .
