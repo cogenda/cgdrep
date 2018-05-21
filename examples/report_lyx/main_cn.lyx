@@ -805,6 +805,29 @@ mathit字形，例如用
 \end_layout
 
 \begin_layout Standard
+\begin_inset Flex Command
+status open
+
+\begin_layout Plain Layout
+GLOBAL
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Parameter
+status open
+
+\begin_layout Plain Layout
+temperature
+\end_layout
+
+\end_inset
+
+=100
+\end_layout
+
+\begin_layout Standard
 地址（16进制）
 \begin_inset Flex AddrHex
 status open
@@ -919,6 +942,40 @@ status open
 
 \begin_layout Plain Layout
 SAE
+\end_layout
+
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Standard
+当前指令地址寄存器
+\begin_inset Flex CircReg
+status open
+
+\begin_layout Plain Layout
+PC
+\end_layout
+
+\end_inset
+
+和通用寄存器
+\begin_inset Flex CircReg
+status open
+
+\begin_layout Plain Layout
+AX
+\end_layout
+
+\end_inset
+
+、
+\begin_inset Flex CircReg
+status open
+
+\begin_layout Plain Layout
+BX
 \end_layout
 
 \end_inset

@@ -60,7 +60,7 @@
 
 %%%% Character styles
 \newcommand\filename[1]{{\small\ttfamily #1}}       % File name
-\newcommand\command[1]{{\bf\small\ttfamily #1}}     % command name
+\newcommand\command[1]{{\bfseries\small\ttfamily #1}}     % command name
 \newcommand\parameter[1]{{\small\ttfamily #1}}      % parameter name
 \newcommand\userinput[1]{{\sl\small\ttfamily #1}}   % user's input
 
@@ -99,9 +99,10 @@
 \newtcbox{\CGD@circ@box}{nobeforeafter,
   colframe=LightGray,colback=LightGray!10!white,boxrule=0.5pt,arc=3pt,
   boxsep=0pt,left=2pt,right=2pt,top=2pt,bottom=2pt,tcbox raise base}
-\newcommand\circMod[1]{{\CGD@circ@box{\small\ttfamily #1}}}	    % circuit module name
-\newcommand\circPin[1]{{\small\ttfamily #1}}     	            % circuit pin name
-\newcommand\circNet[1]{{\small\ttfamily\LightMono #1}}          % circuit net/signal name
+\newcommand\circMod[1]{{\CGD@circ@box{\small\ttfamily #1}}}             % circuit module name
+\newcommand\circPin[1]{{\small\ttfamily #1}}                            % circuit pin name
+\newcommand\circNet[1]{{\small\ttfamily\LightMono #1}}                  % circuit net/signal name
+\newcommand\circReg[1]{{\CGD@circ@box{\small\ttfamily\LightMono #1}}}   % circuit register name
 
 \endinput
 

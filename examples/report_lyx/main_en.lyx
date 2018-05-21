@@ -916,6 +916,40 @@ SAE
 .
 \end_layout
 
+\begin_layout Standard
+Program counter 
+\begin_inset Flex CircReg
+status open
+
+\begin_layout Plain Layout
+PC
+\end_layout
+
+\end_inset
+
+ and general-purpose register 
+\begin_inset Flex CircReg
+status open
+
+\begin_layout Plain Layout
+AX
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Flex CircReg
+status open
+
+\begin_layout Plain Layout
+BX
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Figures
 \end_layout
@@ -1367,6 +1401,7 @@ Long Table
 \begin_layout Standard
 Long tables that span across a few pages.
 \end_layout
+
 
 \begin_layout Standard
 \align center

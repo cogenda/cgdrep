@@ -234,3 +234,9 @@ InsetLayout Flex:CircNet
         LabelString     "CircNet"
 End
 
+InsetLayout Flex:CircReg
+        CopyStyle       Flex:Filename
+        LatexName       circReg
+        LabelString     "CircReg"
+End
+
